@@ -46,6 +46,11 @@ subprojects {
             name = 'BlameJared Maven (JEI / CraftTweaker / Bookshelf)'
             url = 'https://maven.blamejared.com'
         }
+
+        maven {
+            name = 'GeckoLib'
+            url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+        }
     }
 
     tasks.withType(JavaCompile).configureEach {
@@ -62,9 +67,12 @@ subprojects {
                 "forge_version": forge_version,
                 "forge_loader_version_range": forge_loader_version_range,
                 "forge_version_range": forge_version_range,
+                "forge_geckolib_version": forge_geckolib_version,
+                "forge_geckolib_version_range": forge_geckolib_version_range,
                 "minecraft_version_range": minecraft_version_range,
                 "fabric_version": fabric_version,
                 "fabric_loader_version": fabric_loader_version,
+                "fabric_geckolib_version": fabric_geckolib_version,
                 "mod_name": mod_name,
                 "mod_author": mod_author,
                 "mod_id": mod_id,
@@ -72,6 +80,8 @@ subprojects {
                 "description": project.description,
                 "neoforge_version": neoforge_version,
                 "neoforge_loader_version_range": neoforge_loader_version_range,
+                "neoforge_geckolib_version": neoforge_geckolib_version,
+                "neoforge_geckolib_version_range": neoforge_geckolib_version_range,
                 "credits": credits
         ]
 

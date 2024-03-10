@@ -40,6 +40,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
     compileOnly project(":common")
+
+    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${neoforge_geckolib_version}"
 }
 
 // NeoGradle compiles the game, but we don't want to add our common code to the game's code
