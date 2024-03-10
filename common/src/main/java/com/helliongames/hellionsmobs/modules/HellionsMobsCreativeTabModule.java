@@ -1,4 +1,4 @@
-package com.helliongames.hellionsmobs.registration;
+package com.helliongames.hellionsmobs.modules;
 
 import com.helliongames.hellionsmobs.HellionsMobsConstants;
 import com.helliongames.hellionsmobs.registration.util.RegistrationProvider;
@@ -9,7 +9,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-public class HellionsMobsCreativeTabs {
+public class HellionsMobsCreativeTabModule {
     /**
      * The provider for creative tabs
      */

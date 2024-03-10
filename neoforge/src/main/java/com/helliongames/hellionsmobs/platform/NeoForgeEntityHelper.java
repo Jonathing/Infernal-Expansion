@@ -1,8 +1,8 @@
 package com.helliongames.hellionsmobs.platform;
 
 import com.helliongames.hellionsmobs.entity.KitsuneEntity;
+import com.helliongames.hellionsmobs.modules.HellionsMobsEntityTypeModule;
 import com.helliongames.hellionsmobs.platform.services.IEntityHelper;
-import com.helliongames.hellionsmobs.registration.HellionsMobsEntities;
 import com.helliongames.hellionsmobs.registration.util.RegistryObject;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,7 +23,7 @@ public class NeoForgeEntityHelper implements IEntityHelper {
 
     @Override
     public void registerEntityAttributes() {
-        entityAttributes.put(HellionsMobsEntities.KITSUNE, KitsuneEntity::createKitsuneAttributes);
+        entityAttributes.put(HellionsMobsEntityTypeModule.KITSUNE, KitsuneEntity::createKitsuneAttributes);
     }
 
     @SubscribeEvent

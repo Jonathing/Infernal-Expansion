@@ -1,7 +1,7 @@
 package com.helliongames.hellionsmobs.client;
 
 import com.helliongames.hellionsmobs.client.renderer.KitsuneRenderer;
-import com.helliongames.hellionsmobs.registration.HellionsMobsEntities;
+import com.helliongames.hellionsmobs.modules.HellionsMobsEntityTypeModule;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -16,6 +16,6 @@ public class HellionsMobsForgeClient {
     }
 
     private static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(HellionsMobsEntities.KITSUNE.get(), KitsuneRenderer::new);
+        event.registerEntityRenderer(HellionsMobsEntityTypeModule.KITSUNE.get(), KitsuneRenderer::new);
     }
 }

@@ -1,4 +1,4 @@
-package com.helliongames.hellionsmobs.registration;
+package com.helliongames.hellionsmobs.modules;
 
 import com.helliongames.hellionsmobs.HellionsMobsConstants;
 import com.helliongames.hellionsmobs.entity.KitsuneEntity;
@@ -8,7 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 
-public class HellionsMobsEntities {
+public class HellionsMobsEntityTypeModule {
     /**
      * The provider for creative tabs
      */
