@@ -1,7 +1,7 @@
 package com.helliongames.hellionsmobs.client;
 
 import com.helliongames.hellionsmobs.client.renderer.KitsuneRenderer;
-import com.helliongames.hellionsmobs.modules.HellionsMobsEntityTypeModule;
+import com.helliongames.hellionsmobs.module.HellionsMobsEntityTypeModule;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;

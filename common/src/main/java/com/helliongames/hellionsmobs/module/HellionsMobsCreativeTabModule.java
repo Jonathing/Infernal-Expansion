@@ -1,4 +1,4 @@
-package com.helliongames.hellionsmobs.modules;
+package com.helliongames.hellionsmobs.module;
 
 import com.helliongames.hellionsmobs.HellionsMobsConstants;
 import com.helliongames.hellionsmobs.registration.util.RegistrationProvider;

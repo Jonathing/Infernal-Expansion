@@ -1,7 +1,6 @@
 package com.helliongames.hellionsmobs.platform;
 
 import com.helliongames.hellionsmobs.HellionsMobsConstants;
-import com.helliongames.hellionsmobs.platform.services.IEntityHelper;
 import com.helliongames.hellionsmobs.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
@@ -9,7 +8,6 @@ import java.util.ServiceLoader;
 public class Services {
 
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
-    public static final IEntityHelper ENTITY_HELPER = load(IEntityHelper.class);
 
     public static <T> T load(Class<T> clazz) {
 
