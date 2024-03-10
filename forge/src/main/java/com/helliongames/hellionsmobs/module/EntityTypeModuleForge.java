@@ -4,7 +4,6 @@ import com.helliongames.hellionsmobs.registration.EntityTypeDataHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -40,14 +39,5 @@ public class EntityTypeModuleForge {
 
             event.put(entry.getValue().get(), builder.build());
         }
-    }
-
-    @SubscribeEvent
-    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : HellionsMobsEntityTypeModule.getEntityTypeRegistry().entrySet()) {
-            // Register entity renderers
-            event.registerEntityRenderer(entry.getValue().get(), entry.getValue().getRendererProvider());
-        }
-
     }
 }
