@@ -1,7 +1,6 @@
 package com.helliongames.hellionsmobs.module;
 
 import com.helliongames.hellionsmobs.HellionsMobsCommon;
-import com.helliongames.hellionsmobs.client.renderer.KitsuneRenderer;
 import com.helliongames.hellionsmobs.entity.KitsuneEntity;
 import com.helliongames.hellionsmobs.registration.EntityTypeDataHolder;
 import net.minecraft.resources.ResourceLocation;
@@ -19,8 +18,7 @@ public class HellionsMobsEntityTypeModule {
                     .sized(1.0f, 1.75f)
                     .build()
             )
-            .attributes(KitsuneEntity::createKitsuneAttributes)
-            .renderer(KitsuneRenderer::new));
+            .attributes(KitsuneEntity::createKitsuneAttributes));
 
     public static EntityTypeDataHolder register(String name, EntityTypeDataHolder entityTypeDataHolder) {
         ResourceLocation id = HellionsMobsCommon.id(name);

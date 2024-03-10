@@ -1,7 +1,6 @@
 package com.helliongames.hellionsmobs.registration;
 
 import com.google.common.collect.ImmutableSet;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
@@ -19,7 +18,6 @@ public class EntityTypeDataHolder<T extends Entity> {
     private final Supplier<EntityType<T>> entrySupplier;
 
     private Supplier<AttributeSupplier.Builder> attributesBuilderSupplier;
-    private EntityRendererProvider<T> rendererProvider;
 
     public EntityTypeDataHolder(Supplier<EntityType<T>> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -53,19 +51,6 @@ public class EntityTypeDataHolder<T extends Entity> {
 
     public Supplier<AttributeSupplier.Builder> getAttributesSupplier() {
         return this.attributesBuilderSupplier;
-    }
-
-    public EntityTypeDataHolder<T> renderer(EntityRendererProvider<T> rendererProvider) {
-        this.rendererProvider = rendererProvider;
-        return this;
-    }
-
-    public boolean hasRendererProvider() {
-        return this.rendererProvider != null;
-    }
-
-    public EntityRendererProvider<T> getRendererProvider() {
-        return this.rendererProvider;
     }
 
     /**
