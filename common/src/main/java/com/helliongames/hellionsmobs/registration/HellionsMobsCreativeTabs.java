@@ -1,6 +1,6 @@
 package com.helliongames.hellionsmobs.registration;
 
-import com.helliongames.hellionsmobs.Constants;
+import com.helliongames.hellionsmobs.HellionsMobsConstants;
 import com.helliongames.hellionsmobs.registration.util.RegistrationProvider;
 import com.helliongames.hellionsmobs.registration.util.RegistryObject;
 import net.minecraft.core.registries.Registries;
@@ -13,7 +13,7 @@ public class HellionsMobsCreativeTabs {
     /**
      * The provider for creative tabs
      */
-    public static final RegistrationProvider<CreativeModeTab> TABS = RegistrationProvider.get(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
+    public static final RegistrationProvider<CreativeModeTab> TABS = RegistrationProvider.get(Registries.CREATIVE_MODE_TAB, HellionsMobsConstants.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> HELLIONS_MOBS_TAB = TABS.register("hellionsmobs", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0).title(Component.translatable("itemGroup.hellionsmobs_tab")).icon(() -> new ItemStack(Items.NETHER_BRICK)).displayItems((itemDisplayParameters, output) -> {
         output.accept(Items.NETHER_BRICK);

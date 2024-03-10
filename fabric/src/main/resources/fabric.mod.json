@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "com.helliongames.hellionsmobs.HellionsMobs"
+        ],
+        "client": [
+            "com.helliongames.hellionsmobs.client.HellionsMobsClient"
         ]
     },
     "mixins": [
