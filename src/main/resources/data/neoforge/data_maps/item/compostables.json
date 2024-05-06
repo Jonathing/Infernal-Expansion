@@ -1,0 +1,19 @@
+{
+  "values": {
+    "infernalexp:crimson_fungus_cap": {
+      "chance": 1.0
+    },
+    "infernalexp:luminous_fungus": {
+      "chance": 0.45
+    },
+    "infernalexp:luminous_fungus_cap": {
+      "chance": 1.0
+    },
+    "infernalexp:shroomlight_fungus": {
+      "chance": 0.65
+    },
+    "infernalexp:warped_fungus_cap": {
+      "chance": 1.0
+    }
+  }
+}

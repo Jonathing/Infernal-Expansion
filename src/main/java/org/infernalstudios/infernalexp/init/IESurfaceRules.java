@@ -16,18 +16,28 @@
 
 package org.infernalstudios.infernalexp.init;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.SurfaceRules;
+import net.minecraft.world.level.levelgen.SurfaceRules.ConditionSource;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.world.gen.surfacerules.ChanceConditionSource;
 import org.infernalstudios.infernalexp.world.gen.surfacerules.TerrablenderSurfaceRuleCompat;
 
 public class IESurfaceRules {
+    private static final DeferredRegister<MapCodec<? extends ConditionSource>> SURFACE_RULES = DeferredRegister.create(BuiltInRegistries.MATERIAL_CONDITION, InfernalExpansion.MOD_ID);
 
-    public static void register() {
-        Registry.register(Registry.CONDITION, new ResourceLocation(InfernalExpansion.MOD_ID, "chance"), ChanceConditionSource.CODEC.codec());
+    public static final MapCodec<? extends ConditionSource> CHANCE = SURFACE_RULES.register("chance", () -> ChanceConditionSource.CODEC);
 
+    public static void register(IEventBus modEventBus) {
+        InfernalExpansion.LOGGER.info("Infernal Expansion: Registering Surface Rules");
+        SURFACE_RULES.register(modEventBus);
+        // TODO: maybe will need to redo terrablender compat?
         TerrablenderSurfaceRuleCompat.addSurfaceRules();
     }
 

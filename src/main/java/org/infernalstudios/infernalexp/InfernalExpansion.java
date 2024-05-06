@@ -36,7 +36,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.javafmlmod.FMLModContainer;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.common.crafting.CraftingHelper;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,15 +45,14 @@ import org.infernalstudios.infernalexp.config.ConfigHolder;
 import org.infernalstudios.infernalexp.data.SpawnrateManager;
 import org.infernalstudios.infernalexp.events.MiscEvents;
 import org.infernalstudios.infernalexp.events.MobEvents;
+import org.infernalstudios.infernalexp.events.RegistryEvents;
 import org.infernalstudios.infernalexp.events.WorldEvents;
 import org.infernalstudios.infernalexp.init.IEBiomeModifiers;
 import org.infernalstudios.infernalexp.init.IEBiomes;
 import org.infernalstudios.infernalexp.init.IEBlockEntityTypes;
 import org.infernalstudios.infernalexp.init.IEBlocks;
-import org.infernalstudios.infernalexp.init.IEBrewingRecipes;
 import org.infernalstudios.infernalexp.init.IECapabilities;
 import org.infernalstudios.infernalexp.init.IECommands;
-import org.infernalstudios.infernalexp.init.IECompostables;
 import org.infernalstudios.infernalexp.init.IECreativeTabs;
 import org.infernalstudios.infernalexp.init.IEEffects;
 import org.infernalstudios.infernalexp.init.IEEntityClassifications;
@@ -73,7 +71,6 @@ import org.infernalstudios.infernalexp.init.IEStructureTypes;
 import org.infernalstudios.infernalexp.init.IEStructures;
 import org.infernalstudios.infernalexp.init.IESurfaceRules;
 import org.infernalstudios.infernalexp.network.IENetworkHandler;
-import org.infernalstudios.infernalexp.util.CompatibilityQuark;
 import org.infernalstudios.infernalexp.world.gen.ModEntityPlacement;
 
 @Mod(InfernalExpansion.MOD_ID)
@@ -102,6 +99,7 @@ public class InfernalExpansion {
         IELootModifiers.register(modEventBus);
         IEBiomeModifiers.register(modEventBus);
         IECreativeTabs.register(modEventBus);
+        IESurfaceRules.register(modEventBus);
 
         IEShroomloinTypes.registerAll();
         IEEntityClassifications.register();
@@ -111,6 +109,7 @@ public class InfernalExpansion {
         NeoForge.EVENT_BUS.register(new MobEvents());
         NeoForge.EVENT_BUS.register(new WorldEvents());
         NeoForge.EVENT_BUS.register(new IECapabilities());
+        NeoForge.EVENT_BUS.register(new RegistryEvents());
 
         // Registering Configs
         modContainer.registerConfig(ModConfig.Type.CLIENT, ConfigHolder.CLIENT_SPEC);
@@ -123,11 +122,8 @@ public class InfernalExpansion {
         event.enqueueWork(IEStructureTypes::register);
         event.enqueueWork(IEStructures::register);
         event.enqueueWork(IEStructureSets::register);
-        event.enqueueWork(IESurfaceRules::register);
         event.enqueueWork(IENetworkHandler::register);
-        event.enqueueWork(IEBrewingRecipes::register);
         event.enqueueWork(IEFireTypes::register);
-        event.enqueueWork(IECompostables::register);
 
         // Create mob spawnrate config files, they get created on game load instead of world load
         // just in case someone only launches the games once then goes and looks at the config files.
