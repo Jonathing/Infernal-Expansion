@@ -22,9 +22,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.util.LogicalSidedProvider;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.common.util.LogicalSidedProvider;
+import net.neoforged.network.NetworkEvent;
+import net.neoforged.registries.ForgeRegistries;
 import org.infernalstudios.infernalexp.entities.InfernalPaintingEntity;
 
 import java.util.Optional;

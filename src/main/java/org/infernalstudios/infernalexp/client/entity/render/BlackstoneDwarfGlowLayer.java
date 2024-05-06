@@ -25,8 +25,8 @@ import net.minecraft.client.renderer.entity.layers.EyesLayer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.resources.ResourceLocation;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 class BlackstoneDwarfGlowLayer<T extends BlackstoneDwarfEntity, M extends EntityModel<T>> extends EyesLayer<T, M> {

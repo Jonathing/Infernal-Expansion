@@ -17,7 +17,7 @@
 package org.infernalstudios.infernalexp.world.gen.surfacerules;
 
 import net.minecraft.world.level.levelgen.SurfaceRules;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.fml.ModList;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 
 import java.lang.reflect.InvocationTargetException;

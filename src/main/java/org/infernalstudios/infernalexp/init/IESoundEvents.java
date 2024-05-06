@@ -1,127 +1,128 @@
 package org.infernalstudios.infernalexp.init;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraftforge.common.util.ForgeSoundType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.util.DeferredSoundType;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.infernalstudios.infernalexp.InfernalExpansion;
+
+import java.util.function.Supplier;
 
 public class IESoundEvents {
 
 	// SOUNDS
-	public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, InfernalExpansion.MOD_ID);
+	public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, InfernalExpansion.MOD_ID);
 
 	// VOLINE
-	public static final RegistryObject<SoundEvent> VOLINE_AMBIENT = add("entity.voline.ambient");
-	public static final RegistryObject<SoundEvent> VOLINE_HURT = add("entity.voline.hurt");
+	public static final Supplier<SoundEvent> VOLINE_AMBIENT = add("entity.voline.ambient");
+	public static final Supplier<SoundEvent> VOLINE_HURT = add("entity.voline.hurt");
 
 	// SHROOMLOIN
-	public static final RegistryObject<SoundEvent> SHROOMLOIN_AMBIENT = add("entity.shroomloin.ambient");
-	public static final RegistryObject<SoundEvent> SHROOMLOIN_HURT = add("entity.shroomloin.hurt");
-	public static final RegistryObject<SoundEvent> SHROOMLOIN_DEATH = add("entity.shroomloin.death");
+	public static final Supplier<SoundEvent> SHROOMLOIN_AMBIENT = add("entity.shroomloin.ambient");
+	public static final Supplier<SoundEvent> SHROOMLOIN_HURT = add("entity.shroomloin.hurt");
+	public static final Supplier<SoundEvent> SHROOMLOIN_DEATH = add("entity.shroomloin.death");
 
 	// WARPBEETLE
-	public static final RegistryObject<SoundEvent> WARPBEETLE_AMBIENT = add("entity.warpbeetle.ambient");
-	public static final RegistryObject<SoundEvent> WARPBEETLE_HURT = add("entity.warpbeetle.hurt");
-	public static final RegistryObject<SoundEvent> WARPBEETLE_DEATH = add("entity.warpbeetle.death");
+	public static final Supplier<SoundEvent> WARPBEETLE_AMBIENT = add("entity.warpbeetle.ambient");
+	public static final Supplier<SoundEvent> WARPBEETLE_HURT = add("entity.warpbeetle.hurt");
+	public static final Supplier<SoundEvent> WARPBEETLE_DEATH = add("entity.warpbeetle.death");
 
 	// CEROBEETLE
-	public static final RegistryObject<SoundEvent> CEROBEETLE_AMBIENT = add("entity.cerobeetle.ambient");
-	public static final RegistryObject<SoundEvent> CEROBEETLE_HURT = add("entity.cerobeetle.hurt");
-	public static final RegistryObject<SoundEvent> CEROBEETLE_DEATH = add("entity.cerobeetle.death");
-	public static final RegistryObject<SoundEvent> CEROBEETLE_ROAR = add("entity.cerobeetle.roar");
+	public static final Supplier<SoundEvent> CEROBEETLE_AMBIENT = add("entity.cerobeetle.ambient");
+	public static final Supplier<SoundEvent> CEROBEETLE_HURT = add("entity.cerobeetle.hurt");
+	public static final Supplier<SoundEvent> CEROBEETLE_DEATH = add("entity.cerobeetle.death");
+	public static final Supplier<SoundEvent> CEROBEETLE_ROAR = add("entity.cerobeetle.roar");
 
 	// EMBODY
-	public static final RegistryObject<SoundEvent> EMBODY_AMBIENT = add("entity.embody.ambient");
-	public static final RegistryObject<SoundEvent> EMBODY_HURT = add("entity.embody.hurt");
-	public static final RegistryObject<SoundEvent> EMBODY_DEATH = add("entity.embody.death");
+	public static final Supplier<SoundEvent> EMBODY_AMBIENT = add("entity.embody.ambient");
+	public static final Supplier<SoundEvent> EMBODY_HURT = add("entity.embody.hurt");
+	public static final Supplier<SoundEvent> EMBODY_DEATH = add("entity.embody.death");
 
 	// GIANT
-	public static final RegistryObject<SoundEvent> BASALT_GIANT_AMBIENT = add("entity.basalt_giant.ambient");
-	public static final RegistryObject<SoundEvent> BASALT_GIANT_HURT = add("entity.basalt_giant.hurt");
-	public static final RegistryObject<SoundEvent> BASALT_GIANT_DEATH = add("entity.basalt_giant.death");
+	public static final Supplier<SoundEvent> BASALT_GIANT_AMBIENT = add("entity.basalt_giant.ambient");
+	public static final Supplier<SoundEvent> BASALT_GIANT_HURT = add("entity.basalt_giant.hurt");
+	public static final Supplier<SoundEvent> BASALT_GIANT_DEATH = add("entity.basalt_giant.death");
 
 	// SKELETAL PIGLIN
-	public static final RegistryObject<SoundEvent> SKELETAL_PIGLIN_AMBIENT = add("entity.skeletal_piglin.ambient");
-	public static final RegistryObject<SoundEvent> SKELETAL_PIGLIN_HURT = add("entity.skeletal_piglin.hurt");
-	public static final RegistryObject<SoundEvent> SKELETAL_PIGLIN_DEATH = add("entity.skeletal_piglin.death");
+	public static final Supplier<SoundEvent> SKELETAL_PIGLIN_AMBIENT = add("entity.skeletal_piglin.ambient");
+	public static final Supplier<SoundEvent> SKELETAL_PIGLIN_HURT = add("entity.skeletal_piglin.hurt");
+	public static final Supplier<SoundEvent> SKELETAL_PIGLIN_DEATH = add("entity.skeletal_piglin.death");
 
 	// GLOWSQUITO
-	public static final RegistryObject<SoundEvent> GLOWSQUITO_LOOP = add("entity.glowsquito.loop");
-	public static final RegistryObject<SoundEvent> GLOWSQUITO_HURT = add("entity.glowsquito.hurt");
-	public static final RegistryObject<SoundEvent> GLOWSQUITO_DEATH = add("entity.glowsquito.death");
+	public static final Supplier<SoundEvent> GLOWSQUITO_LOOP = add("entity.glowsquito.loop");
+	public static final Supplier<SoundEvent> GLOWSQUITO_HURT = add("entity.glowsquito.hurt");
+	public static final Supplier<SoundEvent> GLOWSQUITO_DEATH = add("entity.glowsquito.death");
 
 	// BLINDSIGHT
-	public static final RegistryObject<SoundEvent> BLINDSIGHT_AMBIENT = add("entity.blindsight.ambient");
-	public static final RegistryObject<SoundEvent> BLINDSIGHT_HURT = add("entity.blindsight.hurt");
-	public static final RegistryObject<SoundEvent> BLINDSIGHT_DEATH = add("entity.blindsight.death");
-    public static final RegistryObject<SoundEvent> BLINDSIGHT_LEAP = add("entity.blindsight.leap");
+	public static final Supplier<SoundEvent> BLINDSIGHT_AMBIENT = add("entity.blindsight.ambient");
+	public static final Supplier<SoundEvent> BLINDSIGHT_HURT = add("entity.blindsight.hurt");
+	public static final Supplier<SoundEvent> BLINDSIGHT_DEATH = add("entity.blindsight.death");
+    public static final Supplier<SoundEvent> BLINDSIGHT_LEAP = add("entity.blindsight.leap");
 
 	// BLACKSTONE_DWARF
-	public static final RegistryObject<SoundEvent> BLACKSTONE_DWARF_AMBIENT = add("entity.dwarf.ambient");
-	public static final RegistryObject<SoundEvent> BLACKSTONE_DWARF_HURT = add("entity.dwarf.hurt");
-	public static final RegistryObject<SoundEvent> BLACKSTONE_DWARF_DEATH = add("entity.dwarf.death");
+	public static final Supplier<SoundEvent> BLACKSTONE_DWARF_AMBIENT = add("entity.dwarf.ambient");
+	public static final Supplier<SoundEvent> BLACKSTONE_DWARF_HURT = add("entity.dwarf.hurt");
+	public static final Supplier<SoundEvent> BLACKSTONE_DWARF_DEATH = add("entity.dwarf.death");
 
     // GLOWSILK_MOTH
-    public static final RegistryObject<SoundEvent> GLOWSILK_MOTH_AMBIENT = add("entity.glowsilk_moth.ambient");
-    public static final RegistryObject<SoundEvent> GLOWSILK_MOTH_HURT = add("entity.glowsilk_moth.hurt");
-    public static final RegistryObject<SoundEvent> GLOWSILK_MOTH_DEATH = add("entity.glowsilk_moth.death");
+    public static final Supplier<SoundEvent> GLOWSILK_MOTH_AMBIENT = add("entity.glowsilk_moth.ambient");
+    public static final Supplier<SoundEvent> GLOWSILK_MOTH_HURT = add("entity.glowsilk_moth.hurt");
+    public static final Supplier<SoundEvent> GLOWSILK_MOTH_DEATH = add("entity.glowsilk_moth.death");
 
 	// GLAW
-	public static final RegistryObject<SoundEvent> GLAW_AMBIENT = add("entity.glaw.ambient");
-	public static final RegistryObject<SoundEvent> GLAW_HURT = add("entity.glaw.hurt");
-	public static final RegistryObject<SoundEvent> GLAW_DEATH = add("entity.glaw.death");
+	public static final Supplier<SoundEvent> GLAW_AMBIENT = add("entity.glaw.ambient");
+	public static final Supplier<SoundEvent> GLAW_HURT = add("entity.glaw.hurt");
+	public static final Supplier<SoundEvent> GLAW_DEATH = add("entity.glaw.death");
 
 	// SMOLT
-	public static final RegistryObject<SoundEvent> SMOLT_AMBIENT = add("entity.smolt.ambient");
-	public static final RegistryObject<SoundEvent> SMOLT_HURT = add("entity.smolt.hurt");
-	public static final RegistryObject<SoundEvent> SMOLT_DEATH = add("entity.smolt.death");
+	public static final Supplier<SoundEvent> SMOLT_AMBIENT = add("entity.smolt.ambient");
+	public static final Supplier<SoundEvent> SMOLT_HURT = add("entity.smolt.hurt");
+	public static final Supplier<SoundEvent> SMOLT_DEATH = add("entity.smolt.death");
 
 	// PYRNO
-	public static final RegistryObject<SoundEvent> PYRNO_AMBIENT = add("entity.pyrno.ambient");
-	public static final RegistryObject<SoundEvent> PYRNO_HURT = add("entity.pyrno.hurt");
-	public static final RegistryObject<SoundEvent> PYRNO_DEATH = add("entity.pyrno.death");
+	public static final Supplier<SoundEvent> PYRNO_AMBIENT = add("entity.pyrno.ambient");
+	public static final Supplier<SoundEvent> PYRNO_HURT = add("entity.pyrno.hurt");
+	public static final Supplier<SoundEvent> PYRNO_DEATH = add("entity.pyrno.death");
 
 	// GLOWSTONE CANYON
-	public static final RegistryObject<SoundEvent> AMBIENT_GLOWSTONE_CANYON_LOOP = add("ambient.glowstone_canyon.loop");
-	public static final RegistryObject<SoundEvent> AMBIENT_GLOWSTONE_CANYON_MOOD = add("ambient.glowstone_canyon.mood");
-	public static final RegistryObject<SoundEvent> AMBIENT_GLOWSTONE_CANYON_ADDITIONS = add("ambient.glowstone_canyon.additions");
-	public static final RegistryObject<SoundEvent> MUSIC_NETHER_GLOWSTONE_CANYON = add("music.nether.glowstone_canyon");
+	public static final Supplier<SoundEvent> AMBIENT_GLOWSTONE_CANYON_LOOP = add("ambient.glowstone_canyon.loop");
+	public static final Supplier<SoundEvent> AMBIENT_GLOWSTONE_CANYON_MOOD = add("ambient.glowstone_canyon.mood");
+	public static final Supplier<SoundEvent> AMBIENT_GLOWSTONE_CANYON_ADDITIONS = add("ambient.glowstone_canyon.additions");
+	public static final Supplier<SoundEvent> MUSIC_NETHER_GLOWSTONE_CANYON = add("music.nether.glowstone_canyon");
 
 	// RECORD DISCS
-	public static final RegistryObject<SoundEvent> MUSIC_DISC_SOUL_SPUNK = add("record.soul_spunk");
-	public static final RegistryObject<SoundEvent> MUSIC_DISC_FLUSH = add("record.flush");
+	public static final Supplier<SoundEvent> MUSIC_DISC_SOUL_SPUNK = add("record.soul_spunk");
+	public static final Supplier<SoundEvent> MUSIC_DISC_FLUSH = add("record.flush");
 	
     // GLOWSTONE RECHARGE
-    public static final RegistryObject<SoundEvent> GLOWSTONE_RECHARGE = add("block.glowstone.recharge");
+    public static final Supplier<SoundEvent> GLOWSTONE_RECHARGE = add("block.glowstone.recharge");
 
 	// DULLSTONE
-	public static final RegistryObject<SoundEvent> DULLSTONE_BREAK = add("block.dullstone.break");
-	public static final RegistryObject<SoundEvent> DULLSTONE_STEP = add("block.dullstone.step");
-	public static final RegistryObject<SoundEvent> DULLSTONE_PLACE = add("block.dullstone.place");
-	public static final RegistryObject<SoundEvent> DULLSTONE_HIT = add("block.dullstone.hit");
-    public static final RegistryObject<SoundEvent> DULLSTONE_FALL = add("block.dullstone.fall");
+	public static final Supplier<SoundEvent> DULLSTONE_BREAK = add("block.dullstone.break");
+	public static final Supplier<SoundEvent> DULLSTONE_STEP = add("block.dullstone.step");
+	public static final Supplier<SoundEvent> DULLSTONE_PLACE = add("block.dullstone.place");
+	public static final Supplier<SoundEvent> DULLSTONE_HIT = add("block.dullstone.hit");
+    public static final Supplier<SoundEvent> DULLSTONE_FALL = add("block.dullstone.fall");
 
     // SOUL STONE
-    public static final RegistryObject<SoundEvent> SOUL_STONE_BREAK = add("block.soul_stone.break");
+    public static final Supplier<SoundEvent> SOUL_STONE_BREAK = add("block.soul_stone.break");
 
     //QUARTZ GLASS
-    public static final RegistryObject<SoundEvent> QUARTZ_GLASS_HIT = add("block.quartz_glass.hit");
+    public static final Supplier<SoundEvent> QUARTZ_GLASS_HIT = add("block.quartz_glass.hit");
 
     // SOUND TYPES
-    public static final SoundType DULLSTONE_TYPE = new ForgeSoundType(1.0F, 1.0F, () -> DULLSTONE_BREAK.get(), () -> DULLSTONE_STEP.get(), () -> DULLSTONE_PLACE.get(), () -> DULLSTONE_HIT.get(), () -> DULLSTONE_FALL.get());
-    public static final SoundType DIMSTONE_TYPE = new ForgeSoundType(1.0F, 1.0F, () -> SoundEvents.GLASS_BREAK, () -> DULLSTONE_STEP.get(), () -> SoundEvents.GLASS_PLACE, () -> SoundEvents.GLASS_HIT, () -> SoundEvents.GLASS_FALL);
-    public static final SoundType SOUL_STONE_TYPE = new ForgeSoundType(1.0F, 1.0F, () -> SOUL_STONE_BREAK.get(), () -> SoundEvents.SOUL_SOIL_STEP, () -> SoundEvents.SOUL_SOIL_PLACE, () -> SoundEvents.SOUL_SOIL_HIT, () -> SoundEvents.SOUL_SOIL_FALL);
-    public static final SoundType QUARTZ_GLASS_TYPE = new ForgeSoundType(1.0F, 1.0F, () -> SoundEvents.GLASS_BREAK, () -> SoundEvents.GLASS_STEP, () -> SoundEvents.GLASS_PLACE, () -> QUARTZ_GLASS_HIT.get(), () -> SoundEvents.GLASS_FALL);
+    public static final SoundType DULLSTONE_TYPE = new DeferredSoundType(1.0F, 1.0F, () -> DULLSTONE_BREAK.get(), () -> DULLSTONE_STEP.get(), () -> DULLSTONE_PLACE.get(), () -> DULLSTONE_HIT.get(), () -> DULLSTONE_FALL.get());
+    public static final SoundType DIMSTONE_TYPE = new DeferredSoundType(1.0F, 1.0F, () -> SoundEvents.GLASS_BREAK, () -> DULLSTONE_STEP.get(), () -> SoundEvents.GLASS_PLACE, () -> SoundEvents.GLASS_HIT, () -> SoundEvents.GLASS_FALL);
+    public static final SoundType SOUL_STONE_TYPE = new DeferredSoundType(1.0F, 1.0F, () -> SOUL_STONE_BREAK.get(), () -> SoundEvents.SOUL_SOIL_STEP, () -> SoundEvents.SOUL_SOIL_PLACE, () -> SoundEvents.SOUL_SOIL_HIT, () -> SoundEvents.SOUL_SOIL_FALL);
+    public static final SoundType QUARTZ_GLASS_TYPE = new DeferredSoundType(1.0F, 1.0F, () -> SoundEvents.GLASS_BREAK, () -> SoundEvents.GLASS_STEP, () -> SoundEvents.GLASS_PLACE, () -> QUARTZ_GLASS_HIT.get(), () -> SoundEvents.GLASS_FALL);
 
-    public static final RegistryObject<SoundEvent> add(String id) {
+    public static final Supplier<SoundEvent> add(String id) {
         ResourceLocation realId = new ResourceLocation(InfernalExpansion.MOD_ID, id);
-        return SOUND_EVENTS.register(id, () -> new SoundEvent(realId));
+        return SOUND_EVENTS.register(id, () -> SoundEvent.createVariableRangeEvent(realId));
     }
 
     public static void register(IEventBus eventBus) {

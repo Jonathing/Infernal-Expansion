@@ -16,7 +16,7 @@
 
 package org.infernalstudios.infernalexp.config;
 
-import net.minecraftforge.fml.config.ModConfig;
+import net.neoforged.fml.config.ModConfig;
 import org.infernalstudios.infernalexp.config.InfernalExpansionConfig.ClientConfig;
 import org.infernalstudios.infernalexp.config.InfernalExpansionConfig.Miscellaneous;
 import org.infernalstudios.infernalexp.config.InfernalExpansionConfig.MobInteractions;

@@ -23,7 +23,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.neoforged.event.entity.player.PlayerEvent;
 
 public class PostRightClickBlockEvent extends PlayerEvent {
 

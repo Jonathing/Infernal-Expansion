@@ -16,9 +16,9 @@
 
 package org.infernalstudios.infernalexp.world.gen;
 
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.eventbus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.entities.BasaltGiantEntity;
 import org.infernalstudios.infernalexp.entities.BlackstoneDwarfEntity;
@@ -33,7 +33,7 @@ import org.infernalstudios.infernalexp.init.IEEntityTypes;
 
 //import net.minecraft.entity.monster.MonsterEntity;
 
-@Mod.EventBusSubscriber(modid = InfernalExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = InfernalExpansion.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntitySpawns {
 
     @SubscribeEvent

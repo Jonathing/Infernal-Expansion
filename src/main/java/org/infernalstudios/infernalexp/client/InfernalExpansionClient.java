@@ -18,12 +18,12 @@ package org.infernalstudios.infernalexp.client;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.ConfigScreenHandler;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.fml.ModLoadingContext;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.client.ConfigScreenHandler;
+import net.neoforged.common.MinecraftForge;
+import net.neoforged.event.entity.living.LivingEvent.LivingTickEvent;
+import net.neoforged.fml.ModLoadingContext;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.config.gui.screens.ConfigScreen;
 import org.infernalstudios.infernalexp.events.ClientEvents;
@@ -44,7 +44,7 @@ public class InfernalExpansionClient {
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class, () -> new ConfigScreenHandler.ConfigScreenFactory((mc, screen) -> new ConfigScreen()));
 
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
-        MinecraftForge.EVENT_BUS.addListener((LivingEvent.LivingTickEvent event) -> DynamicLightingHandler.tick(event.getEntity()));
+        MinecraftForge.EVENT_BUS.addListener((LivingTickEvent event) -> DynamicLightingHandler.tick(event.getEntity()));
 
         enqueueWorkConsumer.accept(InfernalExpansionClient::threadSafeInit);
     }

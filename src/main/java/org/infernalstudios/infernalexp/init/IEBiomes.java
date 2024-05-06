@@ -22,9 +22,8 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.world.biome.IEBiome;
 import org.infernalstudios.infernalexp.world.biome.netherbiomes.GlowstoneCanyonBiome;
@@ -35,7 +34,8 @@ import java.util.List;
 public class IEBiomes {
     private static final List<Pair<ResourceKey<Biome>, Climate.ParameterPoint>> biomeParameters = new ArrayList<>();
 
-    private static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, InfernalExpansion.MOD_ID);
+    // TODO: i think minecraft now uses a datapack registry of biomes
+    private static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(BuiltInRegistries.BIOMES, InfernalExpansion.MOD_ID);
 
     public static ResourceKey<Biome> GLOWSTONE_CANYON = registerBiome("glowstone_canyon", new GlowstoneCanyonBiome());
 

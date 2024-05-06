@@ -17,6 +17,7 @@
 package org.infernalstudios.infernalexp.world.biome.modifiers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.ResourceLocationException;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
@@ -24,9 +25,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.config.InfernalExpansionConfig;
 import org.infernalstudios.infernalexp.data.SpawnrateManager;
@@ -38,7 +38,7 @@ import java.util.Optional;
 
 public record AddConfigurableSpawnsBiomeModifier() implements BiomeModifier {
 
-    public static final Codec<AddConfigurableSpawnsBiomeModifier> CODEC = Codec.unit(AddConfigurableSpawnsBiomeModifier::new);
+    public static final MapCodec<AddConfigurableSpawnsBiomeModifier> CODEC = Codec.unit(AddConfigurableSpawnsBiomeModifier::new);
 
     @Override
     public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
@@ -50,7 +50,7 @@ public record AddConfigurableSpawnsBiomeModifier() implements BiomeModifier {
     }
 
     @Override
-    public Codec<? extends BiomeModifier> codec() {
+    public MapCodec<? extends BiomeModifier> codec() {
         return CODEC;
     }
 

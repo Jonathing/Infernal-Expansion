@@ -18,13 +18,14 @@ package org.infernalstudios.infernalexp.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.SandBlock;
+import net.minecraft.world.level.block.ColoredFallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class GlowSandBlock extends SandBlock {
+public class GlowSandBlock extends ColoredFallingBlock {
 
-    public GlowSandBlock(int dustColorIn, Properties properties) {
+    public GlowSandBlock(ColorRGBA dustColorIn, Properties properties) {
         super(dustColorIn, properties);
     }
 

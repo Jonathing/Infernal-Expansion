@@ -17,20 +17,21 @@
 package org.infernalstudios.infernalexp.world.biome.modifiers;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
 import java.util.List;
 
 public record AddFeaturesBiomeModifier(Holder<Biome> biome, List<FeaturesAtStep> featuresAtSteps) implements BiomeModifier {
 
-    public static final Codec<AddFeaturesBiomeModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+    public static final MapCodec<AddFeaturesBiomeModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
         Biome.CODEC.fieldOf("biome").forGetter(AddFeaturesBiomeModifier::biome),
         FeaturesAtStep.LIST_CODEC.fieldOf("features_at_steps").forGetter(AddFeaturesBiomeModifier::featuresAtSteps)
     ).apply(builder, AddFeaturesBiomeModifier::new));
@@ -45,7 +46,7 @@ public record AddFeaturesBiomeModifier(Holder<Biome> biome, List<FeaturesAtStep>
     }
 
     @Override
-    public Codec<? extends BiomeModifier> codec() {
+    public MapCodec<? extends BiomeModifier> codec() {
         return CODEC;
     }
 

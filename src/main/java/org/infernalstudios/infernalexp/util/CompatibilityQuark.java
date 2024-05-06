@@ -22,10 +22,10 @@ import org.infernalstudios.infernalexp.InfernalExpansion;
 
 import net.minecraft.resources.ResourceLocation;
 
-import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.crafting.conditions.ICondition;
-import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.common.crafting.CraftingHelper;
+import net.neoforged.common.crafting.conditions.ICondition;
+import net.neoforged.common.crafting.conditions.IConditionSerializer;
+import net.neoforged.fml.ModList;
 
 /**
  * Condition for use in recipes making use of Quark Flags.

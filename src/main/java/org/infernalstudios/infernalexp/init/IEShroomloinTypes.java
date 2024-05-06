@@ -3,7 +3,7 @@ package org.infernalstudios.infernalexp.init;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.registries.ForgeRegistries;
 import org.infernalstudios.infernalexp.util.ShroomloinType;
 
 import javax.annotation.Nullable;

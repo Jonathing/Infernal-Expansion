@@ -18,9 +18,9 @@ package org.infernalstudios.infernalexp.mixin.client;
 
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.Material;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.ModList;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.fml.ModList;
 import org.infernalstudios.infernalexp.api.FireType;
 import org.infernalstudios.infernalexp.init.IEFireTypes;
 import org.spongepowered.asm.mixin.Final;

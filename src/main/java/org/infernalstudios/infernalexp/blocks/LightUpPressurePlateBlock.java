@@ -19,6 +19,7 @@ package org.infernalstudios.infernalexp.blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -27,8 +28,8 @@ public class LightUpPressurePlateBlock extends PressurePlateBlock {
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
-    public LightUpPressurePlateBlock(Sensitivity sensitivityIn, Properties propertiesIn) {
-        super(sensitivityIn, propertiesIn);
+    public LightUpPressurePlateBlock(BlockSetType type, Properties propertiesIn) {
+        super(type, propertiesIn);
         this.registerDefaultState(this.defaultBlockState().setValue(POWERED, false).setValue(LIT, false));
     }
 

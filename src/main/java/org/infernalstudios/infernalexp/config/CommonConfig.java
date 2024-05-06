@@ -17,7 +17,7 @@
 package org.infernalstudios.infernalexp.config;
 
 import org.infernalstudios.infernalexp.InfernalExpansion;
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.common.ForgeConfigSpec;
 
 public class CommonConfig {
 

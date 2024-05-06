@@ -16,15 +16,14 @@
 
 package org.infernalstudios.infernalexp.config;
 
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.infernalstudios.infernalexp.InfernalExpansion;
-
-import net.minecraftforge.common.ForgeConfigSpec;
 
 public class ClientConfig {
 
-    final ForgeConfigSpec.IntValue luminousRefreshDelay;
+    final ModConfigSpec.IntValue luminousRefreshDelay;
 
-    ClientConfig(final ForgeConfigSpec.Builder builder) {
+    ClientConfig(final ModConfigSpec.Builder builder) {
         builder.push("general");
 
         // Luminous Effect

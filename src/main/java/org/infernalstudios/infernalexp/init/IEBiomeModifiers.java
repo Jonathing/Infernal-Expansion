@@ -17,21 +17,23 @@
 package org.infernalstudios.infernalexp.init;
 
 import com.mojang.serialization.Codec;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import com.mojang.serialization.MapCodec;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.world.biome.modifiers.AddConfigurableSpawnsBiomeModifier;
 import org.infernalstudios.infernalexp.world.biome.modifiers.AddFeaturesBiomeModifier;
 
+import java.util.function.Supplier;
+
 public class IEBiomeModifiers {
 
-    private static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, InfernalExpansion.MOD_ID);
+    private static final DeferredRegister<MapCodec<? extends BiomeModifier>> BIOME_MODIFIERS = DeferredRegister.create(NeoForgeRegistries.BIOME_MODIFIER_SERIALIZERS, InfernalExpansion.MOD_ID);
 
-    public static final RegistryObject<Codec<AddFeaturesBiomeModifier>> ADD_FEATURES = BIOME_MODIFIERS.register("add_features", () -> AddFeaturesBiomeModifier.CODEC);
-    public static final RegistryObject<Codec<AddConfigurableSpawnsBiomeModifier>> ADD_CONFIGURABLE_SPAWNS = BIOME_MODIFIERS.register("add_configurable_spawns", () -> AddConfigurableSpawnsBiomeModifier.CODEC);
+    public static final Supplier<MapCodec<AddFeaturesBiomeModifier>> ADD_FEATURES = BIOME_MODIFIERS.register("add_features", () -> AddFeaturesBiomeModifier.CODEC);
+    public static final Supplier<MapCodec<AddConfigurableSpawnsBiomeModifier>> ADD_CONFIGURABLE_SPAWNS = BIOME_MODIFIERS.register("add_configurable_spawns", () -> AddConfigurableSpawnsBiomeModifier.CODEC);
 
     public static void register(IEventBus eventBus) {
         BIOME_MODIFIERS.register(eventBus);

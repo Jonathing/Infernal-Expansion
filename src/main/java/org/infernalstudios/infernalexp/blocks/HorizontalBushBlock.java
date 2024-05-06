@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraftforge.common.IPlantable;
+import net.neoforged.common.IPlantable;
 
 /**
  * A copy of the BushBlock class provided by MinecraftForge that extends HorizontalFaceBlock in order to allow for

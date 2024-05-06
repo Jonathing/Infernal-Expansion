@@ -28,8 +28,8 @@ import net.minecraft.client.resources.PaintingTextureManager;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.decoration.PaintingVariant;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 
 @OnlyIn(Dist.CLIENT)

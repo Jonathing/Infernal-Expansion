@@ -17,8 +17,8 @@
 package org.infernalstudios.infernalexp.entities;
 
 import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.entity.IEntityAdditionalSpawnData;
+import net.neoforged.common.ToolActions;
+import net.neoforged.entity.IEntityAdditionalSpawnData;
 import org.infernalstudios.infernalexp.config.InfernalExpansionConfig;
 import org.infernalstudios.infernalexp.init.IESoundEvents;
 import net.minecraft.world.level.block.state.BlockState;
@@ -59,8 +59,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.UUID;

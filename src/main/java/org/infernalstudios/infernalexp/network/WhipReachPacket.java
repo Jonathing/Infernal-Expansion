@@ -34,8 +34,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.network.NetworkEvent;
+import net.neoforged.common.ForgeMod;
+import net.neoforged.network.NetworkEvent;
 import org.infernalstudios.infernalexp.init.IEItems;
 
 import javax.sound.sampled.Clip;

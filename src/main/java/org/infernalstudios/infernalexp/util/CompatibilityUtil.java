@@ -3,8 +3,8 @@ package org.infernalstudios.infernalexp.util;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.fml.ModList;
+import net.neoforged.registries.ForgeRegistries;
 
 public class CompatibilityUtil {
 

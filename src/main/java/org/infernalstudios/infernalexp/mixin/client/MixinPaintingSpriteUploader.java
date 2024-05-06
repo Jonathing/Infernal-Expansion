@@ -18,7 +18,7 @@ package org.infernalstudios.infernalexp.mixin.client;
 
 import net.minecraft.client.resources.PaintingTextureManager;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.registries.ForgeRegistries;
 import org.infernalstudios.infernalexp.client.entity.render.InfernalPaintingRenderer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
