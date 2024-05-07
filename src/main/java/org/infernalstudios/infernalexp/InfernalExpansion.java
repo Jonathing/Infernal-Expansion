@@ -43,10 +43,7 @@ import org.apache.logging.log4j.Logger;
 import org.infernalstudios.infernalexp.client.InfernalExpansionClient;
 import org.infernalstudios.infernalexp.config.ConfigHolder;
 import org.infernalstudios.infernalexp.data.SpawnrateManager;
-import org.infernalstudios.infernalexp.events.MiscEvents;
-import org.infernalstudios.infernalexp.events.MobEvents;
-import org.infernalstudios.infernalexp.events.RegistryEvents;
-import org.infernalstudios.infernalexp.events.WorldEvents;
+import org.infernalstudios.infernalexp.events.*;
 import org.infernalstudios.infernalexp.init.IEBiomeModifiers;
 import org.infernalstudios.infernalexp.init.IEBiomes;
 import org.infernalstudios.infernalexp.init.IEBlockEntityTypes;
@@ -84,6 +81,9 @@ public class InfernalExpansion {
 
         modEventBus.addListener(this::clientSetup);
         modEventBus.addListener(this::commonSetup);
+
+        // TODO: Not sure this works, followed the wiki. @Mod.EventBusSubscriber doesn't seem to exist
+        NeoForge.EVENT_BUS.addListener(CreativeTabEvents::modifyVanillaTabs);
 
         // Registering deferred registers to the mod bus
         IEParticleTypes.PARTICLES.register(modEventBus);
