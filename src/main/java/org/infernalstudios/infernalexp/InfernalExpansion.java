@@ -95,7 +95,6 @@ public class InfernalExpansion {
         IEEntityTypes.register(modEventBus);
         IEPaintings.register(modEventBus);
         IEBlockEntityTypes.register(modEventBus);
-        IEBiomes.register(modEventBus);
         IELootModifiers.register(modEventBus);
         IEBiomeModifiers.register(modEventBus);
         IECreativeTabs.register(modEventBus);

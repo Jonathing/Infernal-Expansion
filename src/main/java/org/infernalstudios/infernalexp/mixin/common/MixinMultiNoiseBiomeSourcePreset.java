@@ -37,6 +37,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: new mixin method is
+// Lnet/minecraft/world/level/biome/MultiNoiseBiomeSourceParameterList$Preset$1;apply(Ljava/util/function/Function;)Lnet/minecraft/world/level/biome/Climate$ParameterList;
+// where you should target the
+// Lnet/minecraft/world/level/biome/Climate$ParameterList;<init>(Ljava/util/List;)Lnet/minecraft/world/level/biome/Climate$ParameterList;
+// method's argument with ModifyArg (the list is immutable, so you need to copy it and add the new biomes)
 @Mixin(MultiNoiseBiomeSource.Preset.class)
 public class MixinMultiNoiseBiomeSourcePreset {
 

@@ -1,0 +1,80 @@
+{
+  "temperature": 0.7,
+  "downfall": -0.2,
+  "has_precipitation": false,
+  "temperature_modifier": "none",
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 13860648,
+    "water_color": 13408563,
+    "water_fog_color": 10053120,
+    "ambient_sound": "infernalexp:ambient.glowstone_canyon.loop",
+    "mood_sound": {
+      "sound": "infernalexp:ambient.glowstone_canyon.mood",
+      "tick_delay": 2500,
+      "block_search_extent": 4,
+      "offset": 2
+    },
+    "additions_sound": {
+      "sound": "ambient.glowstone_canyon.additions",
+      "tick_chance": 0.0111
+    },
+    "music": {
+      "sound": "infernalexp:music.nether.glowstone_canyon",
+      "min_delay": 12000,
+      "max_delay": 24000,
+      "replace_current_music": false
+    }
+  },
+  "spawners": {
+    "creature": [
+      {
+        "type": "minecraft:strider",
+        "weight": 60,
+        "minCount": 1,
+        "maxCount": 2
+      }
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:nether_cave",
+      "infernalexp:glowstone_ravine"
+    ]
+  },
+  "features": [
+    "",
+    "",
+    "infernalexp:gsc_blackstone_blob",
+    "",
+    [
+      "infernalexp:glowspike",
+      "infernalexp:glowspike_large",
+      "infernalexp:hanging_giant_brown_mushroom",
+      "infernalexp:dullstone_death_pit"
+    ],
+    "",
+    "",
+    [
+      "infernalexp:gsc_spring_open",
+      "infernalexp:gsc_spring_closed",
+      "minecraft:glowstone_extra",
+      "minecraft:glowstone",
+      "minecraft:ore_magma",
+      "infernalexp:patch_glow_fire",
+      "minecraft:ore_gravel_nether",
+      "minecraft:ore_blackstone",
+      "minecraft:ore_gold_nether",
+      "minecraft:ore_quartz_nether",
+      "minecraft:ore_debris_small",
+      "minecraft:ore_ancient_debris_large"
+    ],
+    "",
+    [
+      "infernalexp:luminous_fungus",
+      "infernalexp:dullthorns"
+    ],
+    "infernalexp:glowdust_layer"
+  ]
+}

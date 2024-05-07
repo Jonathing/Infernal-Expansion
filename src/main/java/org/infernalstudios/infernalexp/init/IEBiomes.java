@@ -18,6 +18,8 @@ package org.infernalstudios.infernalexp.init;
 
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -32,29 +34,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IEBiomes {
-    private static final List<Pair<ResourceKey<Biome>, Climate.ParameterPoint>> biomeParameters = new ArrayList<>();
+    public static ResourceKey<Biome> GLOWSTONE_CANYON = key("glowstone_canyon");
 
-    // TODO: i think minecraft now uses a datapack registry of biomes
-    private static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(BuiltInRegistries.BIOMES, InfernalExpansion.MOD_ID);
-
-    public static ResourceKey<Biome> GLOWSTONE_CANYON = registerBiome("glowstone_canyon", new GlowstoneCanyonBiome());
-
-    private static ResourceKey<Biome> registerBiome(String name, IEBiome biome) {
-        ResourceKey<Biome> resourceKey = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(InfernalExpansion.MOD_ID, name));
-
-        biomeParameters.add(Pair.of(resourceKey, biome.getBiomeParameters()));
-        BIOMES.register(name, biome::build);
-
-        return resourceKey;
-    }
-
-    public static void register(IEventBus eventBus) {
-        BIOMES.register(eventBus);
-        InfernalExpansion.LOGGER.info("Infernal Expansion: Biomes Registered!");
-    }
-
-    public static List<Pair<ResourceKey<Biome>, Climate.ParameterPoint>> getBiomeParameters() {
-        return biomeParameters;
+    private static ResourceKey<Biome> key(String name) {
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(InfernalExpansion.MOD_ID, name));
     }
 }
 
