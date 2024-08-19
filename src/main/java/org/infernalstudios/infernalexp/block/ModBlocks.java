@@ -6,6 +6,7 @@ import net.minecraft.client.model.Model;
 import net.minecraft.data.client.Models;
 import net.minecraft.registry.tag.BlockTags;
 import org.infernalstudios.infernalexp.InfernalExpansion;
+import org.infernalstudios.infernalexp.block.custom.LuminousFungusBlock;
 import org.infernalstudios.infernalexp.setup.ModRegistry;
 
 public class ModBlocks {
@@ -68,6 +69,6 @@ public class ModBlocks {
 
 
     public static final Block LUMINOUS_FUNGUS = ModRegistry.ofBlock("luminous_fungus",
-            new PlantBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS).luminance(10)))
-            .drop().model(ModRegistry.Models.CROSS).cutout().build();
+            new LuminousFungusBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS).luminance(10).ticksRandomly()))
+            .drop().cutout().build();
 }
