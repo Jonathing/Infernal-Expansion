@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "infernalexp",
+	"version": "${version}",
+	"name": "Infernal Expansion",
+	"description": "Expanding the Nether beyond the Nether Update!",
+	"authors": [
+		"NekoMaster",
+		"reetam",
+		"Lyof"
+	],
+	"contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/infernal-expansion",
+		"sources": "https://github.com/infernalstudios/Infernal-Expansion"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/infernalexp/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"org.infernalstudios.infernalexp.InfernalExpansion"
+		],
+		"client": [
+			"org.infernalstudios.infernalexp.InfernalExpansionClient"
+		],
+		"fabric-datagen": [
+			"org.infernalstudios.infernalexp.setup.ModDataGenerator"
+		]
+	},
+	"mixins": [
+		"infernalexp.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.2",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"geckolib": ">=4.4.6"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

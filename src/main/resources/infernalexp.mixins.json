@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "org.infernalstudios.infernalexp.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
