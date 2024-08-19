@@ -2,5 +2,17 @@
   "itemgroup.infernalexp": "Infernal Expansion",
 
   "block.infernalexp.shimmer_sand": "Shimmer Sand",
-  "block.infernalexp.shimmer_sheet": "Shimmer Sheet"
+  "block.infernalexp.shimmer_sheet": "Shimmer Sheet",
+  "block.infernalexp.glimmer_gravel": "Glimmer Gravel",
+  "block.infernalexp.shimmer_stone": "Shimmer Stone",
+  "block.infernalexp.shimmer_stone_bricks": "Shimmer Stone Bricks",
+  "block.infernalexp.polished_glowstone": "Polished Glowstone",
+  "block.infernalexp.dimstone": "Dimstone",
+  "block.infernalexp.polished_dimstone": "Polished Dimstone",
+  "block.infernalexp.dullstone": "Dullstone",
+  "block.infernalexp.polished_dullstone": "Polished Dullstone",
+  "block.infernalexp.glowsilk_cocoon": "Glowsilk Cocoon",
+
+  "item.infernalexp.dullrocks": "Dullrocks",
+  "item.infernalexp.tab_icon": "Infernal Expansion"
 }

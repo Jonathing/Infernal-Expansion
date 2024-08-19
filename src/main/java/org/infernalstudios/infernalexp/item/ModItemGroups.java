@@ -15,11 +15,23 @@ import org.infernalstudios.infernalexp.block.ModBlocks;
 public class ModItemGroups {
     public static final ItemGroup INFERNALEXP = register(InfernalExpansion.MOD_ID,
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.infernalexp"))
-                    .icon(() -> new ItemStack(ModBlocks.SHIMMER_SAND)) // TODO: change the tab's icon
+                    .icon(() -> new ItemStack(ModItems.TAB_ICON))
                     .entries((displayContext, entries) -> {
 
                         entries.add(ModBlocks.SHIMMER_SAND);
                         entries.add(ModBlocks.SHIMMER_SHEET);
+
+                        entries.add(ModBlocks.SHIMMER_STONE);
+                        entries.add(ModBlocks.SHIMMER_STONE_BRICKS);
+
+                        entries.add(ModBlocks.POLISHED_GLOWSTONE);
+                        entries.add(ModBlocks.DIMSTONE);
+                        entries.add(ModBlocks.POLISHED_DIMSTONE);
+                        entries.add(ModBlocks.DULLSTONE);
+                        entries.add(ModBlocks.POLISHED_DULLSTONE);
+                        entries.add(ModItems.DULLROCKS);
+
+                        entries.add(ModBlocks.GLOWSILK_COCOON);
 
                         entries.add(ModBlocks.LUMINOUS_FUNGUS);
 
