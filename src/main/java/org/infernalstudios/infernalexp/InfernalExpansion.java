@@ -1,9 +1,9 @@
 package org.infernalstudios.infernalexp;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.util.Identifier;
 import org.infernalstudios.infernalexp.block.ModBlocks;
+import org.infernalstudios.infernalexp.entity.ModEntities;
 import org.infernalstudios.infernalexp.item.ModItemGroups;
 import org.infernalstudios.infernalexp.item.ModItems;
 import org.infernalstudios.infernalexp.setup.ModDataGenerator;
@@ -19,8 +19,9 @@ public class InfernalExpansion implements ModInitializer {
 	public void onInitialize() {
 		ModItems.register();
 		ModBlocks.register();
-
 		ModItemGroups.register();
+
+		ModEntities.register();
 
 
 		/** The rest of this method's body should be left as called last to prevent datagen issues, only add stuff before this comment */
