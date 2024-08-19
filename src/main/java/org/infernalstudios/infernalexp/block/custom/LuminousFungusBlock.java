@@ -3,6 +3,7 @@ package org.infernalstudios.infernalexp.block.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -13,11 +14,13 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
+import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class LuminousFungusBlock extends PlantBlock {
     public static final BooleanProperty IS_LIT = BooleanProperty.of("is_lit");
+    public static final VoxelShape BOX = Block.createCuboidShape(4, 0, 4, 12, 8, 12);
 
     public LuminousFungusBlock(Settings settings) {
         super(settings);
@@ -32,6 +35,11 @@ public class LuminousFungusBlock extends PlantBlock {
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
         return floor.isSideSolidFullSquare(world, pos, Direction.UP);
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return BOX;
     }
 
     @Override

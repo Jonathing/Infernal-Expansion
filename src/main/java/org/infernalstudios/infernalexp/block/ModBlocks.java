@@ -69,6 +69,7 @@ public class ModBlocks {
 
 
     public static final Block LUMINOUS_FUNGUS = ModRegistry.ofBlock("luminous_fungus",
-            new LuminousFungusBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS).luminance(10).ticksRandomly()))
+            new LuminousFungusBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS)
+                    .luminance(a -> a.get(LuminousFungusBlock.IS_LIT) ? 15 : 0).ticksRandomly()))
             .drop().cutout().build();
 }
