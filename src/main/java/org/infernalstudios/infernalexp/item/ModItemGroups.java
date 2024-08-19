@@ -10,13 +10,19 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import org.infernalstudios.infernalexp.InfernalExpansion;
+import org.infernalstudios.infernalexp.block.ModBlocks;
 
 public class ModItemGroups {
     public static final ItemGroup INFERNALEXP = register(InfernalExpansion.MOD_ID,
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.infernalexp"))
-                    .icon(() -> new ItemStack(Blocks.NETHERRACK)) // TODO: change the tab's icon
+                    .icon(() -> new ItemStack(ModBlocks.SHIMMER_SAND)) // TODO: change the tab's icon
                     .entries((displayContext, entries) -> {
-                        //entries.add(ModItems.OBJECT);
+
+                        entries.add(ModBlocks.SHIMMER_SAND);
+                        entries.add(ModBlocks.SHIMMER_SHEET);
+
+                        entries.add(ModBlocks.LUMINOUS_FUNGUS);
+
                     })
                     .build());
 

@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 import org.infernalstudios.infernalexp.setup.ModRegistry;
 
+import java.util.List;
 import java.util.Map;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
@@ -16,9 +17,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         for (Map.Entry<Block, ItemConvertible> entry : ModRegistry.BLOCK_DROPS.entrySet()) {
-            if (ModRegistry.BLOCK_MODELS.get(ModRegistry.Models.SLAB).contains(entry.getKey()))
+            if (ModRegistry.BLOCK_MODELS.getOrDefault(ModRegistry.Models.SLAB, List.of()).contains(entry.getKey()))
                 addDrop(entry.getKey(), slabDrops(entry.getKey()));
-            else if (ModRegistry.BLOCK_MODELS.get(ModRegistry.Models.DOOR).contains(entry.getKey()))
+            else if (ModRegistry.BLOCK_MODELS.getOrDefault(ModRegistry.Models.DOOR, List.of()).contains(entry.getKey()))
                 addDrop(entry.getKey(), doorDrops(entry.getKey()));
             else
                 addDrop(entry.getKey(), entry.getValue());
