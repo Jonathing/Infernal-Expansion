@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.helliongames.hellionsmobs.HellionsMobs"
+          "com.infernalstudios.infernalexpansion.InfernalExpansion"
         ],
         "client": [
-            "com.helliongames.hellionsmobs.client.HellionsMobsClient"
+            "com.infernalstudios.infernalexpansion.client.InfernalExpansionClient"
         ]
     },
     "mixins": [
