@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "infernalexp:glowlight_glass",
+    "infernalexp:glowlight_glass_pane",
     "infernalexp:shimmer_stone",
     "infernalexp:shimmer_stone_bricks",
     "infernalexp:shimmer_stone_brick_stairs",

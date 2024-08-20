@@ -20,6 +20,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.SHIMMER_SAND);
                         entries.add(ModBlocks.SHIMMER_SHEET);
+                        entries.add(ModBlocks.GLOWLIGHT_GLASS);
+                        entries.add(ModBlocks.GLOWLIGHT_GLASS_PANE);
 
                         entries.add(ModBlocks.SHIMMER_STONE);
                         entries.add(ModBlocks.SHIMMER_STONE_BRICKS);

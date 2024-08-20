@@ -7,12 +7,12 @@ import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.block.custom.LuminousFungusBlock;
 import org.infernalstudios.infernalexp.setup.ModRegistry;
 
-import java.util.Map;
-
 public class ModBlocks {
     public static void register() {
         InfernalExpansion.log("Registering Blocks for " + InfernalExpansion.MOD_ID);
 
+
+        ModRegistry.registerGlass(GLOWLIGHT_GLASS, GLOWLIGHT_GLASS_PANE);
 
         ModRegistry.registerStairsAndSlab(SHIMMER_STONE_BRICKS, SHIMMER_STONE_BRICK_STAIRS, SHIMMER_STONE_BRICK_SLAB);
     }
@@ -36,6 +36,14 @@ public class ModBlocks {
     public static final Block SHIMMER_SHEET = ModRegistry.ofBlock("shimmer_sheet",
             new SnowBlock(FabricBlockSettings.copyOf(Blocks.SAND)))
             .tool("wood_shovel").build();
+
+    public static final Block GLOWLIGHT_GLASS = ModRegistry.ofBlock("glowlight_glass",
+                    new GlassBlock(FabricBlockSettings.copyOf(Blocks.GLOWSTONE).nonOpaque()))
+            .tool("wood_pickaxe").cutout().build();
+
+    public static final Block GLOWLIGHT_GLASS_PANE = ModRegistry.ofBlock("glowlight_glass_pane",
+                    new PaneBlock(FabricBlockSettings.copyOf(Blocks.GLOWSTONE).nonOpaque()))
+            .model(ModRegistry.Models.PANE).tool("wood_pickaxe").cutout().build();
 
 
     public static final Block SHIMMER_STONE = ModRegistry.ofBlock("shimmer_stone",
