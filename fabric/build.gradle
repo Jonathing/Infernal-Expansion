@@ -18,7 +18,10 @@ dependencies {
 }
 
 fabricApi {
-    configureDataGeneration()
+    configureDataGeneration {
+        modId = "infernalexpansion"
+        outputDirectory = file("${project(':common').projectDir.path}/src/main/generated")
+    }
 }
 
 loom {

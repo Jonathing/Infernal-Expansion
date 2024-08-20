@@ -118,3 +118,13 @@ sourceSets.each {
     it.output.resourcesDir = dir
     it.java.destinationDirectory = dir
 }
+
+project(":common").sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    "${project(':common').projectDir.path}/src/main/generated"
+            ]
+        }
+    }
+}
