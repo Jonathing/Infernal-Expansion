@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InfernalExpansionEntityRendererModule {
+public class EntityRendererModule {
     /** Map of all EntityTypes to their EntityRendererProviders. */
     private static final Map<EntityTypeDataHolder, EntityRendererProvider> ENTITY_RENDERER_REGISTRY = new HashMap<>();
 

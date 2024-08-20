@@ -1,14 +1,16 @@
 package com.infernalstudios.infernalexpansion;
 
-import com.infernalstudios.infernalexpansion.module.InfernalExpansionCreativeTabModule;
-import com.infernalstudios.infernalexpansion.module.InfernalExpansionEntityTypeModule;
+import com.infernalstudios.infernalexpansion.module.BlockModule;
+import com.infernalstudios.infernalexpansion.module.CreativeTabModule;
+import com.infernalstudios.infernalexpansion.module.EntityTypeModule;
 import net.minecraft.resources.ResourceLocation;
 
 public class InfernalExpansionCommon {
 
     public static void init() {
-        InfernalExpansionEntityTypeModule.loadClass();
-        InfernalExpansionCreativeTabModule.loadClass();
+        BlockModule.loadClass();
+        EntityTypeModule.loadClass();
+        CreativeTabModule.loadClass();
     }
 
     public static ResourceLocation id(String name) {

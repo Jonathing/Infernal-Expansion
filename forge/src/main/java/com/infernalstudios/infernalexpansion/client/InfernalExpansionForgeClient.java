@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexpansion.client;
 
-import com.infernalstudios.infernalexpansion.module.InfernalExpansionEntityRendererModule;
+import com.infernalstudios.infernalexpansion.module.EntityRendererModule;
 import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraftforge.client.event.EntityRenderersEvent;
@@ -21,7 +21,7 @@ public class InfernalExpansionForgeClient {
     }
 
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : InfernalExpansionEntityRendererModule.getEntityRendererRegistry().entrySet()) {
+        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : EntityRendererModule.getEntityRendererRegistry().entrySet()) {
             // Register entity renderers
             event.registerEntityRenderer(entry.getKey().get(), entry.getValue());
         }

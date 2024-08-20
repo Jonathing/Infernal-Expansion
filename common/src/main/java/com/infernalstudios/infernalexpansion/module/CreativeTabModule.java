@@ -9,7 +9,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-public class InfernalExpansionCreativeTabModule {
+public class CreativeTabModule {
     /**
      * The provider for creative tabs
      */

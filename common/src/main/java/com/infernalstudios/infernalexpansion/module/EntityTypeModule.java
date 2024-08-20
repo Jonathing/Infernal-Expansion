@@ -3,12 +3,11 @@ package com.infernalstudios.infernalexpansion.module;
 import com.infernalstudios.infernalexpansion.InfernalExpansionCommon;
 import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.MobCategory;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class InfernalExpansionEntityTypeModule {
+public class EntityTypeModule {
     /** Map of all EntityType Resource Locations to their EntityTypeDataHolders. */
     private static final Map<ResourceLocation, EntityTypeDataHolder> ENTITY_TYPE_REGISTRY = new HashMap<>();
 
