@@ -39,7 +39,11 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GLOWSILK_COCOON);
 
+                        entries.add(ModBlocks.DULLTHORNS);
+                        entries.add(ModBlocks.DULLTHORNS_BLOCK);
+
                         entries.add(ModBlocks.LUMINOUS_FUNGUS);
+                        entries.add(ModBlocks.LUMINOUS_FUNGUS_CAP);
 
                     })
                     .build());

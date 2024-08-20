@@ -3,7 +3,10 @@ package org.infernalstudios.infernalexp.block;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.registry.tag.BlockTags;
 import org.infernalstudios.infernalexp.InfernalExpansion;
+import org.infernalstudios.infernalexp.block.custom.DullthornsBlock;
+import org.infernalstudios.infernalexp.block.custom.FungusCapBlock;
 import org.infernalstudios.infernalexp.block.custom.LuminousFungusBlock;
 import org.infernalstudios.infernalexp.setup.ModRegistry;
 
@@ -28,13 +31,16 @@ public class ModBlocks {
     private static final BlockSetType dullStoneSet =
             new BlockSetTypeBuilder().register(InfernalExpansion.makeID("dullstone"));
 
+    private static final FabricBlockSettings dullthorns =
+            FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).strength(0.4f);
+
 
     public static final Block SHIMMER_SAND = ModRegistry.ofBlock("shimmer_sand",
-            new SandBlock(0xffffaa, FabricBlockSettings.copyOf(Blocks.SAND)))
+                    new SandBlock(0xffffaa, FabricBlockSettings.copyOf(Blocks.SAND)))
             .model(ModRegistry.Models.ROTATABLE).drop().tool("wood_shovel").build();
 
     public static final Block SHIMMER_SHEET = ModRegistry.ofBlock("shimmer_sheet",
-            new SnowBlock(FabricBlockSettings.copyOf(Blocks.SAND)))
+                    new SnowBlock(FabricBlockSettings.copyOf(Blocks.SAND)))
             .tool("wood_shovel").build();
 
     public static final Block GLOWLIGHT_GLASS = ModRegistry.ofBlock("glowlight_glass",
@@ -100,8 +106,25 @@ public class ModBlocks {
             .model().drop().tool("stone_hoe").build();
 
 
+    public static final Block DULLTHORNS = ModRegistry.ofBlock("dullthorns",
+                    new DullthornsBlock(Block.createCuboidShape(3, 0, 3, 13, 16, 13),
+                            FabricBlockSettings.copyOf(dullthorns).collidable(false).nonOpaque()))
+            .model(ModRegistry.Models.CROSS).drop().tool("wood_axe")
+            .tag(BlockTags.CLIMBABLE).cutout().build();
+
+    public static final Block DULLTHORNS_BLOCK = ModRegistry.ofBlock("dullthorns_block",
+                    new DullthornsBlock(Block.createCuboidShape(0.1, 0, 0.1, 15.9, 16, 15.9), dullthorns))
+            .model().drop().tool("wood_axe")
+            .tag(BlockTags.CLIMBABLE).build();
+
+
     public static final Block LUMINOUS_FUNGUS = ModRegistry.ofBlock("luminous_fungus",
-            new LuminousFungusBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS)
-                    .luminance(a -> a.get(LuminousFungusBlock.IS_LIT) ? 15 : 0).ticksRandomly()))
+                    new LuminousFungusBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS)
+                            .luminance(a -> a.get(LuminousFungusBlock.IS_LIT) ? 15 : 0).ticksRandomly()))
             .drop().cutout().build();
+
+    public static final Block LUMINOUS_FUNGUS_CAP = ModRegistry.ofBlock("luminous_fungus_cap",
+                    new FungusCapBlock(FabricBlockSettings.copyOf(Blocks.WARPED_FUNGUS)
+                            .luminance(8).collidable(true)))
+            .tool("wood_hoe").drop().build();
 }
