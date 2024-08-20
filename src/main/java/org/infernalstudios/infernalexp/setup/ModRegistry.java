@@ -227,6 +227,7 @@ public class ModRegistry {
 
     public enum Models {
         CUBE,
+        ROTATABLE,
         CROSS,
         PILLAR,
         STAIRS,

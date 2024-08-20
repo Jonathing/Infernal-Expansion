@@ -1,13 +1,13 @@
 package org.infernalstudios.infernalexp.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeBuilder;
 import net.minecraft.block.*;
-import net.minecraft.client.model.Model;
-import net.minecraft.data.client.Models;
-import net.minecraft.registry.tag.BlockTags;
 import org.infernalstudios.infernalexp.InfernalExpansion;
 import org.infernalstudios.infernalexp.block.custom.LuminousFungusBlock;
 import org.infernalstudios.infernalexp.setup.ModRegistry;
+
+import java.util.Map;
 
 public class ModBlocks {
     public static void register() {
@@ -22,11 +22,13 @@ public class ModBlocks {
 
     private static final FabricBlockSettings dullStone =
             FabricBlockSettings.copyOf(Blocks.GLOWSTONE).strength(1.7f).luminance(0).mapColor(MapColor.TERRACOTTA_GRAY).requiresTool();
+    private static final BlockSetType dullStoneSet =
+            new BlockSetTypeBuilder().register(InfernalExpansion.makeID("dullstone"));
 
 
     public static final Block SHIMMER_SAND = ModRegistry.ofBlock("shimmer_sand",
             new SandBlock(0xffffaa, FabricBlockSettings.copyOf(Blocks.SAND)))
-            .model().drop().tool("wood_shovel").build();
+            .model(ModRegistry.Models.ROTATABLE).drop().tool("wood_shovel").build();
 
     public static final Block SHIMMER_SHEET = ModRegistry.ofBlock("shimmer_sheet",
             new SnowBlock(FabricBlockSettings.copyOf(Blocks.SAND)))
@@ -48,7 +50,7 @@ public class ModBlocks {
 
     public static final Block DIMSTONE = ModRegistry.ofBlock("dimstone",
                     new Block(dimStone))
-            .model().drop().tool("wood_pickaxe").build();
+            .drop().tool("wood_pickaxe").build();
 
     public static final Block POLISHED_DIMSTONE = ModRegistry.ofBlock("polished_dimstone",
                     new Block(dimStone))
@@ -61,6 +63,17 @@ public class ModBlocks {
     public static final Block POLISHED_DULLSTONE = ModRegistry.ofBlock("polished_dullstone",
                     new Block(dullStone))
             .model().drop().tool("wood_pickaxe").build();
+
+    public static final Block DULLSTONE_BUTTON = ModRegistry.ofBlock("dullstone_button",
+                    new ButtonBlock(FabricBlockSettings.copyOf(dullStone).collidable(false)
+                            .luminance(a -> a.get(ButtonBlock.POWERED) ? 15 : 0), dullStoneSet, 20, false))
+            .drop().tool("wood_pickaxe").build();
+
+    public static final Block DULLSTONE_PRESSURE_PLATE = ModRegistry.ofBlock("dullstone_pressure_plate",
+                    new PressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS,
+                            FabricBlockSettings.copyOf(dullStone).collidable(false)
+                                    .luminance(a -> a.get(PressurePlateBlock.POWERED) ? 15 : 0), dullStoneSet))
+            .drop().tool("wood_pickaxe").build();
 
 
     public static final Block GLOWSILK_COCOON = ModRegistry.ofBlock("glowsilk_cocoon",

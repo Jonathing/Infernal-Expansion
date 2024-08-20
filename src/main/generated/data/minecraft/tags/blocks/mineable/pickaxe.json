@@ -7,6 +7,8 @@
     "infernalexp:dimstone",
     "infernalexp:polished_dimstone",
     "infernalexp:dullstone",
-    "infernalexp:polished_dullstone"
+    "infernalexp:polished_dullstone",
+    "infernalexp:dullstone_pressure_plate",
+    "infernalexp:dullstone_button"
   ]
 }

@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "infernalexp:block/shimmer_sand"
-    }
+    "": [
+      {
+        "model": "infernalexp:block/shimmer_sand"
+      },
+      {
+        "model": "infernalexp:block/shimmer_sand",
+        "y": 90
+      },
+      {
+        "model": "infernalexp:block/shimmer_sand",
+        "y": 180
+      },
+      {
+        "model": "infernalexp:block/shimmer_sand",
+        "y": 270
+      }
+    ]
   }
 }

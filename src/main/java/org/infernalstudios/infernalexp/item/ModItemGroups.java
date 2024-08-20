@@ -29,6 +29,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.POLISHED_DIMSTONE);
                         entries.add(ModBlocks.DULLSTONE);
                         entries.add(ModBlocks.POLISHED_DULLSTONE);
+                        entries.add(ModBlocks.DULLSTONE_BUTTON);
+                        entries.add(ModBlocks.DULLSTONE_PRESSURE_PLATE);
                         entries.add(ModItems.DULLROCKS);
 
                         entries.add(ModBlocks.GLOWSILK_COCOON);
