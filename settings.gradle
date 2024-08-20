@@ -25,7 +25,7 @@ plugins {
 }
 
 // This should match the folder name of the project, or else IDEA may complain (see https://youtrack.jetbrains.com/issue/IDEA-317606)
-rootProject.name = 'Hellions-Mobs'
+rootProject.name = 'Infernal-Expansion'
 include("common")
 include("fabric")
 include("forge")
