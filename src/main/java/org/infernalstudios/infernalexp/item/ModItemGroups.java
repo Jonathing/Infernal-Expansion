@@ -23,6 +23,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.SHIMMER_STONE);
                         entries.add(ModBlocks.SHIMMER_STONE_BRICKS);
+                        entries.add(ModBlocks.SHIMMER_STONE_BRICK_STAIRS);
+                        entries.add(ModBlocks.SHIMMER_STONE_BRICK_SLAB);
 
                         entries.add(ModBlocks.POLISHED_GLOWSTONE);
                         entries.add(ModBlocks.DIMSTONE);

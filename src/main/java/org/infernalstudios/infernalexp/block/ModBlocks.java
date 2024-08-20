@@ -12,6 +12,9 @@ import java.util.Map;
 public class ModBlocks {
     public static void register() {
         InfernalExpansion.log("Registering Blocks for " + InfernalExpansion.MOD_ID);
+
+
+        ModRegistry.registerStairsAndSlab(SHIMMER_STONE_BRICKS, SHIMMER_STONE_BRICK_STAIRS, SHIMMER_STONE_BRICK_SLAB);
     }
 
     private static final FabricBlockSettings shimmerStone =
@@ -41,7 +44,15 @@ public class ModBlocks {
 
     public static final Block SHIMMER_STONE_BRICKS = ModRegistry.ofBlock("shimmer_stone_bricks",
                     new Block(shimmerStone))
-            .model().drop().tool("wood_pickaxe").build();
+            .drop().tool("wood_pickaxe").build();
+
+    public static final Block SHIMMER_STONE_BRICK_STAIRS = ModRegistry.ofBlock("shimmer_stone_brick_stairs",
+                    new StairsBlock(SHIMMER_STONE_BRICKS.getDefaultState(), shimmerStone))
+            .model(ModRegistry.Models.STAIRS).drop().tool("wood_pickaxe").build();
+
+    public static final Block SHIMMER_STONE_BRICK_SLAB = ModRegistry.ofBlock("shimmer_stone_brick_slab",
+                    new SlabBlock(shimmerStone))
+            .model(ModRegistry.Models.SLAB).drop().tool("wood_pickaxe").build();
 
 
     public static final Block POLISHED_GLOWSTONE = ModRegistry.ofBlock("polished_glowstone",
