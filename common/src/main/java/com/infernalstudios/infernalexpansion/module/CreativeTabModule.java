@@ -21,6 +21,7 @@ public class CreativeTabModule {
             .icon(() -> new ItemStack(Items.NETHER_BRICK))
             .displayItems((itemDisplayParameters, output) -> {
                 output.accept(Items.NETHER_BRICK);
+                output.accept(BlockModule.SHIMMER_SAND.get());
             }).build());
 
     // Called in the mod initializer / constructor in order to make sure that items are registered

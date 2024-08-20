@@ -1,5 +1,6 @@
 package com.infernalstudios.infernalexpansion.registration;
 
+import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
@@ -8,12 +9,27 @@ public class ItemDataHolder<T extends Item> {
     private T cachedEntry;
     private final Supplier<T> entrySupplier;
 
+    private ModelTemplate model;
+
     public ItemDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
     }
 
-    public static ItemDataHolder<? extends Item> of(Supplier<?> itemSupplier) {
+    public static ItemDataHolder<? extends Item> of(Supplier<? extends Item> itemSupplier) {
         return new ItemDataHolder(itemSupplier);
+    }
+
+    public ItemDataHolder<?> withModel(ModelTemplate model) {
+        this.model = model;
+        return this;
+    }
+
+    public boolean hasModel() {
+        return this.model != null;
+    }
+
+    public ModelTemplate getModel() {
+        return this.model;
     }
 
     /**
@@ -31,7 +47,6 @@ public class ItemDataHolder<T extends Item> {
 
     /**
      * Builder for creating BlockDataHolders.
-     * This mimics the default properties from Item.Properties
      */
     public static class Builder {
         private final ItemFactory<? extends Item> factory;

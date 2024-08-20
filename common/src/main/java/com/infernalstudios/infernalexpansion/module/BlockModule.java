@@ -3,6 +3,9 @@ package com.infernalstudios.infernalexpansion.module;
 import com.infernalstudios.infernalexpansion.InfernalExpansionCommon;
 import com.infernalstudios.infernalexpansion.registration.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +14,9 @@ public class BlockModule {
     /** Map of all Block Resource Locations to their BlockDataHolders. */
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
-
+    public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
+       BlockDataHolder.Builder.of(Block::new, BlockBehaviour.Properties.copy(Blocks.SAND)).build()
+    ).withModel(BlockDataHolder.Model.CUBE).withItem());
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {
         ResourceLocation id = InfernalExpansionCommon.id(name);

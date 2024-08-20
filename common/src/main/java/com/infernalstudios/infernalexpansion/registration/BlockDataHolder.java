@@ -1,5 +1,6 @@
 package com.infernalstudios.infernalexpansion.registration;
 
+import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -12,6 +13,7 @@ public class BlockDataHolder<T extends Block> {
     private final Supplier<T> entrySupplier;
 
     private ItemDataHolder<? extends Item> blockItem;
+    private Model model;
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -35,7 +37,7 @@ public class BlockDataHolder<T extends Block> {
     }
 
     public BlockDataHolder<? extends Block> withItem() {
-        this.blockItem = ItemDataHolder.of(() -> ItemDataHolder.Builder.of((properties) -> new BlockItem(this.get(), properties), new Item.Properties()));
+        this.blockItem = ItemDataHolder.of(() -> ItemDataHolder.Builder.of((properties) -> new BlockItem(this.get(), properties), new Item.Properties()).build()).withModel(ModelTemplates.FLAT_ITEM);
         return this;
     }
 
@@ -47,9 +49,21 @@ public class BlockDataHolder<T extends Block> {
         return this.blockItem;
     }
 
+    public BlockDataHolder<?> withModel(Model model) {
+        this.model = model;
+        return this;
+    }
+
+    public boolean hasModel() {
+        return this.model != null;
+    }
+
+    public Model getModel() {
+        return this.model;
+    }
+
     /**
      * Builder for creating BlockDataHolders.
-     * This mimics the default properties from BlockBehaviour.Properties
      */
     public static class Builder {
         private final BlockFactory<? extends Block> factory;
@@ -72,5 +86,19 @@ public class BlockDataHolder<T extends Block> {
         public interface BlockFactory<T extends Block> {
             T create(BlockBehaviour.Properties properties);
         }
+    }
+
+    public enum Model {
+        CUBE,
+        PILLAR,
+        CROSS,
+        DOOR,
+        TRAPDOOR,
+        STAIRS,
+        SLAB,
+        BUTTON,
+        PRESSURE_PLATE,
+        FENCE,
+        FENCE_GATE;
     }
 }

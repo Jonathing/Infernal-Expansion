@@ -17,6 +17,10 @@ dependencies {
     modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${fabric_geckolib_version}"
 }
 
+fabricApi {
+    configureDataGeneration()
+}
+
 loom {
     if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
         accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))

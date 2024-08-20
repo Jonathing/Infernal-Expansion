@@ -20,7 +20,10 @@
         ],
         "client": [
             "com.infernalstudios.infernalexpansion.client.InfernalExpansionClient"
-        ]
+        ],
+      "fabric-datagen": [
+        "com.infernalstudios.infernalexpansion.datagen.InfernalExpansionDataGenerator"
+      ]
     },
     "mixins": [
         "${mod_id}.mixins.json",
