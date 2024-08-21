@@ -1,11 +1,18 @@
 package com.infernalstudios.infernalexpansion.registration;
 
 import net.minecraft.data.models.model.ModelTemplate;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class ItemDataHolder<T extends Item> {
+    private static final Map<TagKey<Item>, List<ItemDataHolder<?>>> ITEM_TAGS = new HashMap<>();
+
     private T cachedEntry;
     private final Supplier<T> entrySupplier;
 
@@ -18,6 +25,20 @@ public class ItemDataHolder<T extends Item> {
 
     public static ItemDataHolder<? extends Item> of(Supplier<? extends Item> itemSupplier) {
         return new ItemDataHolder(itemSupplier);
+    }
+
+    @SafeVarargs
+    public final ItemDataHolder<?> withTags(TagKey<Item>... tags) {
+        for (TagKey<Item> tag : tags) {
+            ITEM_TAGS.putIfAbsent(tag, new ArrayList<>());
+            ITEM_TAGS.get(tag).add(this);
+        }
+
+        return this;
+    }
+
+    public static Map<TagKey<Item>, List<ItemDataHolder<?>>> getItemTags() {
+        return ITEM_TAGS;
     }
 
     public ItemDataHolder<?> withModel(ModelTemplate model) {

@@ -15,7 +15,7 @@ public class BlockModule {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
-       new Block(BlockBehaviour.Properties.copy(Blocks.SAND))
+       new Block(BlockBehaviour.Properties.copy(Blocks.SAND).requiresCorrectToolForDrops())
     ).withTranslation("Shimmer Sand").withModel(BlockDataHolder.Model.CUBE).withItem());
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {

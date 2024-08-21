@@ -1,13 +1,20 @@
 package com.infernalstudios.infernalexpansion.registration;
 
 import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class BlockDataHolder<T extends Block> {
+    private static final Map<TagKey<Block>, List<BlockDataHolder<?>>> BLOCK_TAGS = new HashMap<>();
+
     private T cachedEntry;
     private final Supplier<T> entrySupplier;
 
@@ -39,6 +46,20 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<? extends Block> withItem() {
         this.blockItem = ItemDataHolder.of(() -> new BlockItem(this.get(), new Item.Properties())).withModel(ModelTemplates.FLAT_ITEM);
         return this;
+    }
+
+    @SafeVarargs
+    public final BlockDataHolder<?> withTags(TagKey<Block>... tags) {
+        for (TagKey<Block> tag : tags) {
+            BLOCK_TAGS.putIfAbsent(tag, new ArrayList<>());
+            BLOCK_TAGS.get(tag).add(this);
+        }
+
+        return this;
+    }
+
+    public static Map<TagKey<Block>, List<BlockDataHolder<?>>> getBlockTags() {
+        return BLOCK_TAGS;
     }
 
     public boolean hasItem() {

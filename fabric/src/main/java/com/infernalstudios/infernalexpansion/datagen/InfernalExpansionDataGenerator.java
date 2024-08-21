@@ -15,7 +15,12 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
@@ -30,6 +35,32 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(IELangProvider::new);
     }
 
+    private static class IELangProvider extends FabricLanguageProvider {
+
+        protected IELangProvider(FabricDataOutput dataOutput) {
+            super(dataOutput);
+        }
+
+        @Override
+        public void generateTranslations(TranslationBuilder builder) {
+            // Put manually added entries here
+            builder.add(CreativeTabModule.INFERNAL_EXPANSION_TAB.getResourceKey(), "Infernal Expansion");
+
+            // This handles all supplied block and item entries automatically
+            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+                if (blockDataHolder.hasTranslation()) {
+                    builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
+                }
+            }
+
+            for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
+                if (itemDataHolder.hasTranslation()) {
+                    builder.add(itemDataHolder.get(), itemDataHolder.getTranslation());
+                }
+            }
+        }
+    }
+
     private static class IEBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         public IEBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
@@ -38,7 +69,11 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         protected void addTags(HolderLookup.Provider arg) {
+            for (Map.Entry<TagKey<Block>, List<BlockDataHolder<?>>> entry : BlockDataHolder.getBlockTags().entrySet()) {
+                FabricTagProvider<Block>.FabricTagBuilder tagBuilder = getOrCreateTagBuilder(entry.getKey());
 
+                entry.getValue().forEach(b -> tagBuilder.add(b.get()));
+            }
         }
     }
 
@@ -49,7 +84,11 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         protected void addTags(HolderLookup.Provider arg) {
+            for (Map.Entry<TagKey<Item>, List<ItemDataHolder<?>>> entry : ItemDataHolder.getItemTags().entrySet()) {
+                FabricTagProvider<Item>.FabricTagBuilder tagBuilder = getOrCreateTagBuilder(entry.getKey());
 
+                entry.getValue().forEach(b -> tagBuilder.add(b.get()));
+            }
         }
     }
 
@@ -107,32 +146,6 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
                 if (itemDataHolder.hasModel()) {
                     generator.generateFlatItem(itemDataHolder.get(), itemDataHolder.getModel());
-                }
-            }
-        }
-    }
-
-    private static class IELangProvider extends FabricLanguageProvider {
-
-        protected IELangProvider(FabricDataOutput dataOutput) {
-            super(dataOutput);
-        }
-
-        @Override
-        public void generateTranslations(TranslationBuilder builder) {
-            // Put manually added entries here
-            builder.add(CreativeTabModule.INFERNAL_EXPANSION_TAB.getResourceKey(), "Infernal Expansion");
-
-            // This handles all supplied block and item entries automatically
-            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
-                if (blockDataHolder.hasTranslation()) {
-                    builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
-                }
-            }
-
-            for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
-                if (itemDataHolder.hasTranslation()) {
-                    builder.add(itemDataHolder.get(), itemDataHolder.getTranslation());
                 }
             }
         }
