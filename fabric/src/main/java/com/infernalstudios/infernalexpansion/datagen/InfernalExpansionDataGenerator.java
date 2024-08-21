@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
@@ -31,7 +32,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(IEBlockTagProvider::new);
         pack.addProvider(IEItemTagProvider::new);
         pack.addProvider(IEBlockLootTableProvider::new);
-        pack.addProvider(IEBlockModelProvider::new);
+        pack.addProvider(IEModelProvider::new);
         pack.addProvider(IELangProvider::new);
     }
 
@@ -50,6 +51,12 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
                 if (blockDataHolder.hasTranslation()) {
                     builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
+                }
+
+                for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> blocksetEntry : blockDataHolder.getBlocksets().entrySet()) {
+                    if (blockDataHolder.hasTranslation()) {
+                        builder.add(blocksetEntry.getValue().get(), blockDataHolder.getTranslation() + " " + blocksetEntry.getKey().getLang());
+                    }
                 }
             }
 
@@ -101,6 +108,14 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         @Override
         public void generate() {
             for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+                for (BlockDataHolder<?> blocksetHolder : blockDataHolder.getBlocksets().values()) {
+                    if (blocksetHolder.hasModel()) {
+                        if (Objects.requireNonNull(blockDataHolder.getModel()) == BlockDataHolder.Model.SLAB) {
+                            add(blockDataHolder.get(), createSlabItemTable(blockDataHolder.get()));
+                        }
+                    }
+                }
+
                 if (blockDataHolder.hasModel()) {
                     switch (blockDataHolder.getModel()) {
                         case SLAB -> {
@@ -119,25 +134,39 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         }
     }
 
-    private static class IEBlockModelProvider extends FabricModelProvider {
+    private static class IEModelProvider extends FabricModelProvider {
 
-        public IEBlockModelProvider(FabricDataOutput output) {
+        public IEModelProvider(FabricDataOutput output) {
             super(output);
         }
 
         @Override
         public void generateBlockStateModels(BlockModelGenerators generator) {
             for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
-                if (blockDataHolder.hasModel()) {
-                    switch (blockDataHolder.getModel()) {
-                        case CUBE -> generator.createTrivialCube(blockDataHolder.get());
-                        case PILLAR -> generator.woodProvider(blockDataHolder.get());
-                        case CROSS -> generator.createCrossBlockWithDefaultItem(blockDataHolder.get(), BlockModelGenerators.TintState.NOT_TINTED);
-                        case DOOR -> generator.createDoor(blockDataHolder.get());
-                        case TRAPDOOR -> generator.createTrapdoor(blockDataHolder.get());
+                if (blockDataHolder.getBlocksets().isEmpty()) {
+                    if (blockDataHolder.hasModel()) {
+                        switch (blockDataHolder.getModel()) {
+                            case CUBE -> generator.createTrivialCube(blockDataHolder.get());
+                            case PILLAR -> generator.woodProvider(blockDataHolder.get());
+                            case ROTATABLE -> generator.createRotatedVariantBlock(blockDataHolder.get());
+                            case CROSS -> generator.createCrossBlockWithDefaultItem(blockDataHolder.get(), BlockModelGenerators.TintState.NOT_TINTED);
+                            case DOOR -> generator.createDoor(blockDataHolder.get());
+                            case TRAPDOOR -> generator.createTrapdoor(blockDataHolder.get());
+                        }
+                    }
+                } else {
+                    BlockModelGenerators.BlockFamilyProvider familyProvider = generator.family(blockDataHolder.get());
+                    for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> entry : blockDataHolder.getBlocksets().entrySet()) {
+                        switch (entry.getKey()) {
+                            case STAIRS -> familyProvider.stairs(entry.getValue().get());
+                            case SLAB -> familyProvider.slab(entry.getValue().get());
+                            case PRESSURE_PLATE -> familyProvider.pressurePlate(entry.getValue().get());
+                            case BUTTON -> familyProvider.button(entry.getValue().get());
+                            case FENCE -> familyProvider.fence(entry.getValue().get());
+                            case FENCE_GATE -> familyProvider.fenceGate(entry.getValue().get());
+                        }
                     }
                 }
-
             }
         }
 

@@ -3,8 +3,8 @@ package com.infernalstudios.infernalexpansion.module;
 import com.infernalstudios.infernalexpansion.InfernalExpansionCommon;
 import com.infernalstudios.infernalexpansion.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.HashMap;
@@ -15,10 +15,10 @@ public class BlockModule {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
-       new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.SAND)))
-            .withTranslation("Shimmer Sand")
-            .withModel(BlockDataHolder.Model.CUBE)
+       new Block(BlockBehaviour.Properties.copy(Blocks.SAND)))
+            .withModel(BlockDataHolder.Model.ROTATABLE)
             .withItem()
+            .withTranslation("Shimmer Sand")
     );
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {

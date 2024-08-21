@@ -1,7 +1,21 @@
 {
   "variants": {
-    "": {
-      "model": "infernalexpansion:block/shimmer_sand"
-    }
+    "": [
+      {
+        "model": "infernalexpansion:block/shimmer_sand"
+      },
+      {
+        "model": "infernalexpansion:block/shimmer_sand",
+        "y": 90
+      },
+      {
+        "model": "infernalexpansion:block/shimmer_sand",
+        "y": 180
+      },
+      {
+        "model": "infernalexpansion:block/shimmer_sand",
+        "y": 270
+      }
+    ]
   }
 }

@@ -27,6 +27,22 @@ public class BlockModuleFabric {
                 }
             }
 
+            // Register Blockset Blocks and Items
+            for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> blocksetEntry : entry.getValue().getBlocksets().entrySet()) {
+                Registry.register(BuiltInRegistries.BLOCK,
+                        new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_" + blocksetEntry.getKey().suffix()),
+                        blocksetEntry.getValue().get()
+                );
+
+                // Register the block item
+                if (entry.getValue().hasItem()) {
+                    Registry.register(BuiltInRegistries.ITEM,
+                            new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_" + blocksetEntry.getKey().suffix()),
+                            blocksetEntry.getValue().getBlockItem().get()
+                    );
+                }
+            }
+
             // Register Block Flammabilities
             for (Map.Entry<Block, FlammabilityRegistry.Entry> flammability : entry.getValue().getFlammabilities().entrySet()) {
                 FlammabilityRegistry.getRegistry(flammability.getKey()).register(entry.getValue().get(), flammability.getValue());

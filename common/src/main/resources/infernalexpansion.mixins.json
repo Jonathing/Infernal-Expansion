@@ -6,6 +6,11 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "accessor.BlockBehaviourAccessor",
+    "accessor.ButtonBlockAccessor",
+    "accessor.DoorBlockAccessor",
+    "accessor.PressurePlateBlockAccessor",
+    "accessor.StairBlockAccessor",
+    "accessor.TrapDoorBlockAccessor",
     "registry.AbstractFurnaceBlockEntityMixin",
     "registry.AxeItemMixin",
     "registry.FireBlockMixin"

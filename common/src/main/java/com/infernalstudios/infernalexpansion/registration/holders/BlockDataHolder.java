@@ -1,5 +1,8 @@
 package com.infernalstudios.infernalexpansion.registration.holders;
 
+import com.infernalstudios.infernalexpansion.mixin.accessor.ButtonBlockAccessor;
+import com.infernalstudios.infernalexpansion.mixin.accessor.PressurePlateBlockAccessor;
+import com.infernalstudios.infernalexpansion.mixin.accessor.StairBlockAccessor;
 import com.infernalstudios.infernalexpansion.registration.FlammabilityRegistry;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.tags.TagKey;
@@ -7,6 +10,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +37,7 @@ public class BlockDataHolder<T extends Block> {
     private final Map<Block, FlammabilityRegistry.Entry> FLAMMABILITIES = new HashMap<>();
     private Block strippingResult;
     private int fuelDuration;
+    private final Map<Model, BlockDataHolder<?>> BLOCKSETS = new HashMap<>();
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -142,6 +153,7 @@ public class BlockDataHolder<T extends Block> {
 
     /**
      * The model type of this block for datagen
+     * If any of the blocksets are added to this block, this value will be ignored and CUBE will be used
      */
     public BlockDataHolder<?> withModel(Model model) {
         this.model = model;
@@ -185,17 +197,110 @@ public class BlockDataHolder<T extends Block> {
         return this.defaultTranslation;
     }
 
+    public Map<Model, BlockDataHolder<?>> getBlocksets() {
+        return this.BLOCKSETS;
+    }
+
+    public BlockDataHolder<?> withStairs() {
+        BlockDataHolder<?> stairs = BlockDataHolder.of(() -> StairBlockAccessor.createStairBlock(this.get().defaultBlockState(), BlockBehaviour.Properties.copy(this.get())))
+                .withModel(Model.STAIRS)
+                .withItem();
+        this.BLOCKSETS.put(Model.STAIRS, stairs);
+        return this;
+    }
+
+    public BlockDataHolder<?> getStairs() {
+        return this.BLOCKSETS.get(Model.STAIRS);
+    }
+
+    public BlockDataHolder<?> withSlab() {
+        BlockDataHolder<?> slab = BlockDataHolder.of(() -> new SlabBlock(BlockBehaviour.Properties.copy(this.get())))
+                .withModel(Model.SLAB)
+                .withItem();
+        this.BLOCKSETS.put(Model.SLAB, slab);
+        return this;
+    }
+
+    public BlockDataHolder<?> getSlab() {
+        return this.BLOCKSETS.get(Model.SLAB);
+    }
+
+    public BlockDataHolder<?> withButton(BlockSetType type, int ticksPressed, boolean arrowCanPress) {
+        BlockDataHolder<?> button = BlockDataHolder.of(() -> ButtonBlockAccessor.createButtonBlock(BlockBehaviour.Properties.copy(this.get()), type, ticksPressed, arrowCanPress))
+                .withModel(Model.BUTTON)
+                .withItem();
+        this.BLOCKSETS.put(Model.BUTTON, button);
+        return this;
+    }
+
+    public BlockDataHolder<?> getButton() {
+        return this.BLOCKSETS.get(Model.BUTTON);
+    }
+
+    public BlockDataHolder<?> withPressurePlate(PressurePlateBlock.Sensitivity sensitivity, BlockSetType type) {
+        BlockDataHolder<?> pressurePlate = BlockDataHolder.of(() -> PressurePlateBlockAccessor.createPressurePlateBlock(sensitivity, BlockBehaviour.Properties.copy(this.get()), type))
+                .withModel(Model.PRESSURE_PLATE)
+                .withItem();
+        this.BLOCKSETS.put(Model.PRESSURE_PLATE, pressurePlate);
+        return this;
+    }
+
+    public BlockDataHolder<?> getPressurePlate() {
+        return this.BLOCKSETS.get(Model.PRESSURE_PLATE);
+    }
+
+    public BlockDataHolder<?> withFence() {
+        BlockDataHolder<?> fence = BlockDataHolder.of(() -> new FenceBlock(BlockBehaviour.Properties.copy(this.get())))
+                .withModel(Model.FENCE)
+                .withItem();
+        this.BLOCKSETS.put(Model.FENCE, fence);
+        return this;
+    }
+
+    public BlockDataHolder<?> getFence() {
+        return this.BLOCKSETS.get(Model.FENCE);
+    }
+
+    public BlockDataHolder<?> withFenceGate(WoodType woodType) {
+        BlockDataHolder<?> fenceGate = BlockDataHolder.of(() -> new FenceGateBlock(BlockBehaviour.Properties.copy(this.get()), woodType))
+                .withModel(Model.FENCE_GATE)
+                .withItem();
+        this.BLOCKSETS.put(Model.FENCE_GATE, fenceGate);
+        return this;
+    }
+
+    public BlockDataHolder<?> getFenceGate() {
+        return this.BLOCKSETS.get(Model.FENCE_GATE);
+    }
+
     public enum Model {
-        CUBE,
-        PILLAR,
-        CROSS,
-        DOOR,
-        TRAPDOOR,
-        STAIRS,
-        SLAB,
-        BUTTON,
-        PRESSURE_PLATE,
-        FENCE,
-        FENCE_GATE;
+        CUBE("", ""),
+        PILLAR("", ""),
+        ROTATABLE("", ""),
+        CROSS("", ""),
+        DOOR("", ""),
+        TRAPDOOR("", ""),
+        STAIRS("stairs", "Stairs"),
+        SLAB("slab", "Slab"),
+        BUTTON("button", "Button"),
+        PRESSURE_PLATE("pressure_plate", "Pressure Plate"),
+        FENCE("fence", "Fence"),
+        FENCE_GATE("fence_gate", "Fence Gate");
+
+        private final String suffix;
+        private final String lang;
+
+        Model(String suffix, String lang) {
+            this.suffix = suffix;
+            this.lang = lang;
+        }
+
+        public String suffix() {
+            return this.suffix;
+        }
+
+        public String getLang() {
+            return this.lang;
+        }
     }
 }
