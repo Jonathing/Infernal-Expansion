@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.ItemDataHolder;
+import com.infernalstudios.infernalexpansion.registration.FuelRegistry;
+import com.infernalstudios.infernalexpansion.registration.holders.ItemDataHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +19,11 @@ public class ItemModuleForge {
             event.register(Registries.ITEM, itemRegistryHelper ->
                     itemRegistryHelper.register(entry.getKey(), entry.getValue().get())
             );
+
+            // Register Fuel
+            if (entry.getValue().isFuel()) {
+                FuelRegistry.register(entry.getValue().get(), entry.getValue().getFuelDuration());
+            }
         }
     }
 }

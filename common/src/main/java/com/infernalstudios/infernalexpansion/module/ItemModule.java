@@ -1,7 +1,7 @@
 package com.infernalstudios.infernalexpansion.module;
 
 import com.infernalstudios.infernalexpansion.InfernalExpansionCommon;
-import com.infernalstudios.infernalexpansion.registration.ItemDataHolder;
+import com.infernalstudios.infernalexpansion.registration.holders.ItemDataHolder;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.infernalstudios.infernalexpansion.registration;
+package com.infernalstudios.infernalexpansion.registration.holders;
 
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.tags.TagKey;
@@ -18,6 +18,7 @@ public class ItemDataHolder<T extends Item> {
 
     private ModelTemplate model;
     private String defaultTranslation;
+    private int fuelDuration;
 
     public ItemDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -25,6 +26,19 @@ public class ItemDataHolder<T extends Item> {
 
     public static ItemDataHolder<? extends Item> of(Supplier<? extends Item> itemSupplier) {
         return new ItemDataHolder(itemSupplier);
+    }
+
+    public ItemDataHolder<?> withFuel(int fuelDuration) {
+        this.fuelDuration = fuelDuration;
+        return this;
+    }
+
+    public boolean isFuel() {
+        return this.fuelDuration > 0;
+    }
+
+    public int getFuelDuration() {
+        return this.fuelDuration;
     }
 
     @SafeVarargs

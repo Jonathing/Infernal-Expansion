@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
+import com.infernalstudios.infernalexpansion.registration.holders.EntityTypeDataHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;

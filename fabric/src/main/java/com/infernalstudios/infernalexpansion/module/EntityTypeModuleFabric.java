@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
+import com.infernalstudios.infernalexpansion.registration.holders.EntityTypeDataHolder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -1,7 +1,7 @@
 package com.infernalstudios.infernalexpansion.client;
 
 import com.infernalstudios.infernalexpansion.module.EntityRendererModule;
-import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
+import com.infernalstudios.infernalexpansion.registration.holders.EntityTypeDataHolder;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

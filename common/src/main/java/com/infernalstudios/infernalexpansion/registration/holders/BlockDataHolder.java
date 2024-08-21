@@ -1,10 +1,12 @@
-package com.infernalstudios.infernalexpansion.registration;
+package com.infernalstudios.infernalexpansion.registration.holders;
 
+import com.infernalstudios.infernalexpansion.registration.FlammabilityRegistry;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +23,9 @@ public class BlockDataHolder<T extends Block> {
     private ItemDataHolder<? extends Item> blockItem;
     private Model model;
     private String defaultTranslation;
+    private final Map<Block, FlammabilityRegistry.Entry> FLAMMABILITIES = new HashMap<>();
+    private Block strippingResult;
+    private int fuelDuration;
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -46,6 +51,48 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<? extends Block> withItem() {
         this.blockItem = ItemDataHolder.of(() -> new BlockItem(this.get(), new Item.Properties())).withModel(ModelTemplates.FLAT_ITEM);
         return this;
+    }
+
+    public BlockDataHolder<?> withStripping(Block stripResult) {
+        this.strippingResult = stripResult;
+        return this;
+    }
+
+    public boolean hasStrippingResult() {
+        return this.strippingResult != null;
+    }
+
+    public Block getStrippingResult() {
+        return this.strippingResult;
+    }
+
+    public BlockDataHolder<?> withFlammableDefault(FlammabilityRegistry.Entry flammabilityEntry) {
+        return this.withFlammable(Blocks.FIRE, flammabilityEntry);
+    }
+
+    public BlockDataHolder<?> withFlammable(Block fireBlock, FlammabilityRegistry.Entry flammabilityEntry) {
+        this.FLAMMABILITIES.put(fireBlock, flammabilityEntry);
+        return this;
+    }
+
+    public Map<Block, FlammabilityRegistry.Entry> getFlammabilities() {
+        return this.FLAMMABILITIES;
+    }
+
+    /**
+     * Registers the block item as a fuel source. Does nothing if the block has no item.
+     */
+    public BlockDataHolder<?> withFuel(int fuelDuration) {
+        this.fuelDuration = fuelDuration;
+        return this;
+    }
+
+    public boolean isFuel() {
+        return this.fuelDuration > 0;
+    }
+
+    public int getFuelDuration() {
+        return this.fuelDuration;
     }
 
     @SafeVarargs

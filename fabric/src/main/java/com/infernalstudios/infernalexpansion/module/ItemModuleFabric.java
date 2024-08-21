@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.ItemDataHolder;
+import com.infernalstudios.infernalexpansion.registration.FuelRegistry;
+import com.infernalstudios.infernalexpansion.registration.holders.ItemDataHolder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +13,11 @@ public class ItemModuleFabric {
         for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ItemModule.getItemRegistry().entrySet()) {
             // Register item
             Registry.register(BuiltInRegistries.ITEM, entry.getKey(), entry.getValue().get());
+
+            // Register Fuel
+            if (entry.getValue().isFuel()) {
+                FuelRegistry.register(entry.getValue().get(), entry.getValue().getFuelDuration());
+            }
         }
     }
 }

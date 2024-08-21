@@ -1,4 +1,4 @@
-package com.infernalstudios.infernalexpansion.mixin;
+package com.infernalstudios.infernalexpansion.mixin.accessor;
 
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.EntityTypeDataHolder;
+import com.infernalstudios.infernalexpansion.registration.holders.EntityTypeDataHolder;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import java.util.HashMap;

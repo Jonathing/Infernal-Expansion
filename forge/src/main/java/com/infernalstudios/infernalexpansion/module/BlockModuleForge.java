@@ -1,8 +1,12 @@
 package com.infernalstudios.infernalexpansion.module;
 
-import com.infernalstudios.infernalexpansion.registration.BlockDataHolder;
+import com.infernalstudios.infernalexpansion.registration.FlammabilityRegistry;
+import com.infernalstudios.infernalexpansion.registration.FuelRegistry;
+import com.infernalstudios.infernalexpansion.registration.StrippableRegistry;
+import com.infernalstudios.infernalexpansion.registration.holders.BlockDataHolder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegisterEvent;
@@ -24,6 +28,21 @@ public class BlockModuleForge {
                 event.register(Registries.ITEM, itemRegistryHelper ->
                         itemRegistryHelper.register(entry.getKey(), entry.getValue().getBlockItem().get())
                 );
+
+                // Register Block Item Fuel
+                if (entry.getValue().isFuel()) {
+                    FuelRegistry.register(entry.getValue().getBlockItem().get(), entry.getValue().getFuelDuration());
+                }
+            }
+
+            // Register Block Flammabilities
+            for (Map.Entry<Block, FlammabilityRegistry.Entry> flammability : entry.getValue().getFlammabilities().entrySet()) {
+                FlammabilityRegistry.getRegistry(flammability.getKey()).register(entry.getValue().get(), flammability.getValue());
+            }
+
+            // Register Block Stripping
+            if (entry.getValue().hasStrippingResult()) {
+                StrippableRegistry.register(entry.getValue().get(), entry.getValue().getStrippingResult());
             }
         }
     }

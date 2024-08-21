@@ -1,4 +1,4 @@
-package com.infernalstudios.infernalexpansion.registration;
+package com.infernalstudios.infernalexpansion.registration.holders;
 
 import com.google.common.collect.ImmutableSet;
 import net.minecraft.world.entity.Entity;
