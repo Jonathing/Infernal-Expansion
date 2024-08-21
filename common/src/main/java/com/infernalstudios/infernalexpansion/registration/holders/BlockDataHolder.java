@@ -16,6 +16,7 @@ import java.util.function.Supplier;
 
 public class BlockDataHolder<T extends Block> {
     private static final Map<TagKey<Block>, List<BlockDataHolder<?>>> BLOCK_TAGS = new HashMap<>();
+    private static final List<BlockDataHolder<?>> CUTOUT_BLOCKS = new ArrayList<>();
 
     private T cachedEntry;
     private final Supplier<T> entrySupplier;
@@ -128,6 +129,15 @@ public class BlockDataHolder<T extends Block> {
 
     public Model getModel() {
         return this.model;
+    }
+
+    public BlockDataHolder<?> cutout() {
+        CUTOUT_BLOCKS.add(this);
+        return this;
+    }
+
+    public static List<BlockDataHolder<?>> getCutoutBlocks() {
+        return CUTOUT_BLOCKS;
     }
 
     public BlockDataHolder<?> withTranslation(String translation) {

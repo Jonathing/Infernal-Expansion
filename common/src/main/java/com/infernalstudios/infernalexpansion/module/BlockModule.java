@@ -1,7 +1,6 @@
 package com.infernalstudios.infernalexpansion.module;
 
 import com.infernalstudios.infernalexpansion.InfernalExpansionCommon;
-import com.infernalstudios.infernalexpansion.registration.FlammabilityRegistry;
 import com.infernalstudios.infernalexpansion.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
@@ -16,11 +15,7 @@ public class BlockModule {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
-       new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.SAND))
-    )
-            .withFlammableDefault(new FlammabilityRegistry.Entry(100, 100))
-            .withStripping(Blocks.QUARTZ_PILLAR)
-            .withFuel(40)
+       new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.SAND)))
             .withTranslation("Shimmer Sand")
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()

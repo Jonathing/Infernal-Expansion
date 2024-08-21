@@ -19,7 +19,7 @@
           "com.infernalstudios.infernalexpansion.InfernalExpansion"
         ],
         "client": [
-            "com.infernalstudios.infernalexpansion.client.InfernalExpansionClient"
+          "com.infernalstudios.infernalexpansion.client.InfernalExpansionFabricClient"
         ],
       "fabric-datagen": [
         "com.infernalstudios.infernalexpansion.datagen.InfernalExpansionDataGenerator"
