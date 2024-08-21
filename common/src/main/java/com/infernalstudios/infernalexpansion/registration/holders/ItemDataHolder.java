@@ -28,6 +28,23 @@ public class ItemDataHolder<T extends Item> {
         return new ItemDataHolder(itemSupplier);
     }
 
+    /**
+     * Retrieves the cached entry if it exists, otherwise calls the supplier to create a new entry.
+     * @return The cached entry, or a new entry if the cached entry does not exist.
+     */
+    public T get() {
+        if (this.cachedEntry != null) return cachedEntry;
+
+        T entry = entrySupplier.get();
+        this.cachedEntry = entry;
+
+        return entry;
+    }
+
+    /**
+     * Registers the item as a fuel source
+     * @param fuelDuration the length in ticks this fuel source burns
+     */
     public ItemDataHolder<?> withFuel(int fuelDuration) {
         this.fuelDuration = fuelDuration;
         return this;
@@ -41,6 +58,10 @@ public class ItemDataHolder<T extends Item> {
         return this.fuelDuration;
     }
 
+    /**
+     * Registers this item to the supplied tags
+     * @param tags the tag keys to register the item to
+     */
     @SafeVarargs
     public final ItemDataHolder<?> withTags(TagKey<Item>... tags) {
         for (TagKey<Item> tag : tags) {
@@ -55,6 +76,9 @@ public class ItemDataHolder<T extends Item> {
         return ITEM_TAGS;
     }
 
+    /**
+     * The model type of this item for datagen
+     */
     public ItemDataHolder<?> withModel(ModelTemplate model) {
         this.model = model;
         return this;
@@ -68,6 +92,10 @@ public class ItemDataHolder<T extends Item> {
         return this.model;
     }
 
+    /**
+     * Sets the default EN_US translation for this item
+     * @param translation the name for this item
+     */
     public ItemDataHolder<?> withTranslation(String translation) {
         this.defaultTranslation = translation;
         return this;
@@ -79,18 +107,5 @@ public class ItemDataHolder<T extends Item> {
 
     public String getTranslation() {
         return this.defaultTranslation;
-    }
-
-    /**
-     * Retrieves the cached entry if it exists, otherwise calls the supplier to create a new entry.
-     * @return The cached entry, or a new entry if the cached entry does not exist.
-     */
-    public T get() {
-        if (this.cachedEntry != null) return cachedEntry;
-
-        T entry = entrySupplier.get();
-        this.cachedEntry = entry;
-
-        return entry;
     }
 }

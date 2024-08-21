@@ -49,11 +49,18 @@ public class BlockDataHolder<T extends Block> {
         return entry;
     }
 
+    /**
+     * Creates a default BlockItem for this block
+     */
     public BlockDataHolder<? extends Block> withItem() {
         this.blockItem = ItemDataHolder.of(() -> new BlockItem(this.get(), new Item.Properties())).withModel(ModelTemplates.FLAT_ITEM);
         return this;
     }
 
+    /**
+     * Adds the ability to strip this block with an axe
+     * @param stripResult the block to set it to when it gets stripped
+     */
     public BlockDataHolder<?> withStripping(Block stripResult) {
         this.strippingResult = stripResult;
         return this;
@@ -67,10 +74,20 @@ public class BlockDataHolder<T extends Block> {
         return this.strippingResult;
     }
 
+    /**
+     * Registers flammability with Vanilla Fire
+     * @param flammabilityEntry an Entry of the ignite and spread chances
+     */
     public BlockDataHolder<?> withFlammableDefault(FlammabilityRegistry.Entry flammabilityEntry) {
         return this.withFlammable(Blocks.FIRE, flammabilityEntry);
     }
 
+
+    /**
+     * Registers flammability with the supplied fire block
+     * @param fireBlock must extend FireBlock
+     * @param flammabilityEntry an Entry of the ignite and spread chances
+     */
     public BlockDataHolder<?> withFlammable(Block fireBlock, FlammabilityRegistry.Entry flammabilityEntry) {
         this.FLAMMABILITIES.put(fireBlock, flammabilityEntry);
         return this;
@@ -82,6 +99,7 @@ public class BlockDataHolder<T extends Block> {
 
     /**
      * Registers the block item as a fuel source. Does nothing if the block has no item.
+     * @param fuelDuration the length in ticks this fuel source burns
      */
     public BlockDataHolder<?> withFuel(int fuelDuration) {
         this.fuelDuration = fuelDuration;
@@ -96,6 +114,10 @@ public class BlockDataHolder<T extends Block> {
         return this.fuelDuration;
     }
 
+    /**
+     * Registers this block to the supplied tags
+     * @param tags the tag keys to register the block to
+     */
     @SafeVarargs
     public final BlockDataHolder<?> withTags(TagKey<Block>... tags) {
         for (TagKey<Block> tag : tags) {
@@ -118,6 +140,9 @@ public class BlockDataHolder<T extends Block> {
         return this.blockItem;
     }
 
+    /**
+     * The model type of this block for datagen
+     */
     public BlockDataHolder<?> withModel(Model model) {
         this.model = model;
         return this;
@@ -131,6 +156,9 @@ public class BlockDataHolder<T extends Block> {
         return this.model;
     }
 
+    /**
+     * Sets the rendertype of this block to cutout, allowing for transparency
+     */
     public BlockDataHolder<?> cutout() {
         CUTOUT_BLOCKS.add(this);
         return this;
@@ -140,6 +168,10 @@ public class BlockDataHolder<T extends Block> {
         return CUTOUT_BLOCKS;
     }
 
+    /**
+     * Sets the default EN_US translation for this block
+     * @param translation the name for this block
+     */
     public BlockDataHolder<?> withTranslation(String translation) {
         this.defaultTranslation = translation;
         return this;
