@@ -4,7 +4,6 @@ import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
 
@@ -14,6 +13,7 @@ public class BlockDataHolder<T extends Block> {
 
     private ItemDataHolder<? extends Item> blockItem;
     private Model model;
+    private String defaultTranslation;
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -37,7 +37,7 @@ public class BlockDataHolder<T extends Block> {
     }
 
     public BlockDataHolder<? extends Block> withItem() {
-        this.blockItem = ItemDataHolder.of(() -> ItemDataHolder.Builder.of((properties) -> new BlockItem(this.get(), properties), new Item.Properties()).build()).withModel(ModelTemplates.FLAT_ITEM);
+        this.blockItem = ItemDataHolder.of(() -> new BlockItem(this.get(), new Item.Properties())).withModel(ModelTemplates.FLAT_ITEM);
         return this;
     }
 
@@ -62,30 +62,17 @@ public class BlockDataHolder<T extends Block> {
         return this.model;
     }
 
-    /**
-     * Builder for creating BlockDataHolders.
-     */
-    public static class Builder {
-        private final BlockFactory<? extends Block> factory;
-        private final BlockBehaviour.Properties properties;
+    public BlockDataHolder<?> withTranslation(String translation) {
+        this.defaultTranslation = translation;
+        return this;
+    }
 
-        private Builder(BlockFactory<?> factory, BlockBehaviour.Properties properties) {
-            this.factory = factory;
-            this.properties = properties;
-        }
+    public boolean hasTranslation() {
+        return this.defaultTranslation != null;
+    }
 
-        public static Builder of(BlockFactory<?> factory, BlockBehaviour.Properties properties) {
-            return new Builder(factory, properties);
-        }
-
-        public <T extends Block> T build() {
-            return (T) factory.create(this.properties);
-        }
-
-        @FunctionalInterface
-        public interface BlockFactory<T extends Block> {
-            T create(BlockBehaviour.Properties properties);
-        }
+    public String getTranslation() {
+        return this.defaultTranslation;
     }
 
     public enum Model {

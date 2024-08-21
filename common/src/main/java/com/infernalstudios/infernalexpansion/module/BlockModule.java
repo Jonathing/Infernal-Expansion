@@ -15,8 +15,8 @@ public class BlockModule {
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
-       BlockDataHolder.Builder.of(Block::new, BlockBehaviour.Properties.copy(Blocks.SAND)).build()
-    ).withModel(BlockDataHolder.Model.CUBE).withItem());
+       new Block(BlockBehaviour.Properties.copy(Blocks.SAND))
+    ).withTranslation("Shimmer Sand").withModel(BlockDataHolder.Model.CUBE).withItem());
 
     public static BlockDataHolder<?> register(String name, BlockDataHolder<?> blockDataHolder) {
         ResourceLocation id = InfernalExpansionCommon.id(name);

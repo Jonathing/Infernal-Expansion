@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexpansion.datagen;
 
 import com.infernalstudios.infernalexpansion.module.BlockModule;
+import com.infernalstudios.infernalexpansion.module.CreativeTabModule;
 import com.infernalstudios.infernalexpansion.module.ItemModule;
 import com.infernalstudios.infernalexpansion.registration.BlockDataHolder;
 import com.infernalstudios.infernalexpansion.registration.ItemDataHolder;
@@ -8,6 +9,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -25,6 +27,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(IEItemTagProvider::new);
         pack.addProvider(IEBlockLootTableProvider::new);
         pack.addProvider(IEBlockModelProvider::new);
+        pack.addProvider(IELangProvider::new);
     }
 
     private static class IEBlockTagProvider extends FabricTagProvider.BlockTagProvider {
@@ -104,6 +107,32 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
                 if (itemDataHolder.hasModel()) {
                     generator.generateFlatItem(itemDataHolder.get(), itemDataHolder.getModel());
+                }
+            }
+        }
+    }
+
+    private static class IELangProvider extends FabricLanguageProvider {
+
+        protected IELangProvider(FabricDataOutput dataOutput) {
+            super(dataOutput);
+        }
+
+        @Override
+        public void generateTranslations(TranslationBuilder builder) {
+            // Put manually added entries here
+            builder.add(CreativeTabModule.INFERNAL_EXPANSION_TAB.getResourceKey(), "Infernal Expansion");
+
+            // This handles all supplied block and item entries automatically
+            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+                if (blockDataHolder.hasTranslation()) {
+                    builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
+                }
+            }
+
+            for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
+                if (itemDataHolder.hasTranslation()) {
+                    builder.add(itemDataHolder.get(), itemDataHolder.getTranslation());
                 }
             }
         }
