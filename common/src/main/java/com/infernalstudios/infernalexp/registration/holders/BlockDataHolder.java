@@ -8,6 +8,7 @@ import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FenceBlock;
@@ -17,6 +18,8 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +41,8 @@ public class BlockDataHolder<T extends Block> {
     private Block strippingResult;
     private int fuelDuration;
     private final Map<Model, BlockDataHolder<?>> BLOCKSETS = new HashMap<>();
+    private Supplier<ItemLike> drop;
+    private NumberProvider dropCount;
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -199,6 +204,42 @@ public class BlockDataHolder<T extends Block> {
 
     public Map<Model, BlockDataHolder<?>> getBlocksets() {
         return this.BLOCKSETS;
+    }
+
+    public Supplier<ItemLike> getDrop() {
+        return this.drop;
+    }
+
+    public NumberProvider getDropCount() {
+        return this.dropCount;
+    }
+
+    public BlockDataHolder<?> dropsSelf() {
+        this.drop = this::get;
+        this.dropCount = ConstantValue.exactly(1);
+        return this;
+    }
+
+    public BlockDataHolder<?> dropsSelf(int count) {
+        this.drop = this::get;
+        this.dropCount = ConstantValue.exactly(count);
+        return this;
+    }
+
+    public final BlockDataHolder<?> dropsOther(Supplier<ItemLike> drop) {
+        this.drop = drop;
+        this.dropCount = ConstantValue.exactly(1);
+        return this;
+    }
+
+    public final BlockDataHolder<?> dropsOther(Supplier<ItemLike> drop, int count) {
+        this.drop = drop;
+        this.dropCount = ConstantValue.exactly(count);
+        return this;
+    }
+
+    public boolean hasDrop() {
+        return this.drop != null;
     }
 
     public BlockDataHolder<?> withStairs() {

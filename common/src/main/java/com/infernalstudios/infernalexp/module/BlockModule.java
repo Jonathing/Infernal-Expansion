@@ -5,7 +5,10 @@ import com.infernalstudios.infernalexp.block.LayerBlock;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.SandBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
@@ -53,7 +56,6 @@ public class BlockModule {
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Glowlight Glass")
     );
-
 
     public static final BlockBehaviour.Properties shimmerstone = BlockBehaviour.Properties.copy(Blocks.STONE)
             .mapColor(MapColor.COLOR_YELLOW);

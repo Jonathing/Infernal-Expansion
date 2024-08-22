@@ -129,7 +129,23 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     }
                 }
 
-                add(blockDataHolder.get(), createSingleItemTable(blockDataHolder.get()));
+                if (blockDataHolder.hasDrop()) {
+                    add(blockDataHolder.get(), createSingleItemTable(blockDataHolder.getDrop().get(), blockDataHolder.getDropCount()));
+                }
+
+                for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> entry : blockDataHolder.getBlocksets().entrySet()) {
+                    switch (entry.getKey()) {
+                        case SLAB -> {
+                            add(entry.getValue().get(), createSlabItemTable(entry.getValue().get()));
+                        }
+                        case DOOR -> {
+                            add(entry.getValue().get(), createDoorTable(entry.getValue().get()));
+                        }
+                        default -> {
+                            add(entry.getValue().get(), createSingleItemTable(entry.getValue().get()));
+                        }
+                    }
+                }
             }
         }
     }
