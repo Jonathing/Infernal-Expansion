@@ -1,11 +1,13 @@
 package com.infernalstudios.infernalexp.module;
 
 import com.infernalstudios.infernalexp.IECommon;
+import com.infernalstudios.infernalexp.block.LayerBlock;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,9 +31,47 @@ public class BlockModule {
 
 
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
-                    new Block(BlockBehaviour.Properties.copy(Blocks.SAND)))
+                    new SandBlock(0xffffaa, BlockBehaviour.Properties.copy(Blocks.SAND)))
             .withModel(BlockDataHolder.Model.ROTATABLE)
             .withItem()
+            .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
             .withTranslation("Shimmer Sand")
+    );
+
+    public static final BlockDataHolder<?> SHIMMER_SHEET = register("shimmer_sheet", BlockDataHolder.of(() ->
+                    new LayerBlock(BlockBehaviour.Properties.copy(Blocks.SAND)))
+            .withItem()
+            .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
+            .withTranslation("Shimmer Sheet")
+    );
+
+    public static final BlockDataHolder<?> GLOWLIGHT_GLASS = register("glowlight_glass", BlockDataHolder.of(() ->
+                    new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).noOcclusion()))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .cutout()
+            .withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Glowlight Glass")
+    );
+
+
+    public static final BlockBehaviour.Properties shimmerstone = BlockBehaviour.Properties.copy(Blocks.STONE)
+            .mapColor(MapColor.COLOR_YELLOW);
+
+    public static final BlockDataHolder<?> SHIMMER_STONE = register("shimmer_stone", BlockDataHolder.of(() ->
+                    new Block(shimmerstone))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Shimmer Stone")
+    );
+
+    public static final BlockDataHolder<?> SHIMMER_STONE_BRICKS = register("shimmer_stone_bricks", BlockDataHolder.of(() ->
+                    new Block(shimmerstone))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Shimmer Stone Bricks")
+            .withStairs().withSlab()
     );
 }

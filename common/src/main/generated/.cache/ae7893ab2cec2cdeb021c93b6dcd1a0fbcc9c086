@@ -1,2 +1,6 @@
-// 1.20.1	2024-08-22T18:18:20.6858295	Infernal Expansion/Block Loot Tables
+// 1.20.1	2024-08-22T18:41:41.0916723	Infernal Expansion/Block Loot Tables
+fb223a71f23c9571e63aa3017f63237dd50d48a4 data\infernalexp\loot_tables\blocks\glowlight_glass.json
+5b72a2949b69300bff9a32e786e8b96f2d7deba8 data\infernalexp\loot_tables\blocks\shimmer_stone.json
+f58a1ded24373280a4ac0378d6baf7f20e38477f data\infernalexp\loot_tables\blocks\shimmer_sheet.json
+d564b9677a2f1c3dfd3170afdd0848b7d8bcab7f data\infernalexp\loot_tables\blocks\shimmer_stone_bricks.json
 71c9cd3fd3f16cb568684111b4d4e09dd93723fd data\infernalexp\loot_tables\blocks\shimmer_sand.json

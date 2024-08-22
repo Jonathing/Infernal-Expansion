@@ -1,5 +1,11 @@
 {
+  "block.infernalexp.glowlight_glass": "Glowlight Glass",
   "block.infernalexp.shimmer_sand": "Shimmer Sand",
+  "block.infernalexp.shimmer_sheet": "Shimmer Sheet",
+  "block.infernalexp.shimmer_stone": "Shimmer Stone",
+  "block.infernalexp.shimmer_stone_bricks": "Shimmer Stone Bricks",
+  "block.infernalexp.shimmer_stone_bricks_slab": "Shimmer Stone Bricks Slab",
+  "block.infernalexp.shimmer_stone_bricks_stairs": "Shimmer Stone Bricks Stairs",
   "item.infernalexp.tab_icon": "Infernal Expansion",
   "itemgroup.infernalexp": "Infernal Expansion"
 }

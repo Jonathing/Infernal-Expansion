@@ -20,7 +20,15 @@ public class CreativeTabModule {
             .title(Component.translatable("itemgroup.infernalexp"))
             .icon(() -> new ItemStack(ItemModule.TAB_ICON.get()))
             .displayItems((itemDisplayParameters, entries) -> {
+
                 entries.accept(BlockModule.SHIMMER_SAND.get());
+                entries.accept(BlockModule.SHIMMER_SHEET.get());
+
+                entries.accept(BlockModule.SHIMMER_STONE.get());
+                entries.accept(BlockModule.SHIMMER_STONE_BRICKS.get());
+                entries.accept(BlockModule.SHIMMER_STONE_BRICKS.getStairs().get());
+                entries.accept(BlockModule.SHIMMER_STONE_BRICKS.getSlab().get());
+
             })
             .build());
 
