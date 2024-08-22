@@ -19,7 +19,7 @@ dependencies {
 
 fabricApi {
     configureDataGeneration {
-        modId = "infernalexpansion"
+        modId = "infernalexp"
         outputDirectory = file("${project(':common').projectDir.path}/src/main/generated")
     }
 }

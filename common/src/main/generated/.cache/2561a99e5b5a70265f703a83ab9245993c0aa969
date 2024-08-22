@@ -1,4 +1,5 @@
-// 1.20.1	2024-08-21T19:27:51.4992259	Infernal Expansion/Model Definitions
-4530f93600df955fdb3f25644b2e93be08900137 assets\infernalexpansion\models\item\shimmer_sand.json
-194b1c1adc489896032ca90f52327f787abff312 assets\infernalexpansion\blockstates\shimmer_sand.json
-e91c7a6d4b1edecafbf925bf2b7617d1d60c4198 assets\infernalexpansion\models\block\shimmer_sand.json
+// 1.20.1	2024-08-22T18:18:20.6848324	Infernal Expansion/Model Definitions
+de81855ed2ec16d54c477e08d1e5f0f71482b204 assets\infernalexp\blockstates\shimmer_sand.json
+61465fc778ce11c08c154bd9196f78ca48482f77 assets\infernalexp\models\item\tab_icon.json
+178d26af271d93203f2725b231398ced86438e2c assets\infernalexp\models\block\shimmer_sand.json
+202b42439bdf1957c056f8ce9fa2d2d0b1ebd343 assets\infernalexp\models\item\shimmer_sand.json

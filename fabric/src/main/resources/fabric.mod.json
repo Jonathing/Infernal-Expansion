@@ -16,13 +16,13 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-          "com.infernalstudios.infernalexpansion.InfernalExpansion"
+          "com.infernalstudios.infernalexp.InfernalExpansion"
         ],
         "client": [
-          "com.infernalstudios.infernalexpansion.client.InfernalExpansionFabricClient"
+          "com.infernalstudios.infernalexp.client.InfernalExpansionFabricClient"
         ],
       "fabric-datagen": [
-        "com.infernalstudios.infernalexpansion.datagen.InfernalExpansionDataGenerator"
+        "com.infernalstudios.infernalexp.datagen.InfernalExpansionDataGenerator"
       ]
     },
     "mixins": [
