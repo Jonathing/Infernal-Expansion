@@ -173,7 +173,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     } else if (blockDataHolder.hasModel()) {
                         switch (blockDataHolder.getModel()) {
                             case CUBE -> generator.createTrivialCube(blockDataHolder.get());
-                            case PILLAR -> generator.woodProvider(blockDataHolder.get());
+                            case PILLAR -> {
+                                var pillar = generator.woodProvider(blockDataHolder.get());
+                                pillar.log(blockDataHolder.get());
+                            }
                             case ROTATABLE -> generator.createRotatedVariantBlock(blockDataHolder.get());
                             case CROSS -> generator.createCrossBlockWithDefaultItem(blockDataHolder.get(), BlockModelGenerators.TintState.NOT_TINTED);
                             case DOOR -> generator.createDoor(blockDataHolder.get());
