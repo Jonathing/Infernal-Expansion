@@ -1,6 +1,11 @@
 {
+  "block.infernalexp.dimstone": "Dimstone",
+  "block.infernalexp.dullstone": "Dullstone",
   "block.infernalexp.glowlight_glass": "Glowlight Glass",
   "block.infernalexp.glowlight_glass_pane": "Glowlight Glass Pane",
+  "block.infernalexp.polished_dimstone": "Polished Dimstone",
+  "block.infernalexp.polished_dullstone": "Polished Dullstone",
+  "block.infernalexp.polished_glowstone": "Polished Glowstone",
   "block.infernalexp.shimmer_sand": "Shimmer Sand",
   "block.infernalexp.shimmer_sheet": "Shimmer Sheet",
   "block.infernalexp.shimmer_stone": "Shimmer Stone",

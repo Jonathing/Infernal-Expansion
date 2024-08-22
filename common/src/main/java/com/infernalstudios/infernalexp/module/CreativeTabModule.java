@@ -23,11 +23,19 @@ public class CreativeTabModule {
 
                 entries.accept(BlockModule.SHIMMER_SAND.get());
                 entries.accept(BlockModule.SHIMMER_SHEET.get());
+                entries.accept(BlockModule.GLOWLIGHT_GLASS.get());
+                entries.accept(BlockModule.GLOWLIGHT_GLASS.getPaneBlock().get());
 
                 entries.accept(BlockModule.SHIMMER_STONE.get());
                 entries.accept(BlockModule.SHIMMER_STONE_BRICKS.get());
                 entries.accept(BlockModule.SHIMMER_STONE_BRICKS.getStairs().get());
                 entries.accept(BlockModule.SHIMMER_STONE_BRICKS.getSlab().get());
+
+                entries.accept(BlockModule.POLISHED_GLOWSTONE.get());
+                entries.accept(BlockModule.DIMSTONE.get());
+                entries.accept(BlockModule.POLISHED_DIMSTONE.get());
+                entries.accept(BlockModule.DULLSTONE.get());
+                entries.accept(BlockModule.POLISHED_DULLSTONE.get());
 
             })
             .build());

@@ -1,5 +1,13 @@
-// 1.20.1	2024-08-22T15:19:52.7115659	Infernal Expansion/Block Loot Tables
+// 1.20.1	2024-08-22T22:07:16.3487694	Infernal Expansion/Block Loot Tables
+bd53cb8c9a65fa24b1be6ffaae83f2531f6db8b9 data\infernalexp\loot_tables\blocks\shimmer_stone.json
+d3b901f2ce30dbccfe693befc706bafd1b7eede3 data\infernalexp\loot_tables\blocks\glowlight_glass_pane.json
+83664941eae0261a2c6bc769d01b8aa7855a7b5a data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_slab.json
+9c07ae546fcf850fc57a3d4556ba1a83d924c25c data\infernalexp\loot_tables\blocks\polished_glowstone.json
+56a0e4e6cea9125b51d76762073a4ba0d98a9ed7 data\infernalexp\loot_tables\blocks\dimstone.json
+b70b7bfbd9a462e0b367aa6818d3808c406672f7 data\infernalexp\loot_tables\blocks\shimmer_stone_bricks.json
+26021a4f5bced9f680ba8ec7d6f1642b3a3884a1 data\infernalexp\loot_tables\blocks\shimmer_sand.json
+b8c24d7bf1a3cced1ef8e9b51fbdeb98e6946917 data\infernalexp\loot_tables\blocks\polished_dullstone.json
 158e88dceaab768abfc04b55d0364d7e7e8cf986 data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_stairs.json
 942e8b188d3729116e018bb1a6c3bc41048f0ef3 data\infernalexp\loot_tables\blocks\glowlight_glass.json
-83664941eae0261a2c6bc769d01b8aa7855a7b5a data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_slab.json
-d3b901f2ce30dbccfe693befc706bafd1b7eede3 data\infernalexp\loot_tables\blocks\glowlight_glass_pane.json
+32308e89daf97551f4ca261f20db0778e2e39ef4 data\infernalexp\loot_tables\blocks\polished_dimstone.json
+043caa4fe4cb8bd57657d36a8a00f4322c61ce19 data\infernalexp\loot_tables\blocks\dullstone.json

@@ -37,6 +37,7 @@ public class BlockModule {
                     new SandBlock(0xffffaa, BlockBehaviour.Properties.copy(Blocks.SAND)))
             .withModel(BlockDataHolder.Model.ROTATABLE)
             .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_SHOVEL)
             .withTranslation("Shimmer Sand")
     );
@@ -64,6 +65,7 @@ public class BlockModule {
                     new Block(shimmerstone))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Shimmer Stone")
     );
@@ -72,8 +74,62 @@ public class BlockModule {
                     new Block(shimmerstone))
             .withModel(BlockDataHolder.Model.CUBE)
             .withItem()
+            .dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Shimmer Stone Bricks")
             .withStairs().withSlab()
+    );
+
+
+    public static final BlockDataHolder<?> POLISHED_GLOWSTONE = register("polished_glowstone", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE)))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Polished Glowstone")
+    );
+
+    private static final BlockBehaviour.Properties dimstone =
+            BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(1).lightLevel(a -> 6)
+                    .mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops();
+
+    public static final BlockDataHolder<?> DIMSTONE = register("dimstone", BlockDataHolder.of(() ->
+                    new Block(dimstone))
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dimstone")
+    );
+
+    public static final BlockDataHolder<?> POLISHED_DIMSTONE = register("polished_dimstone", BlockDataHolder.of(() ->
+                    new Block(dimstone))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Polished Dimstone")
+    );
+
+    private static final BlockBehaviour.Properties dullstone =
+            BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(1.7f).lightLevel(a -> 0)
+                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops();
+
+    public static final BlockDataHolder<?> DULLSTONE = register("dullstone", BlockDataHolder.of(() ->
+                    new Block(dullstone))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Dullstone")
+    );
+
+    public static final BlockDataHolder<?> POLISHED_DULLSTONE = register("polished_dullstone", BlockDataHolder.of(() ->
+                    new Block(dullstone))
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withItem()
+            .dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Polished Dullstone")
     );
 }
