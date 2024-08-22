@@ -5,6 +5,7 @@ import com.infernalstudios.infernalexp.mixin.accessor.PressurePlateBlockAccessor
 import com.infernalstudios.infernalexp.mixin.accessor.StairBlockAccessor;
 import com.infernalstudios.infernalexp.registration.FlammabilityRegistry;
 import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -245,7 +246,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withStairs() {
         BlockDataHolder<?> stairs = BlockDataHolder.of(() -> StairBlockAccessor.createStairBlock(this.get().defaultBlockState(), BlockBehaviour.Properties.copy(this.get())))
                 .withModel(Model.STAIRS)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.STAIRS);
         this.BLOCKSETS.put(Model.STAIRS, stairs);
         return this;
     }
@@ -257,7 +259,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withSlab() {
         BlockDataHolder<?> slab = BlockDataHolder.of(() -> new SlabBlock(BlockBehaviour.Properties.copy(this.get())))
                 .withModel(Model.SLAB)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.SLABS);
         this.BLOCKSETS.put(Model.SLAB, slab);
         return this;
     }
@@ -269,7 +272,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withButton(BlockSetType type, int ticksPressed, boolean arrowCanPress) {
         BlockDataHolder<?> button = BlockDataHolder.of(() -> ButtonBlockAccessor.createButtonBlock(BlockBehaviour.Properties.copy(this.get()), type, ticksPressed, arrowCanPress))
                 .withModel(Model.BUTTON)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.BUTTONS);
         this.BLOCKSETS.put(Model.BUTTON, button);
         return this;
     }
@@ -281,7 +285,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withPressurePlate(PressurePlateBlock.Sensitivity sensitivity, BlockSetType type) {
         BlockDataHolder<?> pressurePlate = BlockDataHolder.of(() -> PressurePlateBlockAccessor.createPressurePlateBlock(sensitivity, BlockBehaviour.Properties.copy(this.get()), type))
                 .withModel(Model.PRESSURE_PLATE)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.PRESSURE_PLATES);
         this.BLOCKSETS.put(Model.PRESSURE_PLATE, pressurePlate);
         return this;
     }
@@ -293,7 +298,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withFence() {
         BlockDataHolder<?> fence = BlockDataHolder.of(() -> new FenceBlock(BlockBehaviour.Properties.copy(this.get())))
                 .withModel(Model.FENCE)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.FENCES);
         this.BLOCKSETS.put(Model.FENCE, fence);
         return this;
     }
@@ -305,7 +311,8 @@ public class BlockDataHolder<T extends Block> {
     public BlockDataHolder<?> withFenceGate(WoodType woodType) {
         BlockDataHolder<?> fenceGate = BlockDataHolder.of(() -> new FenceGateBlock(BlockBehaviour.Properties.copy(this.get()), woodType))
                 .withModel(Model.FENCE_GATE)
-                .withItem();
+                .withItem()
+                .withTags(BlockTags.FENCE_GATES);
         this.BLOCKSETS.put(Model.FENCE_GATE, fenceGate);
         return this;
     }
