@@ -1,8 +1,13 @@
 {
   "block.infernalexp.dimstone": "Dimstone",
   "block.infernalexp.dullstone": "Dullstone",
+  "block.infernalexp.dullstone_button": "Dullstone Button",
+  "block.infernalexp.dullstone_pressure_plate": "Dullstone Pressure Plate",
   "block.infernalexp.glowlight_glass": "Glowlight Glass",
   "block.infernalexp.glowlight_glass_pane": "Glowlight Glass Pane",
+  "block.infernalexp.glowsilk_cocoon": "Glowsilk Cocoon",
+  "block.infernalexp.luminous_fungus": "Luminous Fungus",
+  "block.infernalexp.luminous_fungus_cap": "Luminous Fungus Cap",
   "block.infernalexp.polished_dimstone": "Polished Dimstone",
   "block.infernalexp.polished_dullstone": "Polished Dullstone",
   "block.infernalexp.polished_glowstone": "Polished Glowstone",

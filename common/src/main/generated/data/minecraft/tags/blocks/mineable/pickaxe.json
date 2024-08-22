@@ -1,13 +1,14 @@
 {
   "replace": false,
   "values": [
-    "infernalexp:glowlight_glass",
     "infernalexp:shimmer_stone",
     "infernalexp:shimmer_stone_bricks",
     "infernalexp:polished_glowstone",
     "infernalexp:dimstone",
     "infernalexp:polished_dimstone",
     "infernalexp:dullstone",
-    "infernalexp:polished_dullstone"
+    "infernalexp:polished_dullstone",
+    "infernalexp:dullstone_button",
+    "infernalexp:dullstone_pressure_plate"
   ]
 }

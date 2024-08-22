@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "is_lit=true": {
+      "model": "infernalexp:block/luminous_fungus_lit"
+    },
+    "is_lit=false": {
+      "model": "infernalexp:block/luminous_fungus"
+    }
+  }
+}
