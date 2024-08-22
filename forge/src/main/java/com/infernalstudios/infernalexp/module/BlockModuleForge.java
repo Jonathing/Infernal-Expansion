@@ -35,6 +35,21 @@ public class BlockModuleForge {
                 }
             }
 
+            // Register glass pane
+            if (entry.getValue().isGlass()) {
+                event.register(Registries.BLOCK, blockRegistryHelper ->
+                        blockRegistryHelper.register(
+                                new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_pane"),
+                                entry.getValue().getPaneBlock().get())
+                );
+
+                event.register(Registries.ITEM, itemRegistryHelper ->
+                        itemRegistryHelper.register(
+                                new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_pane"),
+                                entry.getValue().getPaneBlock().getBlockItem().get())
+                );
+            }
+
             // Register Blockset Blocks and Items
             for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> blocksetEntry : entry.getValue().getBlocksets().entrySet()) {
                 event.register(Registries.BLOCK, blockRegisterHelper ->

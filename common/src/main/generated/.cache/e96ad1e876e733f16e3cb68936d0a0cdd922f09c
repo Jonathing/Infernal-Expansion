@@ -1,3 +1,5 @@
-// 1.20.1	2024-08-22T14:14:45.9086131	Infernal Expansion/Tags for minecraft:block
+// 1.20.1	2024-08-22T15:19:52.7105657	Infernal Expansion/Tags for minecraft:block
 d1df67e70c9329e49c273e464d6f84dc979a94f6 data\minecraft\tags\blocks\mineable\pickaxe.json
 99f2665ad0df79cb2b9ed24c232c264855c486ec data\minecraft\tags\blocks\mineable\shovel.json
+c7e74cd7810c00d605e10831b25accd9f1d89902 data\minecraft\tags\blocks\stairs.json
+c334e308f810a9db1b786043ef24558a7d6bb870 data\minecraft\tags\blocks\slabs.json

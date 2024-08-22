@@ -50,7 +50,7 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> GLOWLIGHT_GLASS = register("glowlight_glass", BlockDataHolder.of(() ->
                     new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).noOcclusion()))
-            .withModel(BlockDataHolder.Model.CUBE)
+            .glass()
             .cutout()
             .withItem()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)

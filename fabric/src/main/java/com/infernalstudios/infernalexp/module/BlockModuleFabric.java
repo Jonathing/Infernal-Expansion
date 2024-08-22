@@ -27,6 +27,17 @@ public class BlockModuleFabric {
                 }
             }
 
+            // Register the pane
+            if (entry.getValue().isGlass()) {
+                Registry.register(BuiltInRegistries.BLOCK,
+                        new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_pane"),
+                        entry.getValue().getPaneBlock().get());
+
+                Registry.register(BuiltInRegistries.ITEM,
+                        new ResourceLocation(entry.getKey().getNamespace(), entry.getKey().getPath() + "_pane"),
+                        entry.getValue().getPaneBlock().getBlockItem().get());
+            }
+
             // Register Blockset Blocks and Items
             for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> blocksetEntry : entry.getValue().getBlocksets().entrySet()) {
                 Registry.register(BuiltInRegistries.BLOCK,

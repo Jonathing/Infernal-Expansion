@@ -8,6 +8,7 @@
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",
+    "accessor.IronBarsBlockAccessor",
     "accessor.PressurePlateBlockAccessor",
     "accessor.StairBlockAccessor",
     "accessor.TrapDoorBlockAccessor",

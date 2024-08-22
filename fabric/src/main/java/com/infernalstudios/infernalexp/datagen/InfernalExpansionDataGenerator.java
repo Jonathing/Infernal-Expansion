@@ -53,6 +53,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
                 }
 
+                if (blockDataHolder.isGlass()) {
+                    builder.add(blockDataHolder.getPaneBlock().get(), blockDataHolder.getTranslation() + " Pane");
+                }
+
                 for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> blocksetEntry : blockDataHolder.getBlocksets().entrySet()) {
                     if (blockDataHolder.hasTranslation()) {
                         builder.add(blocksetEntry.getValue().get(), blockDataHolder.getTranslation() + " " + blocksetEntry.getKey().getLang());
@@ -116,7 +120,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     }
                 }
 
-                if (blockDataHolder.hasModel()) {
+                if (blockDataHolder.isGlass()) {
+                    add(blockDataHolder.get(), createSilkTouchOnlyTable(blockDataHolder.get()));
+                    add(blockDataHolder.getPaneBlock().get(), createSilkTouchOnlyTable(blockDataHolder.getPaneBlock().get()));
+                } else if (blockDataHolder.hasModel()) {
                     switch (blockDataHolder.getModel()) {
                         case SLAB -> {
                             add(blockDataHolder.get(), createSlabItemTable(blockDataHolder.get()));
@@ -160,7 +167,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         public void generateBlockStateModels(BlockModelGenerators generator) {
             for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
                 if (blockDataHolder.getBlocksets().isEmpty()) {
-                    if (blockDataHolder.hasModel()) {
+
+                    if (blockDataHolder.isGlass()) {
+                        generator.createGlassBlocks(blockDataHolder.get(), blockDataHolder.getPaneBlock().get());
+                    } else if (blockDataHolder.hasModel()) {
                         switch (blockDataHolder.getModel()) {
                             case CUBE -> generator.createTrivialCube(blockDataHolder.get());
                             case PILLAR -> generator.woodProvider(blockDataHolder.get());

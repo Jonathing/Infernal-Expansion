@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexp.registration.holders;
 
 import com.infernalstudios.infernalexp.mixin.accessor.ButtonBlockAccessor;
+import com.infernalstudios.infernalexp.mixin.accessor.IronBarsBlockAccessor;
 import com.infernalstudios.infernalexp.mixin.accessor.PressurePlateBlockAccessor;
 import com.infernalstudios.infernalexp.mixin.accessor.StairBlockAccessor;
 import com.infernalstudios.infernalexp.registration.FlammabilityRegistry;
@@ -8,6 +9,7 @@ import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -16,6 +18,7 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -44,6 +47,8 @@ public class BlockDataHolder<T extends Block> {
     private final Map<Model, BlockDataHolder<?>> BLOCKSETS = new HashMap<>();
     private Supplier<ItemLike> drop;
     private NumberProvider dropCount;
+    private boolean isGlass;
+    private BlockDataHolder<?> paneBlock;
 
     public BlockDataHolder(Supplier<T> entrySupplier) {
         this.entrySupplier = entrySupplier;
@@ -184,6 +189,33 @@ public class BlockDataHolder<T extends Block> {
 
     public static List<BlockDataHolder<?>> getCutoutBlocks() {
         return CUTOUT_BLOCKS;
+    }
+
+    /**
+     * Makes this a glass block with a glass pane
+     */
+    public BlockDataHolder<?> glass() {
+        this.isGlass = true;
+        this.paneBlock = BlockDataHolder.of(() -> IronBarsBlockAccessor.createIronBarsBlock(BlockBehaviour.Properties.copy(this.get()))).cutout().withItem();
+        return this;
+    }
+
+    /**
+     * Makes this a colored glass block with a glass pane
+     * @param dye DyeColor to make the pane
+     */
+    public BlockDataHolder<?> glass(DyeColor dye) {
+        this.isGlass = true;
+        this.paneBlock = BlockDataHolder.of(() -> new StainedGlassPaneBlock(dye, BlockBehaviour.Properties.copy(this.get()))).cutout().withItem();
+        return this;
+    }
+
+    public boolean isGlass() {
+        return this.isGlass;
+    }
+
+    public BlockDataHolder<?> getPaneBlock() {
+        return this.paneBlock;
     }
 
     /**
