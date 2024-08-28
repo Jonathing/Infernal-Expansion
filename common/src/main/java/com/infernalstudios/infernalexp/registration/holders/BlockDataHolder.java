@@ -273,6 +273,12 @@ public class BlockDataHolder<T extends Block> {
         return this;
     }
 
+    public final BlockDataHolder<?> dropsOther(Supplier<ItemLike> drop, NumberProvider count) {
+        this.drop = drop;
+        this.dropCount = count;
+        return this;
+    }
+
     public BlockDataHolder<?> dropsWithSilk() {
         this.drop = this::get;
         this.dropCount = null;
