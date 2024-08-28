@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dullstone": {
+    "has_dullthorns": {
       "conditions": {
         "items": [
           {
             "items": [
-              "infernalexp:dullstone"
+              "infernalexp:dullthorns"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "infernalexp:dullrocks"
+        "recipe": "infernalexp:dullthorns_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dullstone",
+      "has_dullthorns",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "infernalexp:dullrocks"
+      "infernalexp:dullthorns_block"
     ]
   },
   "sends_telemetry_event": false

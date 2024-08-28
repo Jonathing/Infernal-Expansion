@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
@@ -20,8 +21,10 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.providers.number.LootNumberProviderType;
 
 import java.util.List;
@@ -48,29 +51,87 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             super(output);
         }
 
-        public static void tilesRecipe(Consumer<FinishedRecipe> exporter, ItemLike result,
-                                        ItemLike a, ItemLike b, String name) {
-            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result)
+        private static String getName(ItemLike item) {
+            return BuiltInRegistries.ITEM.getKey(item.asItem()).getPath();
+        }
+
+        private static void offerTilesRecipe(Consumer<FinishedRecipe> exporter, ItemLike result, int count,
+                                            ItemLike a, ItemLike b) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count)
                     .pattern("AB")
                     .pattern("BA")
                     .define('A', a)
                     .define('B', b)
                     .unlockedBy(getHasName(a), has(a))
                     .unlockedBy(getHasName(b), has(b))
-                    .group(name).save(exporter, IECommon.id(name));
+                    .group(getName(result))
+                    .save(exporter, IECommon.id(getName(result)));
+        }
+
+        private static void offer2x2Recipe(Consumer<FinishedRecipe> exporter, ItemLike result, int count,
+                                            ItemLike a) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count)
+                    .pattern("##")
+                    .pattern("##")
+                    .define('#', a)
+                    .unlockedBy(getHasName(a), has(a))
+                    .group(getName(result))
+                    .save(exporter, IECommon.id(getName(result)));
         }
 
         @Override
         public void buildRecipes(Consumer<FinishedRecipe> exporter) {
+            for (BlockDataHolder<?> block : BlockModule.getBlockRegistry().values()) {
+                if (block.getStairs() != null) {
+                    stairBuilder(block.getStairs().get(), Ingredient.of(block.get()))
+                            .group(getName(block.getStairs().get()))
+                            .unlockedBy(getHasName(block.get()), has(block.get()))
+                            .save(exporter, IECommon.id(getName(block.getStairs().get())));
+                }
+                if (block.getSlab() != null) {
+                    slabBuilder(RecipeCategory.BUILDING_BLOCKS, block.getSlab().get(), Ingredient.of(block.get()))
+                            .group(getName(block.getSlab().get()))
+                            .unlockedBy(getHasName(block.get()), has(block.get()))
+                            .save(exporter, IECommon.id(getName(block.getSlab().get())));
+                }
+                if (block.getPaneBlock() != null) {
+                    ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, block.getPaneBlock().get(), 16)
+                            .pattern("###")
+                            .pattern("###")
+                            .define('#', block.get())
+                            .group(getName(block.getPaneBlock().get()))
+                            .unlockedBy("has_glass", has(block.get()))
+                            .save(exporter, IECommon.id(getName(block.getPaneBlock().get())));
+                }
+            }
+
+
             ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BlockModule.SHIMMER_SHEET.get(), 6)
-                    .pattern("SSS")
-                    .define('S', BlockModule.SHIMMER_SAND.get())
+                    .pattern("###")
+                    .define('#', BlockModule.SHIMMER_SAND.get())
                     .unlockedBy(getHasName(BlockModule.SHIMMER_SAND.get()), has(BlockModule.SHIMMER_SAND.get()))
                     .group("shimmer_sheet").save(exporter, IECommon.id("shimmer_sheet"));
 
-            twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, ItemModule.DULLROCKS.get(), BlockModule.DULLSTONE.get());
+            offer2x2Recipe(exporter, BlockModule.SHIMMER_STONE_BRICKS.get(), 4, BlockModule.SHIMMER_SAND.get());
 
-            tilesRecipe(exporter, BlockModule.DIMSTONE.get(), ItemModule.DULLROCKS.get(), Items.GLOWSTONE_DUST, "dimstone");
+            buttonBuilder(BlockModule.DULLSTONE_BUTTON.get(), Ingredient.of(BlockModule.POLISHED_DULLSTONE.get()))
+                    .group(getName(BlockModule.DULLSTONE_BUTTON.get()))
+                    .unlockedBy(getHasName(BlockModule.POLISHED_DULLSTONE.get()), has(BlockModule.POLISHED_DULLSTONE.get()))
+                    .save(exporter, IECommon.id(getName(BlockModule.DULLSTONE_BUTTON.get())));
+            pressurePlateBuilder(RecipeCategory.REDSTONE, BlockModule.DULLSTONE_PRESSURE_PLATE.get(), Ingredient.of(BlockModule.POLISHED_DULLSTONE.get()))
+                    .group(getName(BlockModule.DULLSTONE_PRESSURE_PLATE.get()))
+                    .unlockedBy(getHasName(BlockModule.POLISHED_DULLSTONE.get()), has(BlockModule.POLISHED_DULLSTONE.get()))
+                    .save(exporter, IECommon.id(getName(BlockModule.DULLSTONE_PRESSURE_PLATE.get())));
+
+            offer2x2Recipe(exporter, BlockModule.POLISHED_GLOWSTONE.get(), 4, Blocks.GLOWSTONE);
+
+            offerTilesRecipe(exporter, BlockModule.DIMSTONE.get(), 1, ItemModule.DULLROCKS.get(), Items.GLOWSTONE_DUST);
+            offer2x2Recipe(exporter, BlockModule.POLISHED_DIMSTONE.get(), 4, BlockModule.DIMSTONE.get());
+
+            offer2x2Recipe(exporter, BlockModule.DULLSTONE.get(), 1, ItemModule.DULLROCKS.get());
+            offer2x2Recipe(exporter, BlockModule.POLISHED_DULLSTONE.get(), 4, BlockModule.DULLSTONE.get());
+
+            offer2x2Recipe(exporter, BlockModule.DULLTHORNS_BLOCK.get(), 1, BlockModule.DULLTHORNS.get());
         }
     }
 

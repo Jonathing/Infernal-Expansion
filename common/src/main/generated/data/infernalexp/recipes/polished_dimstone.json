@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "shimmer_sheet",
+  "group": "polished_dimstone",
   "key": {
     "#": {
-      "item": "infernalexp:shimmer_sand"
+      "item": "infernalexp:dimstone"
     }
   },
   "pattern": [
-    "###"
+    "##",
+    "##"
   ],
   "result": {
-    "count": 6,
-    "item": "infernalexp:shimmer_sheet"
+    "count": 4,
+    "item": "infernalexp:polished_dimstone"
   },
   "show_notification": true
 }

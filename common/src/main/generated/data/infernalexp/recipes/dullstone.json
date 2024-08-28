@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "shimmer_sheet",
+  "group": "dullstone",
   "key": {
     "#": {
-      "item": "infernalexp:shimmer_sand"
+      "item": "infernalexp:dullrocks"
     }
   },
   "pattern": [
-    "###"
+    "##",
+    "##"
   ],
   "result": {
-    "count": 6,
-    "item": "infernalexp:shimmer_sheet"
+    "item": "infernalexp:dullstone"
   },
   "show_notification": true
 }

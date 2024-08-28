@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "shimmer_sheet",
+  "group": "dullthorns_block",
   "key": {
     "#": {
-      "item": "infernalexp:shimmer_sand"
+      "item": "infernalexp:dullthorns"
     }
   },
   "pattern": [
-    "###"
+    "##",
+    "##"
   ],
   "result": {
-    "count": 6,
-    "item": "infernalexp:shimmer_sheet"
+    "item": "infernalexp:dullthorns_block"
   },
   "show_notification": true
 }
