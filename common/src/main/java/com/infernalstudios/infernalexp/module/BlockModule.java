@@ -65,9 +65,9 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> SHIMMER_STONE_BRICKS = register("shimmer_stone_bricks", BlockDataHolder.of(() ->
                     new Block(shimmerstone))
+            .withStairs().withSlab()
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Shimmer Stone Bricks")
-            .withStairs().withSlab()
     );
 
 
