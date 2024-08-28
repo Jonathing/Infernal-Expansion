@@ -1,5 +1,6 @@
 package com.infernalstudios.infernalexp.datagen;
 
+import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.module.BlockModule;
 import com.infernalstudios.infernalexp.module.CreativeTabModule;
 import com.infernalstudios.infernalexp.module.ItemModule;
@@ -8,15 +9,18 @@ import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.providers.number.LootNumberProviderType;
 
@@ -24,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -35,10 +40,41 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(IEBlockLootTableProvider::new);
         pack.addProvider(IEModelProvider::new);
         pack.addProvider(IELangProvider::new);
+        pack.addProvider(IERecipeProvider::new);
+    }
+
+    private static class IERecipeProvider extends FabricRecipeProvider {
+        public IERecipeProvider(FabricDataOutput output) {
+            super(output);
+        }
+
+        public static void tilesRecipe(Consumer<FinishedRecipe> exporter, ItemLike result,
+                                        ItemLike a, ItemLike b, String name) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result)
+                    .pattern("AB")
+                    .pattern("BA")
+                    .define('A', a)
+                    .define('B', b)
+                    .unlockedBy(getHasName(a), has(a))
+                    .unlockedBy(getHasName(b), has(b))
+                    .group(name).save(exporter, IECommon.id(name));
+        }
+
+        @Override
+        public void buildRecipes(Consumer<FinishedRecipe> exporter) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BlockModule.SHIMMER_SHEET.get(), 6)
+                    .pattern("SSS")
+                    .define('S', BlockModule.SHIMMER_SAND.get())
+                    .unlockedBy(getHasName(BlockModule.SHIMMER_SAND.get()), has(BlockModule.SHIMMER_SAND.get()))
+                    .group("shimmer_sheet").save(exporter, IECommon.id("shimmer_sheet"));
+
+            twoByTwoPacker(exporter, RecipeCategory.BUILDING_BLOCKS, ItemModule.DULLROCKS.get(), BlockModule.DULLSTONE.get());
+
+            tilesRecipe(exporter, BlockModule.DIMSTONE.get(), ItemModule.DULLROCKS.get(), Items.GLOWSTONE_DUST, "dimstone");
+        }
     }
 
     private static class IELangProvider extends FabricLanguageProvider {
-
         protected IELangProvider(FabricDataOutput dataOutput) {
             super(dataOutput);
         }
@@ -74,7 +110,6 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
     }
 
     private static class IEBlockTagProvider extends FabricTagProvider.BlockTagProvider {
-
         public IEBlockTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
@@ -105,7 +140,6 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
     }
 
     private static class IEBlockLootTableProvider extends FabricBlockLootTableProvider {
-
         protected IEBlockLootTableProvider(FabricDataOutput dataOutput) {
             super(dataOutput);
         }
@@ -162,7 +196,6 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
     }
 
     private static class IEModelProvider extends FabricModelProvider {
-
         public IEModelProvider(FabricDataOutput output) {
             super(output);
         }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "shimmer_sheet",
+  "key": {
+    "S": {
+      "item": "infernalexp:shimmer_sand"
+    }
+  },
+  "pattern": [
+    "SSS"
+  ],
+  "result": {
+    "count": 6,
+    "item": "infernalexp:shimmer_sheet"
+  },
+  "show_notification": true
+}

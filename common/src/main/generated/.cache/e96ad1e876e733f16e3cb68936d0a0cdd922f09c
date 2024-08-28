@@ -1,9 +1,9 @@
-// 1.20.1	2024-08-28T18:08:26.517621	Infernal Expansion/Tags for minecraft:block
-749131907292914924a561c413856f046622c974 data\minecraft\tags\blocks\climbable.json
+// 1.20.1	2024-08-28T18:52:00.5671745	Infernal Expansion/Tags for minecraft:block
 9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\mineable\hoe.json
+67a75c006eda37775d33e7f946245c288244c8ea data\minecraft\tags\blocks\climbable.json
 749131907292914924a561c413856f046622c974 data\minecraft\tags\blocks\mineable\axe.json
 c334e308f810a9db1b786043ef24558a7d6bb870 data\minecraft\tags\blocks\slabs.json
-9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\needs_iron_tool.json
 c7e74cd7810c00d605e10831b25accd9f1d89902 data\minecraft\tags\blocks\stairs.json
+9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\needs_iron_tool.json
 73643f7aa61931f5e5f136b773914267e1a22766 data\minecraft\tags\blocks\mineable\pickaxe.json
 bb99f02d7d2d08d1a41652ae55fa3dd4383a57ad data\minecraft\tags\blocks\mineable\shovel.json
