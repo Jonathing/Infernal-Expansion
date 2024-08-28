@@ -12,7 +12,9 @@
     "accessor.IronBarsBlockAccessor",
     "accessor.PressurePlateBlockAccessor",
     "accessor.StairBlockAccessor",
+    "accessor.TorchBlockAccessor",
     "accessor.TrapDoorBlockAccessor",
+    "accessor.WallTorchBlockAccessor",
     "registry.AbstractFurnaceBlockEntityMixin",
     "registry.AxeItemMixin",
     "registry.FireBlockMixin"
