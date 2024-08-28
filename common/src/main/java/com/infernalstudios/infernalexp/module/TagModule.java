@@ -1,0 +1,17 @@
+package com.infernalstudios.infernalexp.module;
+
+import com.infernalstudios.infernalexp.IECommon;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
+
+public class TagModule {
+    public static class Blocks {
+        public static TagKey<Block> create(String name) {
+            return TagKey.create(Registries.BLOCK, IECommon.id(name));
+        }
+
+        public static final TagKey<Block> GLOW_FIRE_BASE_BLOCKS = create("soul_fire_base_blocks");
+    }
+}

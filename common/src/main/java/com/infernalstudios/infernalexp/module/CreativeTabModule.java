@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 
 public class CreativeTabModule {
     /**
@@ -47,6 +48,9 @@ public class CreativeTabModule {
                 entries.accept(BlockModule.LUMINOUS_FUNGUS_CAP.get());
                 entries.accept(BlockModule.DULLTHORNS.get());
                 entries.accept(BlockModule.DULLTHORNS_BLOCK.get());
+
+                entries.accept(BlockModule.GLOWLIGHT_CAMPFIRE.get());
+                entries.accept(BlockModule.GLOWLIGHT_LANTERN.get());
 
             })
             .build());
