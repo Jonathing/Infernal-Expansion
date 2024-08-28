@@ -37,4 +37,11 @@ public class ItemModule {
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Infernal Expansion")
     );
+
+
+    public static final ItemDataHolder<?> DULLROCKS = register("dullrocks", ItemDataHolder.of(() ->
+                    new Item(new Item.Properties()))
+            .withModel(ModelTemplates.FLAT_ITEM)
+            .withTranslation("Dullrocks")
+    );
 }

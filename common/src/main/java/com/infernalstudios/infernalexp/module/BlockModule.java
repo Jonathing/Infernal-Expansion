@@ -91,7 +91,7 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> DIMSTONE = register("dimstone", BlockDataHolder.of(() ->
                     new Block(dimstone))
-            .withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withItem().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Dimstone")
     );
 
@@ -117,7 +117,7 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> DULLSTONE = register("dullstone", BlockDataHolder.of(() ->
                     new Block(dullstone))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withModel(BlockDataHolder.Model.CUBE).withItem().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Dullstone")
     );
 
@@ -179,10 +179,11 @@ public class BlockModule {
             .withTags(BlockTags.CLIMBABLE, BlockTags.MINEABLE_WITH_AXE)
             .withTranslation("Dullthorns")
     );
+
     public static final BlockDataHolder<?> DULLTHORNS_BLOCK = register("dullthorns_block", BlockDataHolder.of(() ->
                     new Block(dullthorns))
             .withItem().dropsSelf()
-            .withModel(BlockDataHolder.Model.CUBE)
+            .withModel(BlockDataHolder.Model.ROTATABLE)
             .withTags(BlockTags.CLIMBABLE, BlockTags.MINEABLE_WITH_AXE)
             .withTranslation("Dullthorns Block")
     );

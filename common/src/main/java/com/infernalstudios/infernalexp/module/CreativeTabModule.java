@@ -39,6 +39,7 @@ public class CreativeTabModule {
                 entries.accept(BlockModule.POLISHED_DULLSTONE.get());
                 entries.accept(BlockModule.DULLSTONE_BUTTON.get());
                 entries.accept(BlockModule.DULLSTONE_PRESSURE_PLATE.get());
+                entries.accept(ItemModule.DULLROCKS.get());
 
                 entries.accept(BlockModule.GLOWSILK_COCOON.get());
 
