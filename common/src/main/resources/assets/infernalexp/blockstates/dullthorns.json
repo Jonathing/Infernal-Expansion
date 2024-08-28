@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "is_tip=true": {
+      "model": "infernalexp:block/dullthorns_tip"
+    },
+    "is_tip=false": {
+      "model": "infernalexp:block/dullthorns"
+    }
+  }
+}

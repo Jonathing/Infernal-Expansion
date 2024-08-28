@@ -1,5 +1,6 @@
 package com.infernalstudios.infernalexp.block;
 
+import com.infernalstudios.infernalexp.block.parent.NetherPlantBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -19,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class LuminousFungusBlock extends BushBlock {
+public class LuminousFungusBlock extends NetherPlantBlock {
     public static final BooleanProperty LIT = BooleanProperty.create("is_lit");
     public static final VoxelShape BOX = Block.box(4, 0, 4, 12, 8, 12);
 
@@ -31,11 +32,6 @@ public class LuminousFungusBlock extends BushBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(LIT);
-    }
-
-    @Override
-    public boolean mayPlaceOn(BlockState floor, BlockGetter world, BlockPos pos) {
-        return floor.isFaceSturdy(world, pos, Direction.UP);
     }
 
     @Override

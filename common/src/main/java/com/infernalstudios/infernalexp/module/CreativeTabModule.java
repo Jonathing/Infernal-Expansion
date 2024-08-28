@@ -23,6 +23,7 @@ public class CreativeTabModule {
 
                 entries.accept(BlockModule.SHIMMER_SAND.get());
                 entries.accept(BlockModule.SHIMMER_SHEET.get());
+                entries.accept(BlockModule.GLIMMER_GRAVEL.get());
                 entries.accept(BlockModule.GLOWLIGHT_GLASS.get());
                 entries.accept(BlockModule.GLOWLIGHT_GLASS.getPaneBlock().get());
 
@@ -43,6 +44,8 @@ public class CreativeTabModule {
 
                 entries.accept(BlockModule.LUMINOUS_FUNGUS.get());
                 entries.accept(BlockModule.LUMINOUS_FUNGUS_CAP.get());
+                entries.accept(BlockModule.DULLTHORNS.get());
+                entries.accept(BlockModule.DULLTHORNS_BLOCK.get());
 
             })
             .build());

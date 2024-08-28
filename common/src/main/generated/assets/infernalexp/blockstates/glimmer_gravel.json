@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "infernalexp:block/glimmer_gravel"
+      },
+      {
+        "model": "infernalexp:block/glimmer_gravel",
+        "y": 90
+      },
+      {
+        "model": "infernalexp:block/glimmer_gravel",
+        "y": 180
+      },
+      {
+        "model": "infernalexp:block/glimmer_gravel",
+        "y": 270
+      }
+    ]
+  }
+}

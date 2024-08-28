@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexp.module;
 
 import com.infernalstudios.infernalexp.IECommon;
+import com.infernalstudios.infernalexp.block.DullthornsBlock;
 import com.infernalstudios.infernalexp.block.FungusCapBlock;
 import com.infernalstudios.infernalexp.block.LayerBlock;
 import com.infernalstudios.infernalexp.block.LuminousFungusBlock;
@@ -80,7 +81,7 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> POLISHED_GLOWSTONE = register("polished_glowstone", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsWithSilk().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Polished Glowstone")
     );
 
@@ -167,4 +168,23 @@ public class BlockModule {
             .withItem().dropsSelf()
             .withTranslation("Luminous Fungus Cap")
     );
+
+    private static final BlockBehaviour.Properties dullthorns =
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(1.1f)
+                    .mapColor(MapColor.TERRACOTTA_BROWN).noCollission().noOcclusion();
+
+    public static final BlockDataHolder<?> DULLTHORNS = register("dullthorns", BlockDataHolder.of(() ->
+                    new DullthornsBlock(dullthorns))
+            .cutout().withItem().dropsSelf()
+            .withTags(BlockTags.CLIMBABLE, BlockTags.MINEABLE_WITH_AXE)
+            .withTranslation("Dullthorns")
+    );
+    public static final BlockDataHolder<?> DULLTHORNS_BLOCK = register("dullthorns_block", BlockDataHolder.of(() ->
+                    new Block(dullthorns))
+            .withItem().dropsSelf()
+            .withModel(BlockDataHolder.Model.CUBE)
+            .withTags(BlockTags.CLIMBABLE, BlockTags.MINEABLE_WITH_AXE)
+            .withTranslation("Dullthorns Block")
+    );
+
 }
