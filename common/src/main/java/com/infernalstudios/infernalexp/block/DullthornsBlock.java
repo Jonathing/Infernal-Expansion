@@ -3,7 +3,10 @@ package com.infernalstudios.infernalexp.block;
 import com.infernalstudios.infernalexp.block.parent.NetherPlantBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -16,6 +19,12 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DullthornsBlock extends NetherPlantBlock {
+    public static void applyEffect(Entity entity) {
+        if (entity instanceof LivingEntity living)
+            living.addEffect(new MobEffectInstance(MobEffects.GLOWING, 2, 0, true, false));
+        entity.hurt(entity.damageSources().cactus(), 1);
+    }
+
     public static final BooleanProperty TIP = BooleanProperty.create("is_tip");
 
     public DullthornsBlock(Properties properties) {
@@ -36,7 +45,7 @@ public class DullthornsBlock extends NetherPlantBlock {
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
         super.entityInside(state, world, pos, entity);
-        entity.hurt(entity.damageSources().cactus(), 1);
+        applyEffect(entity);
     }
 
     @Override

@@ -8,11 +8,15 @@ import com.infernalstudios.infernalexp.block.LuminousFungusBlock;
 import com.infernalstudios.infernalexp.mixin.accessor.ButtonBlockAccessor;
 import com.infernalstudios.infernalexp.mixin.accessor.PressurePlateBlockAccessor;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
@@ -175,6 +179,10 @@ public class BlockModule {
             BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(1.1f)
                     .mapColor(MapColor.TERRACOTTA_BROWN).noCollission().noOcclusion();
 
+    private static final BlockBehaviour.Properties dullthornsBlock =
+            BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).strength(0.8f)
+                    .mapColor(MapColor.TERRACOTTA_BROWN);
+
     public static final BlockDataHolder<?> DULLTHORNS = register("dullthorns", BlockDataHolder.of(() ->
                     new DullthornsBlock(dullthorns))
             .cutout().withItem().dropsSelf()
@@ -182,12 +190,17 @@ public class BlockModule {
             .withTranslation("Dullthorns")
     );
 
-    // TODO: Give it special collision properties
     public static final BlockDataHolder<?> DULLTHORNS_BLOCK = register("dullthorns_block", BlockDataHolder.of(() ->
-                    new Block(dullthorns))
+                    new Block(dullthornsBlock) {
+                        @Override
+                        public void stepOn(Level world, BlockPos pos, BlockState state, Entity entity) {
+                            super.stepOn(world, pos, state, entity);
+                            DullthornsBlock.applyEffect(entity);
+                        }
+                    })
             .withItem().dropsSelf()
             .withModel(BlockDataHolder.Model.ROTATABLE)
-            .withTags(BlockTags.CLIMBABLE, BlockTags.MINEABLE_WITH_AXE)
+            .withTags(BlockTags.MINEABLE_WITH_AXE)
             .withTranslation("Dullthorns Block")
     );
 
