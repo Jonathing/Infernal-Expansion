@@ -273,6 +273,12 @@ public class BlockDataHolder<T extends Block> {
         return this;
     }
 
+    public BlockDataHolder<?> dropsWithSilk() {
+        this.drop = this::get;
+        this.dropCount = null;
+        return this;
+    }
+
     public boolean hasDrop() {
         return this.drop != null;
     }

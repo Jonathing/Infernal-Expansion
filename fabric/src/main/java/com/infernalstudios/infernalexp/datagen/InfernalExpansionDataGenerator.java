@@ -18,6 +18,7 @@ import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.storage.loot.providers.number.LootNumberProviderType;
 
 import java.util.List;
 import java.util.Map;
@@ -137,7 +138,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                 }
 
                 if (blockDataHolder.hasDrop()) {
-                    add(blockDataHolder.get(), createSingleItemTable(blockDataHolder.getDrop().get(), blockDataHolder.getDropCount()));
+                    if (blockDataHolder.getDropCount() == null)
+                        add(blockDataHolder.get(), createSilkTouchOnlyTable(blockDataHolder.getDrop().get()));
+                    else
+                        add(blockDataHolder.get(), createSingleItemTable(blockDataHolder.getDrop().get(), blockDataHolder.getDropCount()));
                 }
 
                 for (Map.Entry<BlockDataHolder.Model, BlockDataHolder<?>> entry : blockDataHolder.getBlocksets().entrySet()) {

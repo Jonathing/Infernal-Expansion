@@ -48,6 +48,13 @@ public class BlockModule {
             .withTranslation("Shimmer Sheet")
     );
 
+    // TODO: Give it special falling properties
+    public static final BlockDataHolder<?> GLIMMER_GRAVEL = register("glimmer_gravel", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.copy(Blocks.SAND)))
+            .withModel(BlockDataHolder.Model.ROTATABLE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_SHOVEL)
+            .withTranslation("Glimmer Gravel")
+    );
+
     public static final BlockDataHolder<?> GLOWLIGHT_GLASS = register("glowlight_glass", BlockDataHolder.of(() ->
                     new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).noOcclusion()))
             .glass().cutout().withItem()
@@ -73,7 +80,7 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> POLISHED_GLOWSTONE = register("polished_glowstone", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE)))
-            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsWithSilk().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Polished Glowstone")
     );
 
