@@ -19,9 +19,6 @@ dependencies {
     compileOnly project(":common")
 
     modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${fabric_geckolib_version}"
-
-    // Runtime Sortilege
-    modLocalRuntime "maven.modrinth:sortilege:khDGMDk7"
 }
 
 fabricApi {
