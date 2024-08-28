@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -103,17 +105,17 @@ public class BlockModule {
 
     private static final BlockBehaviour.Properties dullstone =
             BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(1.7f).lightLevel(a -> 0)
-                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops();
+                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops().sound(SoundType.STONE);
 
     private static final BlockBehaviour.Properties dullstoneButton =
             BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(1.7f).noCollission()
                     .lightLevel(a -> a.getValue(ButtonBlock.POWERED) ? 15 : 0)
-                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops();
+                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops().sound(SoundType.STONE);
 
     private static final BlockBehaviour.Properties dullstonePlate =
             BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(1.7f).noCollission()
                     .lightLevel(a -> a.getValue(PressurePlateBlock.POWERED) ? 15 : 0)
-                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops();
+                    .mapColor(MapColor.TERRACOTTA_GRAY).requiresCorrectToolForDrops().sound(SoundType.STONE);
 
     public static final BlockDataHolder<?> DULLSTONE = register("dullstone", BlockDataHolder.of(() ->
                     new Block(dullstone))
@@ -180,6 +182,7 @@ public class BlockModule {
             .withTranslation("Dullthorns")
     );
 
+    // TODO: Give it special collision properties
     public static final BlockDataHolder<?> DULLTHORNS_BLOCK = register("dullthorns_block", BlockDataHolder.of(() ->
                     new Block(dullthorns))
             .withItem().dropsSelf()
