@@ -230,7 +230,7 @@ public class BlockModule {
     );
 
     public static final BlockDataHolder<?> GLOWLIGHT_CAMPFIRE = register("glowlight_campfire", BlockDataHolder.of(() ->
-                    new CampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)))
+                    new CampfireBlock(false, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)))
             .cutout()
             .withItem()
             .withTags(BlockTags.CAMPFIRES, BlockTags.MINEABLE_WITH_AXE)
