@@ -1,6 +1,5 @@
 package com.infernalstudios.infernalexp.module;
 
-import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.IEConstants;
 import com.infernalstudios.infernalexp.api.FireType;
 import net.minecraft.resources.ResourceLocation;

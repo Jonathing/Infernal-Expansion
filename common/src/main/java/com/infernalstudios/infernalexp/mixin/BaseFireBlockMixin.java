@@ -1,13 +1,11 @@
 package com.infernalstudios.infernalexp.mixin;
 
-import com.infernalstudios.infernalexp.IEConstants;
 import com.infernalstudios.infernalexp.api.FireType;
 import com.infernalstudios.infernalexp.api.FireTypeAccess;
 import com.infernalstudios.infernalexp.block.GlowlightFireBlock;
 import com.infernalstudios.infernalexp.module.BlockModule;
 import com.infernalstudios.infernalexp.module.FireTypeModule;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
