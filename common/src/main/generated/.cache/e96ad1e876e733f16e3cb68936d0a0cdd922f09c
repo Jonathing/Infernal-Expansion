@@ -1,12 +1,12 @@
-// 1.20.1	2024-08-28T23:00:55.7843765	Infernal Expansion/Tags for minecraft:block
-7d193e785df145b5c472c031b60303930777d312 data\infernalexp\tags\blocks\soul_fire_base_blocks.json
+// 1.20.1	2024-08-29T17:33:57.3920701	Infernal Expansion/Tags for minecraft:block
 9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\mineable\hoe.json
 67a75c006eda37775d33e7f946245c288244c8ea data\minecraft\tags\blocks\climbable.json
 ba91a734fd8b64efccf48c79c84f12fddb4b001d data\minecraft\tags\blocks\mineable\axe.json
 c334e308f810a9db1b786043ef24558a7d6bb870 data\minecraft\tags\blocks\slabs.json
-01a7eebc7d7e15c72d7ceba64f351be0e3789ef5 data\minecraft\tags\blocks\mineable\pickaxe.json
 c7e74cd7810c00d605e10831b25accd9f1d89902 data\minecraft\tags\blocks\stairs.json
 9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\needs_iron_tool.json
-a5b604eef2a744d7be1a37b8d93d93b6874d4147 data\minecraft\tags\blocks\campfires.json
+e6c804563ce34b199a09df991e1fb1b907c275f0 data\minecraft\tags\blocks\mineable\pickaxe.json
 7284575de017e3489918abfe77a8e63c0e95cfe8 data\minecraft\tags\blocks\fire.json
+a5b604eef2a744d7be1a37b8d93d93b6874d4147 data\minecraft\tags\blocks\campfires.json
 bb99f02d7d2d08d1a41652ae55fa3dd4383a57ad data\minecraft\tags\blocks\mineable\shovel.json
+d923aef3ed1b3be564cc1070d631dd94746f5b0f data\infernalexp\tags\blocks\glowlight_fire_base_blocks.json

@@ -53,6 +53,5 @@ public class ItemModule {
                     new StandingAndWallBlockItem(BlockModule.GLOWLIGHT_TORCH.get(), BlockModule.GLOWLIGHT_WALL_TORCH.get(),
                             new Item.Properties(), Direction.DOWN))
             .withModel(ModelTemplates.FLAT_ITEM)
-            .withTranslation("Glowlight Torch")
     );
 }

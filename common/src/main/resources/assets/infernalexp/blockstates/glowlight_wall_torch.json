@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "infernalexp:block/glowlight_wall_torch"
+    },
+    "facing=north": {
+      "model": "infernalexp:block/glowlight_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "infernalexp:block/glowlight_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "infernalexp:block/glowlight_wall_torch",
+      "y": 180
+    }
+  }
+}
