@@ -1,9 +1,6 @@
 package com.infernalstudios.infernalexp;
 
-import com.infernalstudios.infernalexp.module.BlockModule;
-import com.infernalstudios.infernalexp.module.CreativeTabModule;
-import com.infernalstudios.infernalexp.module.EntityTypeModule;
-import com.infernalstudios.infernalexp.module.ItemModule;
+import com.infernalstudios.infernalexp.module.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class IECommon {
@@ -11,6 +8,9 @@ public class IECommon {
     public static void init() {
         BlockModule.load();
         ItemModule.load();
+
+        FireTypeModule.load();
+
         EntityTypeModule.load();
         CreativeTabModule.load();
     }

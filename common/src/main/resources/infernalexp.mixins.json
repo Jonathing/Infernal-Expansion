@@ -7,6 +7,7 @@
   "mixins": [
     "BaseFireBlockMixin",
     "BlockEntityTypeMixin",
+    "EntityMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",
@@ -21,6 +22,8 @@
     "registry.FireBlockMixin"
   ],
   "client": [
+    "client.EntityRendererDispatcherMixin",
+    "client.ScreenEffectRendererMixin"
   ],
   "server": [
   ],
