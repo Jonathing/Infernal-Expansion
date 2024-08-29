@@ -49,6 +49,7 @@ public class CreativeTabModule {
                 entries.accept(BlockModule.DULLTHORNS.get());
                 entries.accept(BlockModule.DULLTHORNS_BLOCK.get());
 
+                entries.accept(ItemModule.GLOWLIGHT_TORCH.get());
                 entries.accept(BlockModule.GLOWLIGHT_CAMPFIRE.get());
                 entries.accept(BlockModule.GLOWLIGHT_LANTERN.get());
 

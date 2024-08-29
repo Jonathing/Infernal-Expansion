@@ -4,8 +4,11 @@ import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.block.*;
 import com.infernalstudios.infernalexp.mixin.accessor.ButtonBlockAccessor;
 import com.infernalstudios.infernalexp.mixin.accessor.PressurePlateBlockAccessor;
+import com.infernalstudios.infernalexp.mixin.accessor.TorchBlockAccessor;
+import com.infernalstudios.infernalexp.mixin.accessor.WallTorchBlockAccessor;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
@@ -213,6 +216,18 @@ public class BlockModule {
             .cutout()
             .withTags(BlockTags.FIRE)
             .withTranslation("Glowlight Fire")
+    );
+
+    public static final BlockDataHolder<?> GLOWLIGHT_TORCH = register("glowlight_torch", BlockDataHolder.of(() ->
+                    TorchBlockAccessor.createTorchBlock(BlockBehaviour.Properties.copy(Blocks.FIRE), ParticleTypes.ELECTRIC_SPARK))
+            .cutout()
+            .withTranslation("Glowlight Torch")
+    );
+
+    public static final BlockDataHolder<?> GLOWLIGHT_WALL_TORCH = register("glowlight_wall_torch", BlockDataHolder.of(() ->
+                    WallTorchBlockAccessor.createWallTorchBlock(BlockBehaviour.Properties.copy(Blocks.FIRE), ParticleTypes.ELECTRIC_SPARK))
+            .cutout()
+            .withTranslation("Glowlight Torch")
     );
 
     public static final BlockDataHolder<?> GLOWLIGHT_CAMPFIRE = register("glowlight_campfire", BlockDataHolder.of(() ->

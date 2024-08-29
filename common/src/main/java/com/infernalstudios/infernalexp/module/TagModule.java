@@ -12,6 +12,6 @@ public class TagModule {
             return TagKey.create(Registries.BLOCK, IECommon.id(name));
         }
 
-        public static final TagKey<Block> GLOW_FIRE_BASE_BLOCKS = create("soul_fire_base_blocks");
+        public static final TagKey<Block> GLOW_FIRE_BASE_BLOCKS = create("glowlight_fire_base_blocks");
     }
 }

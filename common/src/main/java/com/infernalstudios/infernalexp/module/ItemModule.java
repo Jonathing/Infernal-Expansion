@@ -3,10 +3,14 @@ package com.infernalstudios.infernalexp.module;
 import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
+import net.minecraft.core.Direction;
 import net.minecraft.data.models.model.ModelTemplate;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -43,5 +47,12 @@ public class ItemModule {
                     new Item(new Item.Properties()))
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Dullrocks")
+    );
+
+    public static final ItemDataHolder<?> GLOWLIGHT_TORCH = register("glowlight_torch", ItemDataHolder.of(() ->
+                    new StandingAndWallBlockItem(BlockModule.GLOWLIGHT_TORCH.get(), BlockModule.GLOWLIGHT_WALL_TORCH.get(),
+                            new Item.Properties(), Direction.DOWN))
+            .withModel(ModelTemplates.FLAT_ITEM)
+            .withTranslation("Glowlight Torch")
     );
 }
