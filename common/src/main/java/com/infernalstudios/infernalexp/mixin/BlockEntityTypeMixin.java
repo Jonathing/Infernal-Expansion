@@ -1,25 +1,18 @@
 package com.infernalstudios.infernalexp.mixin;
 
 import com.infernalstudios.infernalexp.module.BlockModule;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-@Mixin(BlockEntityType.Builder.class)
+@Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
-    @SuppressWarnings("all")
-    @ModifyArg(method = "of", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableSet;copyOf([Ljava/lang/Object;)Lcom/google/common/collect/ImmutableSet;"),
-            index = 0, remap = false)
-    private static <E> E[] registerCampfires(E[] elements) {
-        List<E> blocks = new ArrayList<>(Arrays.stream(elements).toList());
-        if (blocks.contains(Blocks.CAMPFIRE) && blocks.contains(Blocks.SOUL_CAMPFIRE))
-            blocks.add((E) BlockModule.GLOWLIGHT_CAMPFIRE.get());
-        return (E[]) blocks.toArray();
+    @Inject(method = "isValid", at = @At("HEAD"), cancellable = true)
+    public void registerCampfires(BlockState state, CallbackInfoReturnable<Boolean> cir) {
+        if (((BlockEntityType) (Object) this) == BlockEntityType.CAMPFIRE && state.is(BlockModule.GLOWLIGHT_CAMPFIRE.get()))
+            cir.setReturnValue(true);
     }
 }
