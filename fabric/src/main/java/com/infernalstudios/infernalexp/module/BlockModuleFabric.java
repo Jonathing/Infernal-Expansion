@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class BlockModuleFabric {
     public static void registerBlocks() {
-        for (Map.Entry<ResourceLocation, BlockDataHolder<?>> entry : BlockModule.getBlockRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, BlockDataHolder<?>> entry : ModBlocks.getBlockRegistry().entrySet()) {
             // Register block
             Registry.register(BuiltInRegistries.BLOCK, entry.getKey(), entry.getValue().get());
 

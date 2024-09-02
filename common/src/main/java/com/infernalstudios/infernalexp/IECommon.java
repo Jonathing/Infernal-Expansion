@@ -6,13 +6,13 @@ import net.minecraft.resources.ResourceLocation;
 public class IECommon {
 
     public static void init() {
-        BlockModule.load();
-        ItemModule.load();
+        ModBlocks.load();
+        ModItems.load();
 
-        FireTypeModule.load();
+        ModFireTypes.load();
 
-        EntityTypeModule.load();
-        CreativeTabModule.load();
+        ModEntityTypes.load();
+        ModCreativeTabs.load();
     }
 
     public static ResourceLocation id(String name) {

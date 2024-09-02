@@ -5,7 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
-public class TagModule {
+public class ModTags {
     public static class Blocks {
         public static TagKey<Block> create(String name) {
             return TagKey.create(Registries.BLOCK, IECommon.id(name));

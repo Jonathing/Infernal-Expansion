@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexp.client;
 
-import com.infernalstudios.infernalexp.module.EntityRendererModule;
+import com.infernalstudios.infernalexp.module.ModEntityRenderers;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.EntityTypeDataHolder;
 import net.fabricmc.api.ClientModInitializer;
@@ -14,13 +14,13 @@ import java.util.Map;
 public class InfernalExpansionFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        InfernalExpansionCommonClient.init();
+        IECommonClient.init();
         registerEntityRenderers();
         registerBlockRenderTypes();
     }
 
     private void registerEntityRenderers() {
-        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : EntityRendererModule.getEntityRendererRegistry().entrySet()) {
+        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : ModEntityRenderers.getEntityRendererRegistry().entrySet()) {
             // Register entity renderers
             EntityRendererRegistry.register(entry.getKey().get(), entry.getValue());
         }

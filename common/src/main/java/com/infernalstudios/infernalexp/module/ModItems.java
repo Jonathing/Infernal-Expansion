@@ -11,7 +11,7 @@ import net.minecraft.world.item.StandingAndWallBlockItem;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ItemModule {
+public class ModItems {
     /** Map of all Item Resource Locations to their ItemDataHolders. */
     private static final Map<ResourceLocation, ItemDataHolder<?>> ITEM_REGISTRY = new HashMap<>();
 
@@ -43,7 +43,7 @@ public class ItemModule {
     );
 
     public static final ItemDataHolder<?> GLOWLIGHT_TORCH = register("glowlight_torch", ItemDataHolder.of(() ->
-                    new StandingAndWallBlockItem(BlockModule.GLOWLIGHT_TORCH.get(), BlockModule.GLOWLIGHT_WALL_TORCH.get(),
+                    new StandingAndWallBlockItem(ModBlocks.GLOWLIGHT_TORCH.get(), ModBlocks.GLOWLIGHT_WALL_TORCH.get(),
                             new Item.Properties(), Direction.DOWN))
             .withModel(ModelTemplates.FLAT_ITEM)
     );

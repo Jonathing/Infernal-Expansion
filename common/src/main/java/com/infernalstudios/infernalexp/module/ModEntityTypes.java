@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EntityTypeModule {
+public class ModEntityTypes {
     /** Map of all EntityType Resource Locations to their EntityTypeDataHolders. */
     private static final Map<ResourceLocation, EntityTypeDataHolder> ENTITY_TYPE_REGISTRY = new HashMap<>();
 

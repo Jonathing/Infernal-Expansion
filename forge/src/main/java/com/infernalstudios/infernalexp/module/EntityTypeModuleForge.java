@@ -17,7 +17,7 @@ public class EntityTypeModuleForge {
 
     @SubscribeEvent
     public static void registerEntityTypes(RegisterEvent event) {
-        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : EntityTypeModule.getEntityTypeRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : ModEntityTypes.getEntityTypeRegistry().entrySet()) {
             // Register entity type
             event.register(Registries.ENTITY_TYPE, entityTypeRegisterHelper ->
                     entityTypeRegisterHelper.register(entry.getKey(), entry.getValue().get())
@@ -28,7 +28,7 @@ public class EntityTypeModuleForge {
 
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
-        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : EntityTypeModule.getEntityTypeRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : ModEntityTypes.getEntityTypeRegistry().entrySet()) {
             // Register entity attributes
 
             AttributeSupplier.Builder builder = (AttributeSupplier.Builder) entry.getValue().getAttributesSupplier().get();

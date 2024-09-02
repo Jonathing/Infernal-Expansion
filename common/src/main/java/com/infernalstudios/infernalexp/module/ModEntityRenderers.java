@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EntityRendererModule {
+public class ModEntityRenderers {
     /** Map of all EntityTypes to their EntityRendererProviders. */
     private static final Map<EntityTypeDataHolder, EntityRendererProvider> ENTITY_RENDERER_REGISTRY = new HashMap<>();
 
@@ -18,8 +18,8 @@ public class EntityRendererModule {
         return ENTITY_RENDERER_REGISTRY;
     }
 
-    // Called in the mod initializer / constructor in order to make sure that items are registered
-    public static void registerEntityRenderers() {
+    // Called in the mod initializer / constructor in order to make sure that renderers are registered
+    public static void load() {
 //        register(InfernalExpansionEntityTypeModule.KITSUNE, KitsuneRenderer::new);
 
     }

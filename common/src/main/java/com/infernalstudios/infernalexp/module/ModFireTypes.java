@@ -4,7 +4,7 @@ import com.infernalstudios.infernalexp.IEConstants;
 import com.infernalstudios.infernalexp.api.FireType;
 import net.minecraft.resources.ResourceLocation;
 
-public class FireTypeModule {
+public class ModFireTypes {
     public static void load() {}
 
     public static final FireType FIRE = FireType.register(new ResourceLocation("fire"));

@@ -12,7 +12,7 @@ import java.util.Map;
 public class EntityTypeModuleFabric {
 
     public static void registerEntities() {
-        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : EntityTypeModule.getEntityTypeRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, EntityTypeDataHolder> entry : ModEntityTypes.getEntityTypeRegistry().entrySet()) {
             // Register entity type
             Registry.register(BuiltInRegistries.ENTITY_TYPE, entry.getKey(), entry.getValue().get());
 

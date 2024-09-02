@@ -23,7 +23,7 @@ import net.minecraft.world.level.material.MapColor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BlockModule {
+public class ModBlocks {
     /** Map of all Block Resource Locations to their BlockDataHolders. */
     private static final Map<ResourceLocation, BlockDataHolder<?>> BLOCK_REGISTRY = new HashMap<>();
 
@@ -44,7 +44,7 @@ public class BlockModule {
     public static final BlockDataHolder<?> SHIMMER_SAND = register("shimmer_sand", BlockDataHolder.of(() ->
                     new SandBlock(0xffffaa, BlockBehaviour.Properties.copy(Blocks.SAND)))
             .withModel(BlockDataHolder.Model.ROTATABLE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_SHOVEL, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_SHOVEL, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Shimmer Sand")
     );
 
@@ -58,7 +58,7 @@ public class BlockModule {
     public static final BlockDataHolder<?> GLIMMER_GRAVEL = register("glimmer_gravel", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.SAND)))
             .withModel(BlockDataHolder.Model.ROTATABLE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_SHOVEL, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_SHOVEL, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Glimmer Gravel")
     );
 
@@ -74,7 +74,7 @@ public class BlockModule {
     public static final BlockDataHolder<?> SHIMMER_STONE = register("shimmer_stone", BlockDataHolder.of(() ->
                     new Block(shimmerstone))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Shimmer Stone")
     );
 
@@ -82,7 +82,7 @@ public class BlockModule {
                     new Block(shimmerstone))
             .withStairs().withSlab()
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Shimmer Stone Bricks")
     );
 
@@ -90,7 +90,7 @@ public class BlockModule {
     public static final BlockDataHolder<?> POLISHED_GLOWSTONE = register("polished_glowstone", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE)))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Polished Glowstone")
     );
 
@@ -100,14 +100,14 @@ public class BlockModule {
 
     public static final BlockDataHolder<?> DIMSTONE = register("dimstone", BlockDataHolder.of(() ->
                     new Block(dimstone))
-            .withItem().withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withItem().withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Dimstone")
     );
 
     public static final BlockDataHolder<?> POLISHED_DIMSTONE = register("polished_dimstone", BlockDataHolder.of(() ->
                     new Block(dimstone))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Polished Dimstone")
     );
 
@@ -128,14 +128,14 @@ public class BlockModule {
     public static final BlockDataHolder<?> DULLSTONE = register("dullstone", BlockDataHolder.of(() ->
                     new Block(dullstone))
             .withModel(BlockDataHolder.Model.CUBE).withItem()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Dullstone")
     );
 
     public static final BlockDataHolder<?> POLISHED_DULLSTONE = register("polished_dullstone", BlockDataHolder.of(() ->
                     new Block(dullstone))
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
             .withTranslation("Polished Dullstone")
     );
 

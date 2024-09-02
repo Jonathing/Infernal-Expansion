@@ -17,7 +17,7 @@ import java.util.Map;
 public class BlockModuleForge {
     @SubscribeEvent
     public static void registerBlocks(RegisterEvent event) {
-        for (Map.Entry<ResourceLocation, BlockDataHolder<?>> entry : BlockModule.getBlockRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, BlockDataHolder<?>> entry : ModBlocks.getBlockRegistry().entrySet()) {
             // Register block
             event.register(Registries.BLOCK, blockRegistryHelper ->
                     blockRegistryHelper.register(entry.getKey(), entry.getValue().get())

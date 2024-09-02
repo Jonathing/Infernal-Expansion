@@ -1,9 +1,9 @@
 package com.infernalstudios.infernalexp.datagen;
 
 import com.infernalstudios.infernalexp.IECommon;
-import com.infernalstudios.infernalexp.module.BlockModule;
-import com.infernalstudios.infernalexp.module.CreativeTabModule;
-import com.infernalstudios.infernalexp.module.ItemModule;
+import com.infernalstudios.infernalexp.module.ModBlocks;
+import com.infernalstudios.infernalexp.module.ModCreativeTabs;
+import com.infernalstudios.infernalexp.module.ModItems;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -12,7 +12,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -25,7 +24,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.storage.loot.providers.number.LootNumberProviderType;
 
 import java.util.List;
 import java.util.Map;
@@ -81,7 +79,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void buildRecipes(Consumer<FinishedRecipe> exporter) {
-            for (BlockDataHolder<?> block : BlockModule.getBlockRegistry().values()) {
+            for (BlockDataHolder<?> block : ModBlocks.getBlockRegistry().values()) {
                 if (block.getStairs() != null) {
                     stairBuilder(block.getStairs().get(), Ingredient.of(block.get()))
                             .group(getName(block.getStairs().get()))
@@ -106,32 +104,32 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             }
 
 
-            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BlockModule.SHIMMER_SHEET.get(), 6)
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SHIMMER_SHEET.get(), 6)
                     .pattern("###")
-                    .define('#', BlockModule.SHIMMER_SAND.get())
-                    .unlockedBy(getHasName(BlockModule.SHIMMER_SAND.get()), has(BlockModule.SHIMMER_SAND.get()))
+                    .define('#', ModBlocks.SHIMMER_SAND.get())
+                    .unlockedBy(getHasName(ModBlocks.SHIMMER_SAND.get()), has(ModBlocks.SHIMMER_SAND.get()))
                     .group("shimmer_sheet").save(exporter, IECommon.id("shimmer_sheet"));
 
-            offer2x2Recipe(exporter, BlockModule.SHIMMER_STONE_BRICKS.get(), 4, BlockModule.SHIMMER_SAND.get());
+            offer2x2Recipe(exporter, ModBlocks.SHIMMER_STONE_BRICKS.get(), 4, ModBlocks.SHIMMER_SAND.get());
 
-            buttonBuilder(BlockModule.DULLSTONE_BUTTON.get(), Ingredient.of(BlockModule.POLISHED_DULLSTONE.get()))
-                    .group(getName(BlockModule.DULLSTONE_BUTTON.get()))
-                    .unlockedBy(getHasName(BlockModule.POLISHED_DULLSTONE.get()), has(BlockModule.POLISHED_DULLSTONE.get()))
-                    .save(exporter, IECommon.id(getName(BlockModule.DULLSTONE_BUTTON.get())));
-            pressurePlateBuilder(RecipeCategory.REDSTONE, BlockModule.DULLSTONE_PRESSURE_PLATE.get(), Ingredient.of(BlockModule.POLISHED_DULLSTONE.get()))
-                    .group(getName(BlockModule.DULLSTONE_PRESSURE_PLATE.get()))
-                    .unlockedBy(getHasName(BlockModule.POLISHED_DULLSTONE.get()), has(BlockModule.POLISHED_DULLSTONE.get()))
-                    .save(exporter, IECommon.id(getName(BlockModule.DULLSTONE_PRESSURE_PLATE.get())));
+            buttonBuilder(ModBlocks.DULLSTONE_BUTTON.get(), Ingredient.of(ModBlocks.POLISHED_DULLSTONE.get()))
+                    .group(getName(ModBlocks.DULLSTONE_BUTTON.get()))
+                    .unlockedBy(getHasName(ModBlocks.POLISHED_DULLSTONE.get()), has(ModBlocks.POLISHED_DULLSTONE.get()))
+                    .save(exporter, IECommon.id(getName(ModBlocks.DULLSTONE_BUTTON.get())));
+            pressurePlateBuilder(RecipeCategory.REDSTONE, ModBlocks.DULLSTONE_PRESSURE_PLATE.get(), Ingredient.of(ModBlocks.POLISHED_DULLSTONE.get()))
+                    .group(getName(ModBlocks.DULLSTONE_PRESSURE_PLATE.get()))
+                    .unlockedBy(getHasName(ModBlocks.POLISHED_DULLSTONE.get()), has(ModBlocks.POLISHED_DULLSTONE.get()))
+                    .save(exporter, IECommon.id(getName(ModBlocks.DULLSTONE_PRESSURE_PLATE.get())));
 
-            offer2x2Recipe(exporter, BlockModule.POLISHED_GLOWSTONE.get(), 4, Blocks.GLOWSTONE);
+            offer2x2Recipe(exporter, ModBlocks.POLISHED_GLOWSTONE.get(), 4, Blocks.GLOWSTONE);
 
-            offerTilesRecipe(exporter, BlockModule.DIMSTONE.get(), 1, ItemModule.DULLROCKS.get(), Items.GLOWSTONE_DUST);
-            offer2x2Recipe(exporter, BlockModule.POLISHED_DIMSTONE.get(), 4, BlockModule.DIMSTONE.get());
+            offerTilesRecipe(exporter, ModBlocks.DIMSTONE.get(), 1, ModItems.DULLROCKS.get(), Items.GLOWSTONE_DUST);
+            offer2x2Recipe(exporter, ModBlocks.POLISHED_DIMSTONE.get(), 4, ModBlocks.DIMSTONE.get());
 
-            offer2x2Recipe(exporter, BlockModule.DULLSTONE.get(), 1, ItemModule.DULLROCKS.get());
-            offer2x2Recipe(exporter, BlockModule.POLISHED_DULLSTONE.get(), 4, BlockModule.DULLSTONE.get());
+            offer2x2Recipe(exporter, ModBlocks.DULLSTONE.get(), 1, ModItems.DULLROCKS.get());
+            offer2x2Recipe(exporter, ModBlocks.POLISHED_DULLSTONE.get(), 4, ModBlocks.DULLSTONE.get());
 
-            offer2x2Recipe(exporter, BlockModule.DULLTHORNS_BLOCK.get(), 1, BlockModule.DULLTHORNS.get());
+            offer2x2Recipe(exporter, ModBlocks.DULLTHORNS_BLOCK.get(), 1, ModBlocks.DULLTHORNS.get());
         }
     }
 
@@ -143,10 +141,10 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
         @Override
         public void generateTranslations(TranslationBuilder builder) {
             // Put manually added entries here
-            builder.add(CreativeTabModule.INFERNAL_EXPANSION_TAB.getResourceKey(), "Infernal Expansion");
+            builder.add(ModCreativeTabs.INFERNAL_EXPANSION_TAB.getResourceKey(), "Infernal Expansion");
 
             // This handles all supplied block and item entries automatically
-            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+            for (BlockDataHolder<?> blockDataHolder : ModBlocks.getBlockRegistry().values()) {
                 if (blockDataHolder.hasTranslation()) {
                     builder.add(blockDataHolder.get(), blockDataHolder.getTranslation());
                 }
@@ -162,7 +160,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                 }
             }
 
-            for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
+            for (ItemDataHolder<?> itemDataHolder : ModItems.getItemRegistry().values()) {
                 if (itemDataHolder.hasTranslation()) {
                     builder.add(itemDataHolder.get(), itemDataHolder.getTranslation());
                 }
@@ -207,7 +205,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generate() {
-            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+            for (BlockDataHolder<?> blockDataHolder : ModBlocks.getBlockRegistry().values()) {
                 for (BlockDataHolder<?> blocksetHolder : blockDataHolder.getBlocksets().values()) {
                     if (blocksetHolder.hasModel()) {
                         if (Objects.requireNonNull(blockDataHolder.getModel()) == BlockDataHolder.Model.SLAB) {
@@ -263,7 +261,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generateBlockStateModels(BlockModelGenerators generator) {
-            for (BlockDataHolder<?> blockDataHolder : BlockModule.getBlockRegistry().values()) {
+            for (BlockDataHolder<?> blockDataHolder : ModBlocks.getBlockRegistry().values()) {
                 if (blockDataHolder.getBlocksets().isEmpty()) {
 
                     if (blockDataHolder.isGlass()) {
@@ -299,7 +297,7 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
         @Override
         public void generateItemModels(ItemModelGenerators generator) {
-            for (ItemDataHolder<?> itemDataHolder : ItemModule.getItemRegistry().values()) {
+            for (ItemDataHolder<?> itemDataHolder : ModItems.getItemRegistry().values()) {
                 if (itemDataHolder.hasModel()) {
                     generator.generateFlatItem(itemDataHolder.get(), itemDataHolder.getModel());
                 }

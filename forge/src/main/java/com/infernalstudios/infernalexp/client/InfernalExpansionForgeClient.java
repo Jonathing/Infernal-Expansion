@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexp.client;
 
-import com.infernalstudios.infernalexp.module.EntityRendererModule;
+import com.infernalstudios.infernalexp.module.ModEntityRenderers;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.EntityTypeDataHolder;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class InfernalExpansionForgeClient {
     public static void init() {
-        InfernalExpansionCommonClient.init();
+        IECommonClient.init();
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(InfernalExpansionForgeClient::clientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(InfernalExpansionForgeClient::registerEntityRenderers);
@@ -27,7 +27,7 @@ public class InfernalExpansionForgeClient {
     }
 
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : EntityRendererModule.getEntityRendererRegistry().entrySet()) {
+        for (Map.Entry<EntityTypeDataHolder, EntityRendererProvider> entry : ModEntityRenderers.getEntityRendererRegistry().entrySet()) {
             // Register entity renderers
             event.registerEntityRenderer(entry.getKey().get(), entry.getValue());
         }

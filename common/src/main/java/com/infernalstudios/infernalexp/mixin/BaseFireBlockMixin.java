@@ -3,8 +3,8 @@ package com.infernalstudios.infernalexp.mixin;
 import com.infernalstudios.infernalexp.api.FireType;
 import com.infernalstudios.infernalexp.api.FireTypeAccess;
 import com.infernalstudios.infernalexp.block.GlowlightFireBlock;
-import com.infernalstudios.infernalexp.module.BlockModule;
-import com.infernalstudios.infernalexp.module.FireTypeModule;
+import com.infernalstudios.infernalexp.module.ModBlocks;
+import com.infernalstudios.infernalexp.module.ModFireTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -24,12 +24,12 @@ public class BaseFireBlockMixin {
     @Inject(method = "getState", at = @At("HEAD"), cancellable = true)
     private static void addGlowFire(BlockGetter world, BlockPos pos, CallbackInfoReturnable<BlockState> cir) {
         if (GlowlightFireBlock.canSurviveOnBlock(world.getBlockState(pos.below())))
-            cir.setReturnValue(BlockModule.GLOWLIGHT_FIRE.get().defaultBlockState());
+            cir.setReturnValue(ModBlocks.GLOWLIGHT_FIRE.get().defaultBlockState());
     }
 
     @Inject(method = "entityInside", at = @At("TAIL"))
     public void setFireType(BlockState state, Level world, BlockPos pos, Entity entity, CallbackInfo ci) {
         ResourceLocation id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
-        ((FireTypeAccess) entity).setFireType(FireType.getOrDefault(id, FireTypeModule.FIRE));
+        ((FireTypeAccess) entity).setFireType(FireType.getOrDefault(id, ModFireTypes.FIRE));
     }
 }

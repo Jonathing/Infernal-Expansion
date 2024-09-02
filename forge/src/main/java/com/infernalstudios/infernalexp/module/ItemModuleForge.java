@@ -14,7 +14,7 @@ import java.util.Map;
 public class ItemModuleForge {
     @SubscribeEvent
     public static void registerItems(RegisterEvent event) {
-        for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ItemModule.getItemRegistry().entrySet()) {
+        for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ModItems.getItemRegistry().entrySet()) {
             // Register item
             event.register(Registries.ITEM, itemRegistryHelper ->
                     itemRegistryHelper.register(entry.getKey(), entry.getValue().get())

@@ -2,7 +2,7 @@ package com.infernalstudios.infernalexp.mixin;
 
 import com.infernalstudios.infernalexp.api.FireType;
 import com.infernalstudios.infernalexp.api.FireTypeAccess;
-import com.infernalstudios.infernalexp.module.FireTypeModule;
+import com.infernalstudios.infernalexp.module.ModFireTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -30,7 +30,7 @@ public abstract class EntityMixin implements FireTypeAccess {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void init(EntityType<?> entityTypeIn, Level worldIn, CallbackInfo ci) {
-        this.entityData.define(FIRE_TYPE, FireTypeModule.FIRE.getName().toString());
+        this.entityData.define(FIRE_TYPE, ModFireTypes.FIRE.getName().toString());
     }
 
     @Inject(method = "saveWithoutId", at = @At(value = "INVOKE", target = "Lnet/minecraft/nbt/CompoundTag;putShort(Ljava/lang/String;S)V", ordinal = 0, shift = At.Shift.AFTER))
@@ -40,17 +40,17 @@ public abstract class EntityMixin implements FireTypeAccess {
 
     @Inject(method = "load", at = @At(value = "INVOKE", target = "Lnet/minecraft/nbt/CompoundTag;getShort(Ljava/lang/String;)S", ordinal = 0, shift = At.Shift.AFTER))
     private void readCustomFires(CompoundTag tag, CallbackInfo ci) {
-        this.setFireType(FireType.getOrDefault(new ResourceLocation(tag.getString("fireType")), FireTypeModule.FIRE));
+        this.setFireType(FireType.getOrDefault(new ResourceLocation(tag.getString("fireType")), ModFireTypes.FIRE));
     }
 
     @Inject(method = "setSecondsOnFire", at = @At("HEAD"))
     private void setToDefaultFireType(int seconds, CallbackInfo ci) {
-        this.setFireType(FireTypeModule.FIRE);
+        this.setFireType(ModFireTypes.FIRE);
     }
 
     @Override
     public FireType getFireType() {
-        return FireType.getOrDefault(new ResourceLocation(this.entityData.get(FIRE_TYPE)), FireTypeModule.FIRE);
+        return FireType.getOrDefault(new ResourceLocation(this.entityData.get(FIRE_TYPE)), ModFireTypes.FIRE);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.infernalstudios.infernalexp.block;
 
-import com.infernalstudios.infernalexp.module.TagModule;
+import com.infernalstudios.infernalexp.module.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseFireBlock;
@@ -22,6 +22,6 @@ public class GlowlightFireBlock extends BaseFireBlock {
     }
 
     public static boolean canSurviveOnBlock(BlockState state) {
-        return state.is(TagModule.Blocks.GLOW_FIRE_BASE_BLOCKS);
+        return state.is(ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS);
     }
 }
