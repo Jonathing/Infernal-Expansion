@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "infernalexp:block/crimson_fungus_cap_bottom",
+    "east": "infernalexp:block/crimson_fungus_cap_side",
+    "north": "infernalexp:block/crimson_fungus_cap_side",
+    "particle": "infernalexp:block/crimson_fungus_cap_side",
+    "south": "infernalexp:block/crimson_fungus_cap_side",
+    "up": "infernalexp:block/crimson_fungus_cap_top",
+    "west": "infernalexp:block/crimson_fungus_cap_side"
+  }
+}

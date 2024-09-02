@@ -4,6 +4,7 @@ import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.module.ModBlocks;
 import com.infernalstudios.infernalexp.module.ModCreativeTabs;
 import com.infernalstudios.infernalexp.module.ModItems;
+import com.infernalstudios.infernalexp.module.ModTags;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -17,6 +18,7 @@ import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -66,15 +68,32 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     .save(exporter, IECommon.id(getName(result)));
         }
 
-        private static void offer2x2Recipe(Consumer<FinishedRecipe> exporter, ItemLike result, int count,
-                                            ItemLike a) {
-            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, count)
+        private static void offer2x2Recipe(Consumer<FinishedRecipe> exporter, ItemLike to, int count,
+                                            ItemLike from) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, to, count)
                     .pattern("##")
                     .pattern("##")
-                    .define('#', a)
-                    .unlockedBy(getHasName(a), has(a))
-                    .group(getName(result))
-                    .save(exporter, IECommon.id(getName(result)));
+                    .define('#', from)
+                    .unlockedBy(getHasName(from), has(from))
+                    .group(getName(to))
+                    .save(exporter, IECommon.id(getName(to)));
+        }
+
+        private static void offer3x3Recipe(Consumer<FinishedRecipe> exporter, ItemLike to, int count,
+                                           ItemLike from) {
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, to, count)
+                    .requires(from, 9)
+                    .unlockedBy(getHasName(from), has(from))
+                    .group(getName(to))
+                    .save(exporter, IECommon.id(getName(to)));
+        }
+
+        private static void offerUnpackRecipe(Consumer<FinishedRecipe> exporter, ItemLike to, ItemLike from) {
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, to, 9)
+                    .requires(from)
+                    .unlockedBy(getHasName(from), has(from))
+                    .group(getName(to))
+                    .save(exporter, IECommon.id(getName(to)));
         }
 
         @Override
@@ -130,6 +149,18 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
             offer2x2Recipe(exporter, ModBlocks.POLISHED_DULLSTONE.get(), 4, ModBlocks.DULLSTONE.get());
 
             offer2x2Recipe(exporter, ModBlocks.DULLTHORNS_BLOCK.get(), 1, ModBlocks.DULLTHORNS.get());
+
+            offer3x3Recipe(exporter, ModBlocks.LUMINOUS_FUNGUS_CAP.get(), 1, ModBlocks.LUMINOUS_FUNGUS.get());
+            offerUnpackRecipe(exporter, ModBlocks.LUMINOUS_FUNGUS.get(), ModBlocks.LUMINOUS_FUNGUS_CAP.get());
+            offer3x3Recipe(exporter, ModBlocks.CRIMSON_FUNGUS_CAP.get(), 1, Items.CRIMSON_FUNGUS);
+            offerUnpackRecipe(exporter, Items.CRIMSON_FUNGUS, ModBlocks.CRIMSON_FUNGUS_CAP.get());
+            offer3x3Recipe(exporter, ModBlocks.WARPED_FUNGUS_CAP.get(), 1, Items.WARPED_FUNGUS);
+            offerUnpackRecipe(exporter, Items.WARPED_FUNGUS, ModBlocks.WARPED_FUNGUS_CAP.get());
+
+            oreSmelting(exporter, List.of(ModBlocks.BASALT_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_ORE,
+                    5, 200, "basalt_iron_ore");
+            oreBlasting(exporter, List.of(ModBlocks.BASALT_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_ORE,
+                    5, 100, "basalt_iron_ore");
         }
     }
 
@@ -180,6 +211,12 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
 
                 entry.getValue().forEach(b -> tagBuilder.add(b.get()));
             }
+
+            getOrCreateTagBuilder(ModTags.Blocks.SHROOMLIGHT_TEARS_GROWABLE)
+                    .add(Blocks.SHROOMLIGHT);
+
+            getOrCreateTagBuilder(ModTags.Blocks.GLOW_FIRE_BASE_BLOCKS)
+                    .add(Blocks.GLOWSTONE);
         }
     }
 

@@ -177,8 +177,20 @@ public class ModBlocks {
     public static final BlockDataHolder<?> LUMINOUS_FUNGUS_CAP = register("luminous_fungus_cap", BlockDataHolder.of(() ->
                     new FungusCapBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_WART_BLOCK).mapColor(DyeColor.YELLOW)
                             .lightLevel(a -> 8)))
-            .withItem().dropsSelf()
+            .withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_HOE)
             .withTranslation("Luminous Fungus Cap")
+    );
+
+    public static final BlockDataHolder<?> CRIMSON_FUNGUS_CAP = register("crimson_fungus_cap", BlockDataHolder.of(() ->
+                    new FungusCapBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_WART_BLOCK)))
+            .withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_HOE)
+            .withTranslation("Crimson Fungus Cap")
+    );
+
+    public static final BlockDataHolder<?> WARPED_FUNGUS_CAP = register("warped_fungus_cap", BlockDataHolder.of(() ->
+                    new FungusCapBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_WART_BLOCK)))
+            .withItem().dropsSelf().withTags(BlockTags.MINEABLE_WITH_HOE, BlockTags.PIGLIN_REPELLENTS)
+            .withTranslation("Warped Fungus Cap")
     );
 
     private static final BlockBehaviour.Properties dullthorns =
@@ -242,5 +254,21 @@ public class ModBlocks {
             .cutout().withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withItem()
             .withTranslation("Glowlight Lantern")
+    );
+
+
+    public static final BlockDataHolder<?> BASALT_IRON_ORE = register("basalt_iron_ore", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BASALT).strength(1.6f, 4.4f)))
+            .withItem().withModel(BlockDataHolder.Model.PILLAR)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.IRON_ORES)
+            .withTranslation("Basalt Iron Ore")
+    );
+
+
+    public static final BlockDataHolder<?> SHROOMLIGHT_TEAR = register("shroomlight_tear", BlockDataHolder.of(() ->
+                    new HangingPlantBlock(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).instabreak().noCollission(),
+                            ModTags.Blocks.SHROOMLIGHT_TEARS_GROWABLE, Block.box(4, 4, 4, 12, 16, 12)))
+            .withItem().withModel(BlockDataHolder.Model.CROSS)
+            .withTranslation("Shroomlight Tear")
     );
 }

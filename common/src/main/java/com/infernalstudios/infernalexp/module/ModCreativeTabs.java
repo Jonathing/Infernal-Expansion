@@ -44,12 +44,19 @@ public class ModCreativeTabs {
 
                 entries.accept(ModBlocks.LUMINOUS_FUNGUS.get());
                 entries.accept(ModBlocks.LUMINOUS_FUNGUS_CAP.get());
+                entries.accept(ModBlocks.CRIMSON_FUNGUS_CAP.get());
+                entries.accept(ModBlocks.WARPED_FUNGUS_CAP.get());
+
+                entries.accept(ModBlocks.SHROOMLIGHT_TEAR.get());
+
                 entries.accept(ModBlocks.DULLTHORNS.get());
                 entries.accept(ModBlocks.DULLTHORNS_BLOCK.get());
 
                 entries.accept(ModItems.GLOWLIGHT_TORCH.get());
                 entries.accept(ModBlocks.GLOWLIGHT_CAMPFIRE.get());
                 entries.accept(ModBlocks.GLOWLIGHT_LANTERN.get());
+
+                entries.accept(ModBlocks.BASALT_IRON_ORE.get());
 
             })
             .build());
