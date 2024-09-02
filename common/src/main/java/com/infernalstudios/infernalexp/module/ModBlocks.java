@@ -260,7 +260,7 @@ public class ModBlocks {
     public static final BlockDataHolder<?> BASALT_IRON_ORE = register("basalt_iron_ore", BlockDataHolder.of(() ->
                     new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BASALT).strength(1.6f, 4.4f)))
             .withItem().withModel(BlockDataHolder.Model.PILLAR)
-            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.IRON_ORES)
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE, BlockTags.IRON_ORES, BlockTags.NEEDS_STONE_TOOL)
             .withTranslation("Basalt Iron Ore")
     );
 
