@@ -1,6 +1,7 @@
 package com.infernalstudios.infernalexp;
 
 import com.infernalstudios.infernalexp.module.BlockModuleFabric;
+import com.infernalstudios.infernalexp.module.EffectModuleFabric;
 import com.infernalstudios.infernalexp.module.EntityTypeModuleFabric;
 import com.infernalstudios.infernalexp.module.ItemModuleFabric;
 import net.fabricmc.api.ModInitializer;
@@ -14,5 +15,6 @@ public class InfernalExpansion implements ModInitializer {
         BlockModuleFabric.registerBlocks();
         ItemModuleFabric.registerItems();
         EntityTypeModuleFabric.registerEntities();
+        EffectModuleFabric.registerEffects();
     }
 }
