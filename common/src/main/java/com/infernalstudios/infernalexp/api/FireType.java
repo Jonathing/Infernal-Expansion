@@ -40,7 +40,8 @@ public class FireType {
 
     public static FireType register(ResourceLocation name, ResourceLocation block, String spriteLocation0, String spriteLocation1) {
         if (FIRE_TYPES.containsKey(name))
-            throw new IllegalStateException(name.toString() + " already exists in the FireType registry.");
+            return null;
+            //throw new IllegalStateException(name.toString() + " already exists in the FireType registry.");
 
         return new FireType(name, block, new ResourceLocation(name.getNamespace(), spriteLocation0), new ResourceLocation(name.getNamespace(), spriteLocation1));
     }

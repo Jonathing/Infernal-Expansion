@@ -41,6 +41,7 @@ public class ModCreativeTabs {
                 entries.accept(ModItems.DULLROCKS.get());
 
                 entries.accept(ModBlocks.GLOWSILK_COCOON.get());
+                entries.accept(ModItems.GLOWSILK_STRING.get());
 
                 entries.accept(ModBlocks.LUMINOUS_FUNGUS.get());
                 entries.accept(ModBlocks.LUMINOUS_FUNGUS_CAP.get());

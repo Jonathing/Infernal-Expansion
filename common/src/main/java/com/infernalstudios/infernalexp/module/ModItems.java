@@ -47,4 +47,10 @@ public class ModItems {
                             new Item.Properties(), Direction.DOWN))
             .withModel(ModelTemplates.FLAT_ITEM)
     );
+
+    public static final ItemDataHolder<?> GLOWSILK_STRING = register("glowsilk_string", ItemDataHolder.of(() ->
+                    new Item(new Item.Properties()))
+            .withModel(ModelTemplates.FLAT_ITEM)
+            .withTranslation("Glowsilk String")
+    );
 }
