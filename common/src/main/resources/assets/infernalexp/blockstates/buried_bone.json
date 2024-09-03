@@ -1,0 +1,66 @@
+{
+  "variants": {
+    "facing=down": [
+      {
+        "model": "infernalexp:block/buried_bone1"
+      },
+      {
+        "model": "infernalexp:block/buried_bone2"
+      }
+    ],
+    "facing=up": [
+      {
+        "model": "infernalexp:block/buried_bone1",
+        "x": 180
+      },
+      {
+        "model": "infernalexp:block/buried_bone2",
+        "x": 180
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "infernalexp:block/buried_bone1",
+        "x": -90
+      },
+      {
+        "model": "infernalexp:block/buried_bone2",
+        "x": -90
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "infernalexp:block/buried_bone1",
+        "x": 90
+      },
+      {
+        "model": "infernalexp:block/buried_bone2",
+        "x": 90
+      }
+    ],
+    "facing=east": [
+      {
+        "model": "infernalexp:block/buried_bone1",
+        "x": -90,
+        "y": 90
+      },
+      {
+        "model": "infernalexp:block/buried_bone2",
+        "x": -90,
+        "y": 90
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "infernalexp:block/buried_bone1",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "infernalexp:block/buried_bone2",
+        "x": 90,
+        "y": 90
+      }
+    ]
+  }
+}

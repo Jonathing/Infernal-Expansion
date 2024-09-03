@@ -58,6 +58,9 @@ public class ModCreativeTabs {
 
                 entries.accept(ModBlocks.BASALT_IRON_ORE.get());
 
+                entries.accept(ModBlocks.PLANTED_QUARTZ.get());
+                entries.accept(ModBlocks.BURIED_BONE.get());
+
             })
             .build());
 

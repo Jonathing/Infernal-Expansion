@@ -272,4 +272,17 @@ public class ModBlocks {
             .withItem().cutout().dropsSelf()
             .withTranslation("Shroomlight Tear")
     );
+
+
+    public static final BlockDataHolder<?> PLANTED_QUARTZ = register("planted_quartz", BlockDataHolder.of(() ->
+                    new SupportedBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK).instabreak().noCollission()))
+            .withItem().cutout().dropsOther(() -> Items.QUARTZ)
+            .withTranslation("Planted Quartz")
+    );
+
+    public static final BlockDataHolder<?> BURIED_BONE = register("buried_bone", BlockDataHolder.of(() ->
+                    new SupportedBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).instabreak().noCollission()))
+            .withItem().cutout().dropsOther(() -> Items.BONE)
+            .withTranslation("Buried Bone")
+    );
 }
