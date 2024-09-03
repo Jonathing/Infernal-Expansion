@@ -26,6 +26,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.List;
 import java.util.Map;
@@ -33,7 +35,7 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
+public class IEDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
@@ -161,6 +163,8 @@ public class InfernalExpansionDataGenerator implements DataGeneratorEntrypoint {
                     5, 200, "basalt_iron_ore");
             oreBlasting(exporter, List.of(ModBlocks.BASALT_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_ORE,
                     5, 100, "basalt_iron_ore");
+
+            offer3x3Recipe(exporter, Blocks.SHROOMLIGHT, 1, ModBlocks.SHROOMLIGHT_TEAR.get());
         }
     }
 

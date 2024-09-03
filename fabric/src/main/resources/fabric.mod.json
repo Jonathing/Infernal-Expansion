@@ -22,7 +22,7 @@
           "com.infernalstudios.infernalexp.client.InfernalExpansionFabricClient"
         ],
       "fabric-datagen": [
-        "com.infernalstudios.infernalexp.datagen.InfernalExpansionDataGenerator"
+          "com.infernalstudios.infernalexp.datagen.IEDataGenerator"
       ]
     },
     "mixins": [
