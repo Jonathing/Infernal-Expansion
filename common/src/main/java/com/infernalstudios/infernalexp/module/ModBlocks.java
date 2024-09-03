@@ -266,9 +266,9 @@ public class ModBlocks {
 
 
     public static final BlockDataHolder<?> SHROOMLIGHT_TEAR = register("shroomlight_tear", BlockDataHolder.of(() ->
-                    new HangingPlantBlock(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).instabreak().noCollission(),
-                            ModTags.Blocks.SHROOMLIGHT_TEARS_GROWABLE, Block.box(4, 4, 4, 12, 16, 12)))
-            .withItem().withModel(BlockDataHolder.Model.CROSS)
+                    new ShroomlightTearBlock(BlockBehaviour.Properties.copy(Blocks.SHROOMLIGHT).instabreak().noCollission(),
+                            ModTags.Blocks.SHROOMLIGHT_TEARS_GROWABLE))
+            .withItem().cutout().dropsSelf()
             .withTranslation("Shroomlight Tear")
     );
 }
