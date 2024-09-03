@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-03T14:01:17.6893573	Infernal Expansion/Block Loot Tables
+// 1.20.1	2024-09-03T21:37:40.7073648	Infernal Expansion/Block Loot Tables
 19acaee5bf321bc5bc9d3872112a05e4e9c3a5be data\infernalexp\loot_tables\blocks\dullthorns.json
 ec92580f38aebc381ea0d1c54911624a1031c407 data\infernalexp\loot_tables\blocks\luminous_fungus.json
 dcc1b2e2317068d5d98b1338803b280cc59f9f32 data\infernalexp\loot_tables\blocks\dullthorns_block.json
@@ -8,8 +8,8 @@ bd53cb8c9a65fa24b1be6ffaae83f2531f6db8b9 data\infernalexp\loot_tables\blocks\shi
 19d08bff08411c653cbcdb64de614a846f516d3a data\infernalexp\loot_tables\blocks\planted_quartz.json
 4a9102b33230595064d204187733456069e57b39 data\infernalexp\loot_tables\blocks\glowsilk_cocoon.json
 d3b901f2ce30dbccfe693befc706bafd1b7eede3 data\infernalexp\loot_tables\blocks\glowlight_glass_pane.json
-83664941eae0261a2c6bc769d01b8aa7855a7b5a data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_slab.json
 a87c0fb1a3c54662a636553fb619cc0a6f496540 data\infernalexp\loot_tables\blocks\luminous_fungus_cap.json
+83664941eae0261a2c6bc769d01b8aa7855a7b5a data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_slab.json
 9c07ae546fcf850fc57a3d4556ba1a83d924c25c data\infernalexp\loot_tables\blocks\polished_glowstone.json
 9f25a2917ba83e9127e2ea5b09a1d89e35a028fc data\infernalexp\loot_tables\blocks\warped_fungus_cap.json
 bf28a6611c0ebb5e85f96584be7a1a701506c0d2 data\infernalexp\loot_tables\blocks\dullstone_pressure_plate.json

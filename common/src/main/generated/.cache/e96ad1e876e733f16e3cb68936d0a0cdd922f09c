@@ -1,16 +1,16 @@
-// 1.20.1	2024-09-03T14:01:17.6873622	Infernal Expansion/Tags for minecraft:block
+// 1.20.1	2024-09-03T21:37:40.7023784	Infernal Expansion/Tags for minecraft:block
 2efbe36e39ae02a7e5bd55fc197044f38ba03d54 data\minecraft\tags\blocks\mineable\hoe.json
 ba91a734fd8b64efccf48c79c84f12fddb4b001d data\minecraft\tags\blocks\mineable\axe.json
 a70d4f8e8f3d8761fd93953a955af726598dc091 data\minecraft\tags\blocks\piglin_repellents.json
 c334e308f810a9db1b786043ef24558a7d6bb870 data\minecraft\tags\blocks\slabs.json
-b2938f8f6b0f89662c3b16547641f8483a5ba989 data\minecraft\tags\blocks\iron_ores.json
 c7e74cd7810c00d605e10831b25accd9f1d89902 data\minecraft\tags\blocks\stairs.json
+b2938f8f6b0f89662c3b16547641f8483a5ba989 data\minecraft\tags\blocks\iron_ores.json
 7284575de017e3489918abfe77a8e63c0e95cfe8 data\minecraft\tags\blocks\fire.json
 a5b604eef2a744d7be1a37b8d93d93b6874d4147 data\minecraft\tags\blocks\campfires.json
 67a75c006eda37775d33e7f946245c288244c8ea data\minecraft\tags\blocks\climbable.json
 253b4a9ce7a727a1922161072cf2125cd2def1ce data\infernalexp\tags\blocks\shroomlight_tears_growable_on.json
-b2938f8f6b0f89662c3b16547641f8483a5ba989 data\minecraft\tags\blocks\needs_stone_tool.json
-cdaf85dd57a0c57fa5925418d9ec36f64e32df8d data\minecraft\tags\blocks\mineable\pickaxe.json
 9b18c6ff13ca7499173538449da1a162ae2ca948 data\minecraft\tags\blocks\needs_iron_tool.json
+b2938f8f6b0f89662c3b16547641f8483a5ba989 data\minecraft\tags\blocks\needs_stone_tool.json
+30474a45a11e759530235c73cf306b168eb75d03 data\minecraft\tags\blocks\mineable\pickaxe.json
 bb99f02d7d2d08d1a41652ae55fa3dd4383a57ad data\minecraft\tags\blocks\mineable\shovel.json
-96b420fc20f72ea42feca18c2d6585d966672dd9 data\infernalexp\tags\blocks\glowlight_fire_base_blocks.json
+d7feab2170d16756ef519cbe5fd49d86797af602 data\infernalexp\tags\blocks\glowlight_fire_base_blocks.json

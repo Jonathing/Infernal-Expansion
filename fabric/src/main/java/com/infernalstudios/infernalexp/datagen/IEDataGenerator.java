@@ -90,8 +90,8 @@ public class IEDataGenerator implements DataGeneratorEntrypoint {
                     .save(exporter, IECommon.id(getName(to)));
         }
 
-        private static void offerUnpackRecipe(Consumer<FinishedRecipe> exporter, ItemLike to, ItemLike from) {
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, to, 9)
+        private static void offerUnpackRecipe(Consumer<FinishedRecipe> exporter, ItemLike to, int count, ItemLike from) {
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, to, count)
                     .requires(from)
                     .unlockedBy(getHasName(from), has(from))
                     .group(getName(to))
@@ -153,11 +153,11 @@ public class IEDataGenerator implements DataGeneratorEntrypoint {
             offer2x2Recipe(exporter, ModBlocks.DULLTHORNS_BLOCK.get(), 1, ModBlocks.DULLTHORNS.get());
 
             offer3x3Recipe(exporter, ModBlocks.LUMINOUS_FUNGUS_CAP.get(), 1, ModBlocks.LUMINOUS_FUNGUS.get());
-            offerUnpackRecipe(exporter, ModBlocks.LUMINOUS_FUNGUS.get(), ModBlocks.LUMINOUS_FUNGUS_CAP.get());
+            offerUnpackRecipe(exporter, ModBlocks.LUMINOUS_FUNGUS.get(), 9, ModBlocks.LUMINOUS_FUNGUS_CAP.get());
             offer3x3Recipe(exporter, ModBlocks.CRIMSON_FUNGUS_CAP.get(), 1, Items.CRIMSON_FUNGUS);
-            offerUnpackRecipe(exporter, Items.CRIMSON_FUNGUS, ModBlocks.CRIMSON_FUNGUS_CAP.get());
+            offerUnpackRecipe(exporter, Items.CRIMSON_FUNGUS, 9, ModBlocks.CRIMSON_FUNGUS_CAP.get());
             offer3x3Recipe(exporter, ModBlocks.WARPED_FUNGUS_CAP.get(), 1, Items.WARPED_FUNGUS);
-            offerUnpackRecipe(exporter, Items.WARPED_FUNGUS, ModBlocks.WARPED_FUNGUS_CAP.get());
+            offerUnpackRecipe(exporter, Items.WARPED_FUNGUS,9,  ModBlocks.WARPED_FUNGUS_CAP.get());
 
             oreSmelting(exporter, List.of(ModBlocks.BASALT_IRON_ORE.get()), RecipeCategory.MISC, Items.IRON_ORE,
                     5, 200, "basalt_iron_ore");
@@ -165,6 +165,9 @@ public class IEDataGenerator implements DataGeneratorEntrypoint {
                     5, 100, "basalt_iron_ore");
 
             offer3x3Recipe(exporter, Blocks.SHROOMLIGHT, 1, ModBlocks.SHROOMLIGHT_TEAR.get());
+
+            offer2x2Recipe(exporter, ModBlocks.GLOWSILK_COCOON.get(), 1, ModItems.GLOWSILK_STRING.get());
+            offerUnpackRecipe(exporter, ModItems.GLOWSILK_STRING.get(),4,  ModBlocks.GLOWSILK_COCOON.get());
         }
     }
 
