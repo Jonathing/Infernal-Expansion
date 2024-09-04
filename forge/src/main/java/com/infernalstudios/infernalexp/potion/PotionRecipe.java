@@ -24,8 +24,7 @@ public class PotionRecipe implements IBrewingRecipe {
 
     @Override
     public boolean isInput(ItemStack input) {
-        Item item = input.getItem();
-        return item == Items.POTION || item == Items.SPLASH_POTION || item == Items.LINGERING_POTION || item == Items.GLASS_BOTTLE;
+        return PotionUtils.getPotion(input) == this.input;
     }
 
     @Override
@@ -34,10 +33,10 @@ public class PotionRecipe implements IBrewingRecipe {
     }
 
     @Override
-    public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
+    public @NotNull ItemStack getOutput(ItemStack input, ItemStack ingredient) {
         if (this.isInput(input) && this.isIngredient(ingredient)) {
-            return PotionUtils.setPotion(input, this.output);
+            return PotionUtils.setPotion(input.copy(), this.output);
         }
-        return input;
+        return ItemStack.EMPTY;
     }
 }

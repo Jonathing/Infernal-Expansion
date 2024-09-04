@@ -35,17 +35,12 @@ public class EffectModuleForge {
             if (entry.getValue().hasPotion()) {
                 String id = entry.getKey().getPath();
 
-                Potion basep = new Potion(new MobEffectInstance(entry.getValue().get(), 3600));
-                Potion longp = new Potion(id, new MobEffectInstance(entry.getValue().get(), 9600));
-                Potion strongp = new Potion(id, new MobEffectInstance(entry.getValue().get(), 1800, 1));
-
-                event.register(ForgeRegistries.POTIONS.getRegistryKey(), entry.getKey(), () -> basep);
-                event.register(ForgeRegistries.POTIONS.getRegistryKey(), IECommon.id("long_" + id), () -> longp);
-                event.register(ForgeRegistries.POTIONS.getRegistryKey(), IECommon.id("strong_" + id), () -> strongp);
-
-                BrewingRecipeRegistry.addRecipe(new PotionRecipe(Potions.AWKWARD, entry.getValue().getPotionIngredient().get(), basep));
-                BrewingRecipeRegistry.addRecipe(new PotionRecipe(basep, Items.REDSTONE, longp));
-                BrewingRecipeRegistry.addRecipe(new PotionRecipe(basep, Items.GLOWSTONE_DUST, strongp));
+                event.register(ForgeRegistries.POTIONS.getRegistryKey(), entry.getKey(), () ->
+                        new Potion(new MobEffectInstance(entry.getValue().get(), 3600)));
+                event.register(ForgeRegistries.POTIONS.getRegistryKey(), IECommon.id("long_" + id), () ->
+                        new Potion(id, new MobEffectInstance(entry.getValue().get(), 9600)));
+                event.register(ForgeRegistries.POTIONS.getRegistryKey(), IECommon.id("strong_" + id), () ->
+                        new Potion(id, new MobEffectInstance(entry.getValue().get(), 1800, 1)));
             }
         }
     }
