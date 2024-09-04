@@ -1,12 +1,16 @@
 package com.infernalstudios.infernalexp.module;
 
 import com.infernalstudios.infernalexp.IECommon;
+import com.infernalstudios.infernalexp.effect.StatusEffect;
 import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
+import com.infernalstudios.infernalexp.registration.holders.MobEffectDataHolder;
 import net.minecraft.core.Direction;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 
 import java.util.HashMap;
@@ -15,15 +19,15 @@ import java.util.function.Supplier;
 
 public class ModEffects {
     /** Map of all Effect Resource Locations to their Suppliers. */
-    private static final Map<ResourceLocation, Supplier<MobEffect>> EFFECT_REGISTRY = new HashMap<>();
+    private static final Map<ResourceLocation, MobEffectDataHolder<?>> EFFECT_REGISTRY = new HashMap<>();
 
-    public static Supplier<MobEffect> register(String name, Supplier<MobEffect> effect) {
+    public static MobEffectDataHolder<?> register(String name, MobEffectDataHolder<?> effect) {
         ResourceLocation id = IECommon.id(name);
         EFFECT_REGISTRY.put(id, effect);
         return effect;
     }
 
-    public static Map<ResourceLocation, Supplier<MobEffect>> getEffectRegistry() {
+    public static Map<ResourceLocation, MobEffectDataHolder<?>> getEffectRegistry() {
         return EFFECT_REGISTRY;
     }
 
@@ -31,6 +35,8 @@ public class ModEffects {
     public static void load() {}
 
 
-    //public static final Supplier<MobEffect> WARPED = register("warped",
-    //        () -> new MobEffect());
+    public static final MobEffectDataHolder<?> WARPED = register("warped", MobEffectDataHolder.of(() ->
+                    new StatusEffect(MobEffectCategory.BENEFICIAL, 0x00ffba)))
+            .withTranslation("Warped")
+            .withPotion(() -> Items.WARPED_FUNGUS);
 }

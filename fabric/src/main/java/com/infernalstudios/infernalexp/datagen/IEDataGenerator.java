@@ -1,12 +1,10 @@
 package com.infernalstudios.infernalexp.datagen;
 
 import com.infernalstudios.infernalexp.IECommon;
-import com.infernalstudios.infernalexp.module.ModBlocks;
-import com.infernalstudios.infernalexp.module.ModCreativeTabs;
-import com.infernalstudios.infernalexp.module.ModItems;
-import com.infernalstudios.infernalexp.module.ModTags;
+import com.infernalstudios.infernalexp.module.*;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
+import com.infernalstudios.infernalexp.registration.holders.MobEffectDataHolder;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -19,6 +17,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -201,6 +200,20 @@ public class IEDataGenerator implements DataGeneratorEntrypoint {
             for (ItemDataHolder<?> itemDataHolder : ModItems.getItemRegistry().values()) {
                 if (itemDataHolder.hasTranslation()) {
                     builder.add(itemDataHolder.get(), itemDataHolder.getTranslation());
+                }
+            }
+
+            for (Map.Entry<ResourceLocation, MobEffectDataHolder<?>> entry : ModEffects.getEffectRegistry().entrySet()) {
+                if (entry.getValue().hasTranslation()) {
+                    builder.add(entry.getValue().get(), entry.getValue().getTranslation());
+
+                    if (entry.getValue().hasPotion()) {
+                        String id = entry.getKey().getPath();
+
+                        builder.add("item.minecraft.potion.effect." + id, "Potion of " + entry.getValue().getTranslation());
+                        builder.add("item.minecraft.splash_potion.effect." + id, "Splash Potion of " + entry.getValue().getTranslation());
+                        builder.add("item.minecraft.lingering_potion.effect." + id, "Lingering Potion of " + entry.getValue().getTranslation());
+                    }
                 }
             }
         }
