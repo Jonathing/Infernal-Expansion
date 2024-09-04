@@ -36,7 +36,7 @@ public class PotionRecipe implements IBrewingRecipe {
     @Override
     public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
         if (this.isInput(input) && this.isIngredient(ingredient)) {
-            return PotionUtils.setPotion(ingredient, this.output);
+            return PotionUtils.setPotion(input, this.output);
         }
         return input;
     }
