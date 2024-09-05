@@ -275,13 +275,13 @@ public class ModBlocks {
     public static final BlockDataHolder<?> PLANTED_QUARTZ = register("planted_quartz", BlockDataHolder.of(() ->
                     new SupportedBlock(BlockBehaviour.Properties.copy(Blocks.QUARTZ_BLOCK).instabreak().noCollission()))
             .cutout().dropsOther(() -> Items.QUARTZ)
-            .withTranslation("Nether Quartz")
+            .withTranslation("Planted Quartz")
     );
 
     public static final BlockDataHolder<?> BURIED_BONE = register("buried_bone", BlockDataHolder.of(() ->
                     new SupportedBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).instabreak().noCollission()))
             .cutout().dropsOther(() -> Items.BONE)
-            .withTranslation("Bone")
+            .withTranslation("Buried Bone")
     );
 
 

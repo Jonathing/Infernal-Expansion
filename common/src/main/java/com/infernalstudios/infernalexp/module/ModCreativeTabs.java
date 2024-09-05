@@ -67,9 +67,6 @@ public class ModCreativeTabs {
                 entries.accept(ModBlocks.QUARTZ_GLASS.get());
                 entries.accept(ModBlocks.QUARTZ_GLASS.getPaneBlock().get());
 
-                entries.accept(ModBlocks.PLANTED_QUARTZ.get());
-                entries.accept(ModBlocks.BURIED_BONE.get());
-
             })
             .build());
 
