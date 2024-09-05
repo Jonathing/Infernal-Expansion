@@ -5,6 +5,7 @@ import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
 import net.minecraft.core.Direction;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 
@@ -16,7 +17,10 @@ public class ModItems {
     private static final Map<ResourceLocation, ItemDataHolder<?>> ITEM_REGISTRY = new HashMap<>();
 
     public static ItemDataHolder<?> register(String name, ItemDataHolder<?> itemDataHolder) {
-        ResourceLocation id = IECommon.id(name);
+        return register(IECommon.id(name), itemDataHolder);
+    }
+
+    public static ItemDataHolder<?> register(ResourceLocation id, ItemDataHolder<?> itemDataHolder) {
         ITEM_REGISTRY.put(id, itemDataHolder);
         return itemDataHolder;
     }
@@ -52,5 +56,14 @@ public class ModItems {
                     new Item(new Item.Properties()))
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Glowsilk String")
+    );
+
+
+    public static final ItemDataHolder<?> mcQUARTZ = register(new ResourceLocation("minecraft:quartz"), ItemDataHolder.of(() ->
+                    new BlockItem(ModBlocks.PLANTED_QUARTZ.get(), new Item.Properties()))
+    );
+
+    public static final ItemDataHolder<?> mcBONE = register(new ResourceLocation("minecraft:bone"), ItemDataHolder.of(() ->
+                    new BlockItem(ModBlocks.BURIED_BONE.get(), new Item.Properties()))
     );
 }

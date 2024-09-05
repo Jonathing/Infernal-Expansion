@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-04T19:15:24.7246833	Infernal Expansion/Model Definitions
+// 1.20.1	2024-09-05T17:24:15.3350735	Infernal Expansion/Model Definitions
 3d513e577d1dd0226f89d0a639c4973945fc9f36 assets\infernalexp\models\item\dullstone.json
 06ec31d1c2e117756eb41fd03668e0068c6d899b assets\infernalexp\blockstates\polished_dullstone.json
 9d2c26301908ffdf87196d4827734cef6a402b28 assets\infernalexp\models\block\shimmer_stone_bricks_stairs_inner.json
@@ -13,8 +13,8 @@ c5207eac2e67de3356e0f692f65f563b7487d6de assets\infernalexp\models\item\glowsilk
 202b42439bdf1957c056f8ce9fa2d2d0b1ebd343 assets\infernalexp\models\item\shimmer_sand.json
 6822ddd2e66c1a615c37acc424167557b6392b0c assets\infernalexp\blockstates\shimmer_stone_bricks.json
 6eeed098dc4befb7796660121e0b0797d0857422 assets\infernalexp\models\block\glowlight_glass.json
-1d670feadf491c75bae1965b064087bcf2b5ef17 assets\infernalexp\blockstates\dullthorns_block.json
 b9c48a9f6f328be5c438dd164f43c1aa66c61d3a assets\infernalexp\blockstates\basalt_iron_ore.json
+1d670feadf491c75bae1965b064087bcf2b5ef17 assets\infernalexp\blockstates\dullthorns_block.json
 4e57e071f1cadd5a82763e96352c5d50dd39cb74 assets\infernalexp\models\block\polished_dullstone.json
 f24ccdae2751e245e5774c0faeb5b8a06be24782 assets\infernalexp\models\item\shimmer_stone_bricks_stairs.json
 4fd6ddf659d3cea7909be7ff4ce469fc107ccd57 assets\infernalexp\models\block\shimmer_stone_bricks_slab.json
@@ -53,5 +53,5 @@ ed5192291bb86a5692a4f302c85a987395b22e49 assets\infernalexp\blockstates\dullston
 1b0692e4a86f7e9f0a9130d5aa5845c98ba51f23 assets\infernalexp\blockstates\shimmer_stone_bricks_stairs.json
 45c646cea0714486f1ea95ec635a290e754de0c7 assets\infernalexp\models\item\polished_dullstone.json
 de81855ed2ec16d54c477e08d1e5f0f71482b204 assets\infernalexp\blockstates\shimmer_sand.json
-d3060299a5ecd2245ebb37b16d1a685530f1ce4a assets\infernalexp\models\item\glowlight_torch.json
 3019af585732ef4ec42e4dd8fac4c92c7ef7f0ec assets\infernalexp\models\block\dullthorns_block.json
+d3060299a5ecd2245ebb37b16d1a685530f1ce4a assets\infernalexp\models\item\glowlight_torch.json
