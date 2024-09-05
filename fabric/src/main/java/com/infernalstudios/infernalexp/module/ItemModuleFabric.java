@@ -16,12 +16,7 @@ public class ItemModuleFabric {
     public static void registerItems() {
         for (Map.Entry<ResourceLocation, ItemDataHolder<?>> entry : ModItems.getItemRegistry().entrySet()) {
             // Register item
-            if (entry.getKey().getNamespace().equals(IEConstants.MOD_ID))
-                Registry.register(BuiltInRegistries.ITEM, entry.getKey(), entry.getValue().get());
-            else
-                Registry.registerMapping(BuiltInRegistries.ITEM,
-                        BuiltInRegistries.ITEM.getId(BuiltInRegistries.ITEM.get(entry.getKey())),
-                        entry.getKey().getPath(), entry.getValue().get());
+            Registry.register(BuiltInRegistries.ITEM, entry.getKey(), entry.getValue().get());
 
             // Register Fuel
             if (entry.getValue().isFuel()) {

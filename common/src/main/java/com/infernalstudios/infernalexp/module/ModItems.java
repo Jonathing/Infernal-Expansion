@@ -57,13 +57,4 @@ public class ModItems {
             .withModel(ModelTemplates.FLAT_ITEM)
             .withTranslation("Glowsilk String")
     );
-
-
-    public static final ItemDataHolder<?> mcQUARTZ = register(new ResourceLocation("minecraft:quartz"), ItemDataHolder.of(() ->
-                    new BlockItem(ModBlocks.PLANTED_QUARTZ.get(), new Item.Properties()))
-    );
-
-    public static final ItemDataHolder<?> mcBONE = register(new ResourceLocation("minecraft:bone"), ItemDataHolder.of(() ->
-                    new BlockItem(ModBlocks.BURIED_BONE.get(), new Item.Properties()))
-    );
 }
