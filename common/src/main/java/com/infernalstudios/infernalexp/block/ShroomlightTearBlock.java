@@ -1,6 +1,5 @@
 package com.infernalstudios.infernalexp.block;
 
-import com.infernalstudios.infernalexp.IEConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.TagKey;

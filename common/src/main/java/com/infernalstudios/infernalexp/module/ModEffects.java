@@ -2,20 +2,13 @@ package com.infernalstudios.infernalexp.module;
 
 import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.effect.StatusEffect;
-import com.infernalstudios.infernalexp.registration.holders.ItemDataHolder;
 import com.infernalstudios.infernalexp.registration.holders.MobEffectDataHolder;
-import net.minecraft.core.Direction;
-import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.StandingAndWallBlockItem;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Supplier;
 
 public class ModEffects {
     /** Map of all Effect Resource Locations to their Suppliers. */

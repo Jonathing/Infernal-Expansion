@@ -10,6 +10,7 @@
     "BlockEntityTypeMixin",
     "BoneMealItemMixin",
     "EntityMixin",
+    "PiglinSpecificSensorMixin",
     "accessor.BlockBehaviourAccessor",
     "accessor.ButtonBlockAccessor",
     "accessor.DoorBlockAccessor",

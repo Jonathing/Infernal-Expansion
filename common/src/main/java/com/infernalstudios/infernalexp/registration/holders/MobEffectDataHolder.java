@@ -1,14 +1,8 @@
 package com.infernalstudios.infernalexp.registration.holders;
 
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.Item;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class MobEffectDataHolder<T extends MobEffect> {
