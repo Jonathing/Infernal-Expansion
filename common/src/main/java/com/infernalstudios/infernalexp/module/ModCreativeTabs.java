@@ -57,7 +57,15 @@ public class ModCreativeTabs {
                 entries.accept(ModBlocks.GLOWLIGHT_CAMPFIRE.get());
                 entries.accept(ModBlocks.GLOWLIGHT_LANTERN.get());
 
+                entries.accept(ModBlocks.BASALT_STAIRS.get());
+                entries.accept(ModBlocks.BASALT_SLAB.get());
+                entries.accept(ModBlocks.BASALT_WALL.get());
                 entries.accept(ModBlocks.BASALT_IRON_ORE.get());
+                entries.accept(ModBlocks.BASALT_SAND.get());
+                entries.accept(ModBlocks.BASALT_SAND_SHEET.get());
+
+                entries.accept(ModBlocks.QUARTZ_GLASS.get());
+                entries.accept(ModBlocks.QUARTZ_GLASS.getPaneBlock().get());
 
                 entries.accept(ModBlocks.PLANTED_QUARTZ.get());
                 entries.accept(ModBlocks.BURIED_BONE.get());

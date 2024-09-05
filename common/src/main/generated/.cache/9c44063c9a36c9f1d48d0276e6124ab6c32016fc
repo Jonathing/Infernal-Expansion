@@ -1,10 +1,12 @@
-// 1.20.1	2024-09-05T17:24:15.3380669	Infernal Expansion/Recipes
+// 1.20.1	2024-09-05T18:00:48.5782272	Infernal Expansion/Recipes
 34e6eddf67ae305ea442a393f4a87894957a9454 data\infernalexp\recipes\shimmer_stone_bricks_slab.json
+5427aad8af1e402a58520a086b9200ffff92b9cd data\infernalexp\recipes\quartz_glass_pane.json
 0aad4dc4ba04e712291847abd0bd7ba9153fa724 data\infernalexp\advancements\recipes\building_blocks\dimstone.json
+c9db90a97f8108af68a126fd2fcf5d722f3b9f13 data\infernalexp\advancements\recipes\decorations\quartz_glass_pane.json
 f77352358afde98fea2cc89dfc4c6956c754e285 data\infernalexp\advancements\recipes\building_blocks\crimson_fungus_cap.json
 947978e0729573f8a41f0dcf63eb60db635ab5a9 data\infernalexp\advancements\recipes\building_blocks\luminous_fungus.json
-952c3f32036b2e32c207676d5c2bc545ec690b03 data\infernalexp\recipes\warped_fungus_cap.json
 a3d0c34b605e6b61a0fce3908e1bf3367b0e8fbf data\infernalexp\recipes\crimson_fungus.json
+952c3f32036b2e32c207676d5c2bc545ec690b03 data\infernalexp\recipes\warped_fungus_cap.json
 1818e61e7fb4cdbcda80e8c34e62915d42d197c5 data\infernalexp\recipes\shroomlight.json
 3923dcfc2090b91fa5eac5948629a9ce3422b4e7 data\infernalexp\recipes\warped_fungus.json
 31caf6b6f4deabe4e80746780eb2db83ac962e92 data\infernalexp\recipes\iron_ore_from_smelting_basalt_iron_ore.json

@@ -2,10 +2,7 @@ package com.infernalstudios.infernalexp.module;
 
 import com.infernalstudios.infernalexp.IECommon;
 import com.infernalstudios.infernalexp.block.*;
-import com.infernalstudios.infernalexp.mixin.accessor.ButtonBlockAccessor;
-import com.infernalstudios.infernalexp.mixin.accessor.PressurePlateBlockAccessor;
-import com.infernalstudios.infernalexp.mixin.accessor.TorchBlockAccessor;
-import com.infernalstudios.infernalexp.mixin.accessor.WallTorchBlockAccessor;
+import com.infernalstudios.infernalexp.mixin.accessor.*;
 import com.infernalstudios.infernalexp.registration.holders.BlockDataHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,6 +16,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.HashMap;
@@ -284,5 +282,45 @@ public class ModBlocks {
                     new SupportedBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).instabreak().noCollission()))
             .cutout().dropsOther(() -> Items.BONE)
             .withTranslation("Bone")
+    );
+
+
+    public static final BlockDataHolder<?> QUARTZ_GLASS = register("quartz_glass", BlockDataHolder.of(() ->
+                    new GlassBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).explosionResistance(6).noOcclusion()))
+            .glass().cutout().withItem()
+            .withTranslation("Quartz Glass")
+    );
+
+
+    public static final BlockDataHolder<?> BASALT_STAIRS = register("basalt_stairs", BlockDataHolder.of(() ->
+                    StairBlockAccessor.createStairBlock(Blocks.BASALT.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.BASALT))))
+            .withItem().dropsSelf().withModel(BlockDataHolder.Model.STAIRS).withTags(BlockTags.STAIRS)
+            .withTranslation("Basalt Stairs");
+
+    public static final BlockDataHolder<?> BASALT_SLAB = register("basalt_slab", BlockDataHolder.of(() ->
+                    new SlabBlock(BlockBehaviour.Properties.copy(Blocks.BASALT))))
+            .withItem().dropsSelf().withModel(BlockDataHolder.Model.SLAB).withTags(BlockTags.SLABS)
+            .withTranslation("Basalt Slab");
+
+    public static final BlockDataHolder<?> BASALT_WALL = register("basalt_wall", BlockDataHolder.of(() ->
+            new WallBlock(BlockBehaviour.Properties.copy(Blocks.BASALT))))
+            .withItem().dropsSelf().withModel(BlockDataHolder.Model.WALL).withTags(BlockTags.WALLS)
+            .withTranslation("Basalt Wall");
+
+    private static final BlockBehaviour.Properties basaltSandProperties = BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_BLACK).instrument(NoteBlockInstrument.BASEDRUM)
+            .strength(0.95F, 4.2F).sound(SoundType.SAND);
+
+    public static final BlockDataHolder<?> BASALT_SAND = register("basalt_sand", BlockDataHolder.of(() ->
+                    new SandBlock(0x222222, basaltSandProperties))
+            .withModel(BlockDataHolder.Model.ROTATABLE).withItem().dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_SHOVEL, BlockTags.SMELTS_TO_GLASS)
+            .withTranslation("Basalt Sand")
+    );
+
+    public static final BlockDataHolder<?> BASALT_SAND_SHEET = register("basalt_sand_sheet", BlockDataHolder.of(() ->
+                    new LayerBlock(basaltSandProperties))
+            .withItem().withTags(BlockTags.MINEABLE_WITH_SHOVEL)
+            .withTranslation("Basalt Sand Sheet")
     );
 }

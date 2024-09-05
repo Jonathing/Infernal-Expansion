@@ -309,6 +309,19 @@ public class BlockDataHolder<T extends Block> {
         return this.BLOCKSETS.get(Model.SLAB);
     }
 
+    public BlockDataHolder<?> withWall() {
+        BlockDataHolder<?> wall = BlockDataHolder.of(() -> new WallBlock(BlockBehaviour.Properties.copy(this.get())))
+                .withModel(Model.WALL)
+                .withItem()
+                .withTags(BlockTags.WALLS);
+        this.BLOCKSETS.put(Model.WALL, wall);
+        return this;
+    }
+
+    public BlockDataHolder<?> getWall() {
+        return this.BLOCKSETS.get(Model.WALL);
+    }
+
     public BlockDataHolder<?> withButton(BlockSetType type, int ticksPressed, boolean arrowCanPress) {
         BlockDataHolder<?> button = BlockDataHolder.of(() -> ButtonBlockAccessor.createButtonBlock(BlockBehaviour.Properties.copy(this.get()), type, ticksPressed, arrowCanPress))
                 .withModel(Model.BUTTON)
@@ -370,6 +383,7 @@ public class BlockDataHolder<T extends Block> {
         TRAPDOOR("", ""),
         STAIRS("stairs", "Stairs"),
         SLAB("slab", "Slab"),
+        WALL("wall", "Wall"),
         BUTTON("button", "Button"),
         PRESSURE_PLATE("pressure_plate", "Pressure Plate"),
         FENCE("fence", "Fence"),
