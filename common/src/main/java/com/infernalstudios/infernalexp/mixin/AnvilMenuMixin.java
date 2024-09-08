@@ -1,6 +1,8 @@
 package com.infernalstudios.infernalexp.mixin;
 
 import com.infernalstudios.infernalexp.module.ModItems;
+import net.minecraft.Util;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +20,8 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
 
     @Shadow private int repairItemCountCost;
 
+    @Shadow @javax.annotation.Nullable private String itemName;
+
     public AnvilMenuMixin(@Nullable MenuType<?> $$0, int $$1, Inventory $$2, ContainerLevelAccess $$3) {
         super($$0, $$1, $$2, $$3);
     }
@@ -30,8 +34,19 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
             ItemStack output = stack.copy();
             output.setDamageValue(output.getDamageValue() - 200*dura);
 
-            this.cost.set(dura * 5);
             this.repairItemCountCost = dura;
+
+            if (this.itemName != null && !Util.isBlank(this.itemName)) {
+                if (!this.itemName.equals(stack.getHoverName().getString())) {
+                    dura += 1;
+                    output.setHoverName(Component.literal(this.itemName));
+                }
+            } else if (stack.hasCustomHoverName()) {
+                dura += 1;
+                output.resetHoverName();
+            }
+
+            this.cost.set(dura * 5);
 
             this.resultSlots.setItem(0, output);
             ci.cancel();
