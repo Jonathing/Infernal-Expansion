@@ -3,8 +3,8 @@
   "values": [
     "infernalexp:shimmer_stone",
     "infernalexp:shimmer_stone_bricks",
-    "infernalexp:shimmer_stone_bricks_stairs",
     "infernalexp:shimmer_stone_bricks_slab",
+    "infernalexp:shimmer_stone_bricks_stairs",
     "infernalexp:polished_glowstone",
     "infernalexp:dimstone",
     "infernalexp:polished_dimstone",
@@ -13,6 +13,11 @@
     "infernalexp:dullstone_button",
     "infernalexp:dullstone_pressure_plate",
     "infernalexp:glowlight_lantern",
-    "infernalexp:basalt_iron_ore"
+    "infernalexp:basalt_iron_ore",
+    "infernalexp:cobbled_basalt",
+    "infernalexp:basalt_bricks",
+    "infernalexp:basalt_bricks_slab",
+    "infernalexp:basalt_bricks_wall",
+    "infernalexp:basalt_bricks_stairs"
   ]
 }

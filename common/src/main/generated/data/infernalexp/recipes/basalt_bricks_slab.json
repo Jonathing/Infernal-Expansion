@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "basalt_bricks_slab",
+  "key": {
+    "#": {
+      "item": "infernalexp:basalt_bricks"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "item": "infernalexp:basalt_bricks_slab"
+  },
+  "show_notification": true
+}

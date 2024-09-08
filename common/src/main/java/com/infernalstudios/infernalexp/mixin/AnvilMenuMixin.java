@@ -20,7 +20,7 @@ public abstract class AnvilMenuMixin extends ItemCombinerMenu {
 
     @Shadow private int repairItemCountCost;
 
-    @Shadow @javax.annotation.Nullable private String itemName;
+    @Shadow private String itemName;
 
     public AnvilMenuMixin(@Nullable MenuType<?> $$0, int $$1, Inventory $$2, ContainerLevelAccess $$3) {
         super($$0, $$1, $$2, $$3);

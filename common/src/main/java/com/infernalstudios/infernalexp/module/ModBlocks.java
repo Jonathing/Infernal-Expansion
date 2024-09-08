@@ -323,4 +323,19 @@ public class ModBlocks {
             .withItem().withTags(BlockTags.MINEABLE_WITH_SHOVEL)
             .withTranslation("Basalt Sand Sheet")
     );
+
+    public static final BlockDataHolder<?> COBBLED_BASALT = register("cobbled_basalt", BlockDataHolder.of(() ->
+                    new Block(BlockBehaviour.Properties.copy(Blocks.BASALT).strength(1.1f, 3.5f)))
+            .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Cobbled Basalt")
+    );
+
+    public static final BlockDataHolder<?> BASALT_BRICKS = register("basalt_bricks", BlockDataHolder.of(() ->
+                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BASALT)))
+            .withModel(BlockDataHolder.Model.PILLAR).withItem().dropsSelf()
+            .withStairs().withSlab().withWall()
+            .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
+            .withTranslation("Cobbled Basalt")
+    );
 }

@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "infernalexp:shimmer_stone_bricks_stairs",
-    "infernalexp:basalt_stairs"
+    "infernalexp:basalt_stairs",
+    "infernalexp:basalt_bricks_stairs"
   ]
 }
