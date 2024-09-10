@@ -13,6 +13,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -342,6 +343,7 @@ public class IEDataGenerator implements DataGeneratorEntrypoint {
                         switch (entry.getKey()) {
                             case STAIRS -> familyProvider.stairs(entry.getValue().get());
                             case SLAB -> familyProvider.slab(entry.getValue().get());
+                            case WALL -> familyProvider.wall(entry.getValue().get());
                             case PRESSURE_PLATE -> familyProvider.pressurePlate(entry.getValue().get());
                             case BUTTON -> familyProvider.button(entry.getValue().get());
                             case FENCE -> familyProvider.fence(entry.getValue().get());

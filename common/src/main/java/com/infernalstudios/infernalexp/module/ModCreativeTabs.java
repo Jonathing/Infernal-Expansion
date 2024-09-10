@@ -64,6 +64,15 @@ public class ModCreativeTabs {
                 entries.accept(ModBlocks.BASALT_SAND.get());
                 entries.accept(ModBlocks.BASALT_SAND_SHEET.get());
 
+                entries.accept(ModBlocks.COBBLED_BASALT.get());
+                entries.accept(ModBlocks.COBBLED_BASALT.getStairs().get());
+                entries.accept(ModBlocks.COBBLED_BASALT.getSlab().get());
+
+                entries.accept(ModBlocks.BASALT_BRICKS.get());
+                entries.accept(ModBlocks.BASALT_BRICKS.getStairs().get());
+                entries.accept(ModBlocks.BASALT_BRICKS.getSlab().get());
+                entries.accept(ModBlocks.BASALT_BRICKS.getWall().get());
+
                 entries.accept(ModBlocks.QUARTZ_GLASS.get());
                 entries.accept(ModBlocks.QUARTZ_GLASS.getPaneBlock().get());
 

@@ -326,16 +326,18 @@ public class ModBlocks {
 
     public static final BlockDataHolder<?> COBBLED_BASALT = register("cobbled_basalt", BlockDataHolder.of(() ->
                     new Block(BlockBehaviour.Properties.copy(Blocks.BASALT).strength(1.1f, 3.5f)))
+            .withStairs().withSlab()
             .withModel(BlockDataHolder.Model.CUBE).withItem().dropsSelf()
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
             .withTranslation("Cobbled Basalt")
     );
 
     public static final BlockDataHolder<?> BASALT_BRICKS = register("basalt_bricks", BlockDataHolder.of(() ->
-                    new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.BASALT)))
-            .withModel(BlockDataHolder.Model.PILLAR).withItem().dropsSelf()
+                    new Block(BlockBehaviour.Properties.copy(Blocks.BASALT)))
+            .withItem().dropsSelf()
             .withStairs().withSlab().withWall()
+            .withModel(BlockDataHolder.Model.PILLAR)
             .withTags(BlockTags.MINEABLE_WITH_PICKAXE)
-            .withTranslation("Cobbled Basalt")
+            .withTranslation("Basalt Bricks")
     );
 }

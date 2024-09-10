@@ -1,10 +1,8 @@
 package com.infernalstudios.infernalexp;
 
-import com.infernalstudios.infernalexp.module.BlockModuleFabric;
-import com.infernalstudios.infernalexp.module.EffectModuleFabric;
-import com.infernalstudios.infernalexp.module.EntityTypeModuleFabric;
-import com.infernalstudios.infernalexp.module.ItemModuleFabric;
+import com.infernalstudios.infernalexp.module.*;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
 
 public class InfernalExpansion implements ModInitializer {
     
@@ -16,5 +14,6 @@ public class InfernalExpansion implements ModInitializer {
         ItemModuleFabric.registerItems();
         EntityTypeModuleFabric.registerEntities();
         EffectModuleFabric.registerEffects();
+        BiomeModuleFabric.registerBiomes();
     }
 }

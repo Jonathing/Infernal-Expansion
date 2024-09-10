@@ -1,4 +1,4 @@
-// 1.20.1	2024-09-08T19:07:06.2251662	Infernal Expansion/Block Loot Tables
+// 1.20.1	2024-09-10T20:54:14.5714734	Infernal Expansion/Block Loot Tables
 19acaee5bf321bc5bc9d3872112a05e4e9c3a5be data\infernalexp\loot_tables\blocks\dullthorns.json
 ec92580f38aebc381ea0d1c54911624a1031c407 data\infernalexp\loot_tables\blocks\luminous_fungus.json
 8800e056cd20d93b4a98a7b5f6aee70f7c0f39e6 data\infernalexp\loot_tables\blocks\basalt_bricks_wall.json
@@ -30,6 +30,8 @@ c757d59689d595649a1cd14ebbbcf00feef1db29 data\infernalexp\loot_tables\blocks\bas
 158e88dceaab768abfc04b55d0364d7e7e8cf986 data\infernalexp\loot_tables\blocks\shimmer_stone_bricks_stairs.json
 942e8b188d3729116e018bb1a6c3bc41048f0ef3 data\infernalexp\loot_tables\blocks\glowlight_glass.json
 32308e89daf97551f4ca261f20db0778e2e39ef4 data\infernalexp\loot_tables\blocks\polished_dimstone.json
+fa7fb6deda77a194db498e80db153c8c2f02fa79 data\infernalexp\loot_tables\blocks\cobbled_basalt_slab.json
 2cc466d1ef2908126df6a029264a9f21953feda2 data\infernalexp\loot_tables\blocks\basalt_wall.json
+a4149d279f1b8a9110f10db9f01c7d10d8510601 data\infernalexp\loot_tables\blocks\cobbled_basalt_stairs.json
 d84e4504bdaebd7305472f0ef4911c9a840dd2f0 data\infernalexp\loot_tables\blocks\basalt_bricks.json
 fda5a684630375b308f5a944f0400e97babd6d1a data\infernalexp\loot_tables\blocks\crimson_fungus_cap.json
