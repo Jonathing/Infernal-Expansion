@@ -32,6 +32,6 @@ public class ModBiomes {
 
     public static final ResourceKey<Biome> GLOWSTONE_CANYON = register("glowstone_canyon",
             // temp, humidity, continentalness, erosion, depth, weirdness and offset
-            Climate.parameters(0, 0, 0, 0, 0, 0, 0)
+            Climate.parameters(0.7f, -0.2f, 0, 0, 0, 0, 0)
     );
 }
