@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import org.infernalstudios.infernalexp.InfernalExpansion;
+import org.infernalstudios.infernalexp.config.InfernalExpansionConfig;
 import org.infernalstudios.infernalexp.init.IEBiomes;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
@@ -16,7 +17,8 @@ import java.util.function.Consumer;
 
 public class TerrablenderBiomeCompat extends Region {
     public static void register() {
-        Regions.register(new TerrablenderBiomeCompat(5));
+        int weight = InfernalExpansionConfig.Miscellaneous.TERRABLENDER_REGION_WEIGHT.getInt();
+        Regions.register(new TerrablenderBiomeCompat(weight));
     }
 
     public TerrablenderBiomeCompat(int weight) {
