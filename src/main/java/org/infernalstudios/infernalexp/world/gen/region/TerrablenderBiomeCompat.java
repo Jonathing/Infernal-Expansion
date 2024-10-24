@@ -18,6 +18,7 @@ import java.util.function.Consumer;
 public class TerrablenderBiomeCompat extends Region {
     public static void register() {
         int weight = InfernalExpansionConfig.Miscellaneous.TERRABLENDER_REGION_WEIGHT.getInt();
+        InfernalExpansion.LOGGER.debug("Registering TerraBlender region with weight of {}", weight);
         Regions.register(new TerrablenderBiomeCompat(weight));
     }
 

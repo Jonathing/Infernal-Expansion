@@ -26,6 +26,7 @@ public class TerrablenderSurfaceRuleCompat {
         if (!ModList.get().isLoaded("terrablender"))
             return;
 
+        InfernalExpansion.LOGGER.debug("Registering surface rules with TerraBlender");
         SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.NETHER, InfernalExpansion.MOD_ID, NetherSurfaceRules.addNetherSurfaceRulesWithBedrock());
     }
 
