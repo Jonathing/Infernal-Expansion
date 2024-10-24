@@ -75,6 +75,9 @@ import org.infernalstudios.infernalexp.init.IESurfaceRules;
 import org.infernalstudios.infernalexp.network.IENetworkHandler;
 import org.infernalstudios.infernalexp.util.CompatibilityQuark;
 import org.infernalstudios.infernalexp.world.gen.ModEntityPlacement;
+import org.infernalstudios.infernalexp.world.gen.region.TerrablenderBiomeCompat;
+import terrablender.api.Region;
+import terrablender.api.Regions;
 
 @Mod(InfernalExpansion.MOD_ID)
 public class InfernalExpansion {
@@ -122,6 +125,7 @@ public class InfernalExpansion {
         event.enqueueWork(IEStructureTypes::register);
         event.enqueueWork(IEStructures::register);
         event.enqueueWork(IEStructureSets::register);
+        event.enqueueWork(TerrablenderBiomeCompat::register);
         event.enqueueWork(IESurfaceRules::register);
         event.enqueueWork(IENetworkHandler::register);
         event.enqueueWork(IEBrewingRecipes::register);
